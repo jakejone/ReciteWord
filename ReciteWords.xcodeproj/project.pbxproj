@@ -15,6 +15,20 @@
 		230B2AA92BB272E700989D3D /* ReciteWordsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AA82BB272E700989D3D /* ReciteWordsUITests.swift */; };
 		230B2AAB2BB272E700989D3D /* ReciteWordsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AAA2BB272E700989D3D /* ReciteWordsUITestsLaunchTests.swift */; };
 		230B2AB92BB2730700989D3D /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 230B2AB82BB2730700989D3D /* SQLite */; };
+		230B2AD02BB278FE00989D3D /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ABE2BB278FD00989D3D /* Word.swift */; };
+		230B2AD12BB278FE00989D3D /* VoiceWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ABF2BB278FD00989D3D /* VoiceWave.swift */; };
+		230B2AD22BB278FE00989D3D /* WordBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC02BB278FE00989D3D /* WordBanner.swift */; };
+		230B2AD32BB278FE00989D3D /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC12BB278FE00989D3D /* RecordView.swift */; };
+		230B2AD42BB278FE00989D3D /* WordListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC22BB278FE00989D3D /* WordListCell.swift */; };
+		230B2AD52BB278FE00989D3D /* WordDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC32BB278FE00989D3D /* WordDataManager.swift */; };
+		230B2AD62BB278FE00989D3D /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC42BB278FE00989D3D /* AudioRecorder.swift */; };
+		230B2AD72BB278FE00989D3D /* WordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC52BB278FE00989D3D /* WordCard.swift */; };
+		230B2AD92BB278FE00989D3D /* WordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC72BB278FE00989D3D /* WordService.swift */; };
+		230B2ADA2BB278FE00989D3D /* SpeechRecognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC82BB278FE00989D3D /* SpeechRecognitionManager.swift */; };
+		230B2ADB2BB278FE00989D3D /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC92BB278FE00989D3D /* AudioPlayer.swift */; };
+		230B2ADC2BB278FE00989D3D /* WordSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACA2BB278FE00989D3D /* WordSentence.swift */; };
+		230B2ADD2BB278FE00989D3D /* SentenceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACB2BB278FE00989D3D /* SentenceCard.swift */; };
+		230B2ADE2BB278FE00989D3D /* NewwordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACC2BB278FE00989D3D /* NewwordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +59,20 @@
 		230B2AA42BB272E700989D3D /* ReciteWordsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReciteWordsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		230B2AA82BB272E700989D3D /* ReciteWordsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciteWordsUITests.swift; sourceTree = "<group>"; };
 		230B2AAA2BB272E700989D3D /* ReciteWordsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciteWordsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		230B2ABE2BB278FD00989D3D /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		230B2ABF2BB278FD00989D3D /* VoiceWave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceWave.swift; sourceTree = "<group>"; };
+		230B2AC02BB278FE00989D3D /* WordBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordBanner.swift; sourceTree = "<group>"; };
+		230B2AC12BB278FE00989D3D /* RecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		230B2AC22BB278FE00989D3D /* WordListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListCell.swift; sourceTree = "<group>"; };
+		230B2AC32BB278FE00989D3D /* WordDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDataManager.swift; sourceTree = "<group>"; };
+		230B2AC42BB278FE00989D3D /* AudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		230B2AC52BB278FE00989D3D /* WordCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCard.swift; sourceTree = "<group>"; };
+		230B2AC72BB278FE00989D3D /* WordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordService.swift; sourceTree = "<group>"; };
+		230B2AC82BB278FE00989D3D /* SpeechRecognitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionManager.swift; sourceTree = "<group>"; };
+		230B2AC92BB278FE00989D3D /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		230B2ACA2BB278FE00989D3D /* WordSentence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSentence.swift; sourceTree = "<group>"; };
+		230B2ACB2BB278FE00989D3D /* SentenceCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentenceCard.swift; sourceTree = "<group>"; };
+		230B2ACC2BB278FE00989D3D /* NewwordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewwordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +126,9 @@
 			children = (
 				230B2A8D2BB272E600989D3D /* ReciteWordsApp.swift */,
 				230B2A8F2BB272E600989D3D /* ContentView.swift */,
+				230B2AE02BB28E8100989D3D /* AudioTool */,
+				230B2ADF2BB2791400989D3D /* DataService */,
+				230B2ABA2BB278F400989D3D /* Views */,
 				230B2A912BB272E700989D3D /* Assets.xcassets */,
 				230B2A932BB272E700989D3D /* Preview Content */,
 			);
@@ -127,6 +158,65 @@
 				230B2AAA2BB272E700989D3D /* ReciteWordsUITestsLaunchTests.swift */,
 			);
 			path = ReciteWordsUITests;
+			sourceTree = "<group>";
+		};
+		230B2ABA2BB278F400989D3D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				230B2AE32BB28ED300989D3D /* Model */,
+				230B2AE22BB28EB600989D3D /* HomeBanner */,
+				230B2AE12BB28E9300989D3D /* Addnew */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		230B2ADF2BB2791400989D3D /* DataService */ = {
+			isa = PBXGroup;
+			children = (
+				230B2AC32BB278FE00989D3D /* WordDataManager.swift */,
+				230B2AC72BB278FE00989D3D /* WordService.swift */,
+			);
+			path = DataService;
+			sourceTree = "<group>";
+		};
+		230B2AE02BB28E8100989D3D /* AudioTool */ = {
+			isa = PBXGroup;
+			children = (
+				230B2AC92BB278FE00989D3D /* AudioPlayer.swift */,
+				230B2AC42BB278FE00989D3D /* AudioRecorder.swift */,
+				230B2AC82BB278FE00989D3D /* SpeechRecognitionManager.swift */,
+				230B2ABF2BB278FD00989D3D /* VoiceWave.swift */,
+			);
+			path = AudioTool;
+			sourceTree = "<group>";
+		};
+		230B2AE12BB28E9300989D3D /* Addnew */ = {
+			isa = PBXGroup;
+			children = (
+				230B2ACC2BB278FE00989D3D /* NewwordView.swift */,
+				230B2ACB2BB278FE00989D3D /* SentenceCard.swift */,
+				230B2AC12BB278FE00989D3D /* RecordView.swift */,
+			);
+			path = Addnew;
+			sourceTree = "<group>";
+		};
+		230B2AE22BB28EB600989D3D /* HomeBanner */ = {
+			isa = PBXGroup;
+			children = (
+				230B2AC22BB278FE00989D3D /* WordListCell.swift */,
+				230B2AC52BB278FE00989D3D /* WordCard.swift */,
+				230B2AC02BB278FE00989D3D /* WordBanner.swift */,
+			);
+			path = HomeBanner;
+			sourceTree = "<group>";
+		};
+		230B2AE32BB28ED300989D3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				230B2ACA2BB278FE00989D3D /* WordSentence.swift */,
+				230B2ABE2BB278FD00989D3D /* Word.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,8 +355,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				230B2AD02BB278FE00989D3D /* Word.swift in Sources */,
+				230B2AD32BB278FE00989D3D /* RecordView.swift in Sources */,
+				230B2AD52BB278FE00989D3D /* WordDataManager.swift in Sources */,
+				230B2AD92BB278FE00989D3D /* WordService.swift in Sources */,
+				230B2ADC2BB278FE00989D3D /* WordSentence.swift in Sources */,
 				230B2A902BB272E600989D3D /* ContentView.swift in Sources */,
+				230B2ADD2BB278FE00989D3D /* SentenceCard.swift in Sources */,
+				230B2AD62BB278FE00989D3D /* AudioRecorder.swift in Sources */,
+				230B2ADB2BB278FE00989D3D /* AudioPlayer.swift in Sources */,
+				230B2AD22BB278FE00989D3D /* WordBanner.swift in Sources */,
 				230B2A8E2BB272E600989D3D /* ReciteWordsApp.swift in Sources */,
+				230B2ADE2BB278FE00989D3D /* NewwordView.swift in Sources */,
+				230B2AD12BB278FE00989D3D /* VoiceWave.swift in Sources */,
+				230B2ADA2BB278FE00989D3D /* SpeechRecognitionManager.swift in Sources */,
+				230B2AD72BB278FE00989D3D /* WordCard.swift in Sources */,
+				230B2AD42BB278FE00989D3D /* WordListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
