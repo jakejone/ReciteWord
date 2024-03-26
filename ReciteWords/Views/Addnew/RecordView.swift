@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct RecordView : View {
     
@@ -13,13 +14,11 @@ struct RecordView : View {
     
     var title = "record to generate content"
     
-    var recordButton: UIButton!
-    
     var audioRecorder = AudioRecorder()
     
     var audioPlayer = AudioPlayer()
     
-    @State var audioRecognizer = SpeechRecognitionManager()
+    var audioRecognizer = SpeechRecognitionManager()
     
     @State private var isRecording = false
     
@@ -56,12 +55,19 @@ struct RecordView : View {
                                 
                                 self.compleHandler(self.recogniContent, self.currentUrl!.absoluteString)
                             } else {
-                                self.currentUrl = audioRecorder.startRecording()
-                                audioRecognizer.startSpeechRecognition { transContent in
-                                    if transContent.count > 0 {
-                                        self.recogniContent = transContent
+                                audioRecorder.checkAudioPermissionWithGrantedHandler { granted in
+                                    if (granted) {
+                                        self.currentUrl = audioRecorder.startRecording()
+                                        audioRecognizer.startSpeechRecognition { transContent in
+                                            if transContent.count > 0 {
+                                                self.recogniContent = transContent
+                                            }
+                                        }
+                                    } else {
+                                        // TODO:jake alert to turn on the permission
                                     }
                                 }
+                                
                             }
                             isRecording.toggle()
                         }) {

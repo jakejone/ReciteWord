@@ -9,8 +9,6 @@ import SwiftUI
 
 struct SentenceCard : View {
     
-    var sentenceHeight = 60.0
-    // if add new, use
     var btnWidth = 40.0
     
     var wsHandler:(_ wordSentenceArray:Array<WordSentence>)->Void

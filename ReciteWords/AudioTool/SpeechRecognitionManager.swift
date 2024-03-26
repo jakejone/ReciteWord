@@ -17,6 +17,7 @@ class SpeechRecognitionManager {
 
     func startSpeechRecognition(completion: @escaping (_ transContent: String)->()) {
         
+        
         guard let recognizer = speechRecognizer else {
             print("Speech recognition not available for the current locale.")
             return
@@ -37,12 +38,12 @@ class SpeechRecognitionManager {
             
             recognitionTask = recognizer.recognitionTask(with: recognitionRequest!) { result, error in
                 var isFinal = false
-
+                
                 if let result = result {
                     // Process the speech recognition result
-                    
                     isFinal = result.isFinal
-                    
+                    print("Recognized: \(result.bestTranscription.formattedString)")
+                    completion(result.bestTranscription.formattedString)
                     if let bestString = result.transcriptions.last?.formattedString {
                         print("Recognized: \(bestString)")
                         completion(bestString)
@@ -55,7 +56,11 @@ class SpeechRecognitionManager {
                     self.recognitionRequest = nil
                     self.recognitionTask = nil
                 }
-            }
+                
+                if error != nil {
+                    print("recognize error : \(error!.localizedDescription)")
+                }
+             }
 
             let recordingFormat = inputNode.outputFormat(forBus: 0)
             inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in

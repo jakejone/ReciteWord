@@ -25,15 +25,14 @@ struct NewwordView : View {
             ScrollView {
                 
                 Text("新增").font(.title)
-                // record word
                 
                 RecordView(title: "new word") { transContent, voiceAddr in
                     self.newWord.content = transContent
                     self.newWord.voiceAddr = voiceAddr
                     wordService.markAudio(voiceAddr)
-                }.padding(10).frame(width: proxy.size.width - 20, height: self.btnWidth + 40.0).background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
+                }.padding(10).frame(width: abs(proxy.size.width - 20), height: self.btnWidth + 40.0).background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
                 
-                // add ssentenceCard
+                
                 HStack {
                     Button (action: {
                         let newWordSentence = WordSentence(wordid: self.newWord.id)
@@ -47,7 +46,7 @@ struct NewwordView : View {
                     Spacer()
                 }
                 
-                // scroll view
+                
                 ScrollViewReader { value in
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack {
@@ -83,5 +82,3 @@ struct NewwordView : View {
         
     }
 }
-
-
