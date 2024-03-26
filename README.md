@@ -1,13 +1,16 @@
-A Tool help me learning English
+# ReciteWords
 
-/**
- icon from : www.flaticon.com
- 
- author list:
- 
- Creatype
- Lagot Design
- Kiranshastry
- Freepik
- Pixel perfect
- **/
+A Simple tool help me learning English
+
+## Features
+
+ - WordBanner
+ - Voice generate Word
+
+
+## Usage
+
+```
+Demo
+
+```
