@@ -14,6 +14,7 @@
 		230B2A9F2BB272E700989D3D /* ReciteWordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2A9E2BB272E700989D3D /* ReciteWordsTests.swift */; };
 		230B2AA92BB272E700989D3D /* ReciteWordsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AA82BB272E700989D3D /* ReciteWordsUITests.swift */; };
 		230B2AAB2BB272E700989D3D /* ReciteWordsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AAA2BB272E700989D3D /* ReciteWordsUITestsLaunchTests.swift */; };
+		230B2AB92BB2730700989D3D /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 230B2AB82BB2730700989D3D /* SQLite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				230B2AB92BB2730700989D3D /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,9 @@
 			dependencies = (
 			);
 			name = ReciteWords;
+			packageProductDependencies = (
+				230B2AB82BB2730700989D3D /* SQLite */,
+			);
 			productName = ReciteWords;
 			productReference = 230B2A8A2BB272E600989D3D /* ReciteWords.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +220,9 @@
 				Base,
 			);
 			mainGroup = 230B2A812BB272E600989D3D;
+			packageReferences = (
+				230B2AB72BB2730700989D3D /* XCRemoteSwiftPackageReference "SQLite" */,
+			);
 			productRefGroup = 230B2A8B2BB272E600989D3D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -588,6 +596,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		230B2AB72BB2730700989D3D /* XCRemoteSwiftPackageReference "SQLite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		230B2AB82BB2730700989D3D /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 230B2AB72BB2730700989D3D /* XCRemoteSwiftPackageReference "SQLite" */;
+			productName = SQLite;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 230B2A822BB272E600989D3D /* Project object */;
 }
