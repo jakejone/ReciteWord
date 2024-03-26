@@ -4,9 +4,6 @@
 //
 //  Created by jake on 2024/2/28.
 //
-// 1. 数据的存储，必须用db
-// 2. 数据的获取，打开App时的获取
-// 3.
 
 import SwiftUI
 import Speech
