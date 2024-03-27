@@ -10,6 +10,8 @@ import Speech
 
 struct ContentView: View {
     
+    
+    
     var body: some View {
         NavigationStack {
             ZStack (alignment: .topTrailing) {

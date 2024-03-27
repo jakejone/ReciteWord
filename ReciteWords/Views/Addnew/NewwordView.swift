@@ -10,17 +10,20 @@ import AVKit
 
 struct NewwordView : View {
     
-    // need to save data to db
-    
     var wordService = WordService()
     
     var btnWidth = 40.0
     
-    var newWord = Word()
+    @State var newWord:Word?
+    
+    @State var sentenceCardCount:Int = 0
     
     @Environment(\.presentationMode) var presentationMode
     
-    @State var sentenceCardCount:Int = 0
+    func cleanData() {
+        self.newWord = nil
+        self.sentenceCardCount = 0
+    }
     
     var body: some View {
         GeometryReader { proxy in
@@ -28,19 +31,21 @@ struct NewwordView : View {
                 ScrollView {
                     VStack {
                         Text("新增").font(.title)
-                        
                         RecordView(title: "new word") { transContent, voiceAddr in
-                            self.newWord.content = transContent
-                            self.newWord.voiceAddr = voiceAddr
+                            if (self.newWord == nil) {
+                                self.newWord = Word()
+                            }
+                            self.newWord!.content = transContent
+                            self.newWord!.voiceAddr = voiceAddr
                             wordService.markAudio(voiceAddr)
                         }.padding(10).frame(width: abs(proxy.size.width - 20), height: self.btnWidth + 40.0).background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
                         
                         
                         HStack {
                             Button (action: {
-                                let newWordSentence = WordSentence(wordid: self.newWord.id)
-                                self.newWord.wordSentenceList.append(newWordSentence)
-                                self.sentenceCardCount = self.newWord.wordSentenceList.count
+                                let newWordSentence = WordSentence(wordid: self.newWord!.id)
+                                self.newWord!.wordSentenceList.append(newWordSentence)
+                                self.sentenceCardCount = self.newWord!.wordSentenceList.count
                             }){
                                 Image("plus").resizable()
                                     .aspectRatio(contentMode: .fit)
@@ -54,8 +59,8 @@ struct NewwordView : View {
                                 LazyHStack {
                                     ForEach(0..<sentenceCardCount,  id: \.self) { index in
                                         VStack {
-                                            SentenceCard(word:self.newWord, wordService: self.wordService, cardIndex: index) { wordSentenceArray in
-                                                self.newWord.wordSentenceList = wordSentenceArray
+                                            SentenceCard(word:self.newWord!, wordService: self.wordService, cardIndex: index) { wordSentenceArray in
+                                                self.newWord!.wordSentenceList = wordSentenceArray
                                             }.frame(width:proxy.size.width - 20,height: proxy.size.height - (self.btnWidth + 40) - 30 - 40 - 150 ).padding(10)
                                             Spacer()
                                         }.id(index)
@@ -64,14 +69,13 @@ struct NewwordView : View {
                             }.scrollTargetBehavior(.viewAligned)
                         }.background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
                     }
-                    
                 }.padding(10)
                 Spacer()
                 HStack {
                     Button {
                         // TODO:clean the audio data
+                        self.cleanData()
                         self.presentationMode.wrappedValue.dismiss()
-
                     } label: {
                         Text("cancel")
                     }.frame(width:100, height:40).foregroundColor(.white)
@@ -81,10 +85,10 @@ struct NewwordView : View {
                     
                     Button {
                         // TODO:jake alert confirm
-                        self.wordService.confirmAddNewWord(newWord: self.newWord)
+                        self.wordService.confirmAddNewWord(newWord: self.newWord!)
                         // TODO:jake loading animattion, and back
+                        self.cleanData()
                         self.presentationMode.wrappedValue.dismiss()
-
                     } label: {
                         Text("commit")
                     }.frame(width:100, height:40).foregroundColor(.white)
@@ -93,8 +97,10 @@ struct NewwordView : View {
                         .padding([.leading,.trailing],10)
                 }
             }
-           
+        }.onAppear(){
+            if (self.newWord == nil) {
+                self.newWord = Word()
+            }
         }
-        
     }
 }

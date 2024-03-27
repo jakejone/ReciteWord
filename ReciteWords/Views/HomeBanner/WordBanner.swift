@@ -10,7 +10,6 @@ import AVFoundation
 
 struct WordBanner :View {
     
-    
     var wordService = WordService()
     
     var pageIndex = 0
@@ -48,7 +47,7 @@ struct WordBanner :View {
                                 WordCard(word: word).frame(width: proxy.size.width,
                                                            height: proxy.size.height)
                                 .onFrameChange { frame in
-                                    // print("speak word is : \(word.content!) -  \(frame.origin)")
+                                    
                                     if (frame.origin.x == 30.0 && frame.origin.y == 85.0) {
 //                                        audioPlayer.speak(text: word.content!, id: word.id)
                                         audioPlayer.playWithFileURL(fileURL: URL(fileURLWithPath: word.voiceAddr!), id: word.id)
