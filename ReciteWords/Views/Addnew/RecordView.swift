@@ -52,12 +52,13 @@ struct RecordView : View {
                                 audioRecognizer.stopSpeechRecognition()
                                 
                                 voiceRecordFinish = true
-                                
-                                self.compleHandler(self.recogniContent, self.currentUrl!.absoluteString)
+                                print("cur url 0 : \(self.currentUrl)")
+                                self.compleHandler(self.recogniContent, self.currentUrl!.relativePath)
                             } else {
                                 audioRecorder.checkAudioPermissionWithGrantedHandler { granted in
                                     if (granted) {
                                         self.currentUrl = audioRecorder.startRecording()
+                                        print("cur url : \(self.currentUrl)")
                                         audioRecognizer.startSpeechRecognition { transContent in
                                             if transContent.count > 0 {
                                                 self.recogniContent = transContent

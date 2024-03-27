@@ -27,16 +27,6 @@ class AudioPlayer: NSObject {
         super.init()
     }
     
-    init?(fileName: String) {
-        super.init()
-        guard let url = Bundle.main.url(forResource: fileName, withExtension: "mp3") else {
-            return nil
-        }
-        
-        setupAudioPlayer(with: url)
-    }
-    
-    
     func speak(text: String, id:UUID) {
         if (lastID == id) {
             return
@@ -48,8 +38,19 @@ class AudioPlayer: NSObject {
     }
     
     func playWithFileURL(_ fileURL: URL) {
-        setupAudioPlayer(with: fileURL)
-        play()
+        if setupAudioPlayer(with: fileURL) {
+            play()
+        }
+    }
+    
+    func playWithFileURL(fileURL:URL, id:UUID) {
+        if (lastID == id) {
+            return
+        }
+        lastID = id
+        if setupAudioPlayer(with: fileURL) {
+            play()
+        }
     }
     
     func play() {
@@ -77,13 +78,16 @@ class AudioPlayer: NSObject {
         }
     }
     
-    private func setupAudioPlayer(with fileURL: URL) {
+    private func setupAudioPlayer(with fileURL: URL) -> Bool {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: fileURL)
+            audioPlayer?.volume = 3
             audioPlayer?.delegate = self
+            return true
         } catch {
-            print("Error initializing audio player: \(error.localizedDescription)")
+            print("Error initializing audio player: \(error.localizedDescription) url:\(fileURL)")
         }
+        return false
     }
 }
 

@@ -53,7 +53,6 @@ class AudioRecorder {
     
     
     func startRecording() -> URL? {
-        
         let audioSession = AVAudioSession.sharedInstance()
         
         do {
@@ -92,17 +91,17 @@ class AudioRecorder {
     }
     
     func generateVoiceURL() -> URL {
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let voiceDataDir = documentsDirectory.appendingPathComponent("wordData/voiceData/")
-        if FileManager.default.fileExists(atPath: voiceDataDir.path()) == false {
+        let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let voiceDataDir = documents + "/wordData/voiceData/"
+        if FileManager.default.fileExists(atPath: voiceDataDir) == false {
             do {
-                try FileManager.default.createDirectory(at: voiceDataDir, withIntermediateDirectories: false)
+                try FileManager.default.createDirectory(at: URL(filePath: voiceDataDir), withIntermediateDirectories: false)
             } catch {
                 print(error)
             }
         }
         
-        let voicdUrl = voiceDataDir.appendingPathComponent(String(getCurrentTimeStamp()) + ".m4a")
-        return voicdUrl
+        let voicdUrl = voiceDataDir + String(getCurrentTimeStamp()) + ".m4a"
+        return URL(filePath: voicdUrl)
     }
 }

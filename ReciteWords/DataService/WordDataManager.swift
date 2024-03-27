@@ -54,10 +54,12 @@ class WordDataManager {
         var wordList = Array<Word>()
         do {
             for word in try db.prepare(t_wordTable) {
+                let voiceLastComponent = word[tw_voiceAddr]
+                let voiceAddr = self.generateVoiceAddr(lastComponent: voiceLastComponent)
                 let word = Word(id: UUID(uuidString:word[tw_uuid])!,
                                     date: word[tw_date],
                                     content: word[tw_content],
-                                    voiceAddr: word[tw_voiceAddr])
+                                    voiceAddr: voiceAddr)
                 wordList.append(word)
             }
         } catch {
@@ -67,10 +69,11 @@ class WordDataManager {
     }
     
     func addNewWord(word:Word) throws {
+        let voice = URL(filePath: word.voiceAddr!).lastPathComponent
         let insert = t_wordTable.insert(tw_uuid <- word.id.uuidString,
                                         tw_date <- word.date,
                                         tw_content <- word.content!,
-                                        tw_voiceAddr <- word.voiceAddr!)
+                                        tw_voiceAddr <- voice)
         try db.run(insert)
         
     }
@@ -78,10 +81,11 @@ class WordDataManager {
     func addWordSentence(wordSentenceList:Array<WordSentence>) {
         do {
             for wordSentence in wordSentenceList {
+                let voice = URL(filePath: wordSentence.wordDescVoiceAddr!).lastPathComponent
                 let insert = t_wordSentenceTable.insert(tws_wsid  <- wordSentence.wsid.uuidString,
                                                         tws_wordid <- wordSentence.wordid.uuidString,
                                                         tws_wordDesc <- wordSentence.wordDesc!,
-                                                        tws_wordDescVoice <- wordSentence.wordDescVoiceAddr!)
+                                                        tws_wordDescVoice <- voice)
                 try db.run(insert)
             }
 
@@ -93,10 +97,11 @@ class WordDataManager {
     func addSentencelist(sentencelist:Array<Sentence>) {
         do {
             for sentence in sentencelist {
+                let voice = URL(filePath: sentence.voiceAddr!).lastPathComponent
                 let insert = t_sentenceTable.insert(ts_sid <- sentence.sid.uuidString,
                                                     ts_wsid <- sentence.wsid.uuidString,
                                                     ts_sContent <- sentence.content!,
-                                                    ts_sVoiceAddr <- sentence.voiceAddr!)
+                                                    ts_sVoiceAddr <- voice)
                 try db.run(insert)
             }
         } catch {
@@ -151,4 +156,16 @@ class WordDataManager {
         return destPath
     }
     
+    func generateVoiceAddr(lastComponent:String) -> String {
+        let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let voiceDataDir = documents + "/wordData/voiceData/"
+        if FileManager.default.fileExists(atPath: voiceDataDir) == false {
+            do {
+                try FileManager.default.createDirectory(at: URL(filePath: voiceDataDir), withIntermediateDirectories: false)
+            } catch {
+                print(error)
+            }
+        }
+        return voiceDataDir + lastComponent
+    }
 }

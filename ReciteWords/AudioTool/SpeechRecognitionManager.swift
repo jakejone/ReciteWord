@@ -17,7 +17,6 @@ class SpeechRecognitionManager {
 
     func startSpeechRecognition(completion: @escaping (_ transContent: String)->()) {
         
-        
         guard let recognizer = speechRecognizer else {
             print("Speech recognition not available for the current locale.")
             return

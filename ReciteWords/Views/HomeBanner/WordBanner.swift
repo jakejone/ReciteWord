@@ -50,7 +50,8 @@ struct WordBanner :View {
                                 .onFrameChange { frame in
                                     // print("speak word is : \(word.content!) -  \(frame.origin)")
                                     if (frame.origin.x == 30.0 && frame.origin.y == 85.0) {
-                                        audioPlayer.speak(text: word.content!, id: word.id)
+//                                        audioPlayer.speak(text: word.content!, id: word.id)
+                                        audioPlayer.playWithFileURL(fileURL: URL(fileURLWithPath: word.voiceAddr!), id: word.id)
                                     }
                                 }
                                 Spacer()

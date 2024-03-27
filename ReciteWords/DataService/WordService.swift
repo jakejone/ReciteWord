@@ -12,7 +12,7 @@ class WordService : NSObject {
     var dataManager = WordDataManager()
     
     // save all the audio data，and clean it，at last
-    var voiceList = Array<String>()
+    var tempVoiceList = Array<String>()
     
     override init() {
         super.init()
@@ -29,8 +29,8 @@ class WordService : NSObject {
     }
     
     func markAudio(_ audioAddr:String) {
-        voiceList.append(audioAddr)
-        print("ccurreent voicce count is : \(voiceList.count)")
+        tempVoiceList.append(audioAddr)
+        print("ccurreent voicce count is : \(tempVoiceList.count)")
     }
     
     func addWordSentence(wordSentence:WordSentence, index:Int) {
@@ -80,8 +80,9 @@ class WordService : NSObject {
     func confirmAddNewWord(newWord:Word) {
         let wordVoicelist = newWord.getAllVoiceList()
         // clean audio data
-        for voice in voiceList {
-            if wordVoicelist.contains([voice]) {
+        for voice in tempVoiceList {
+            if !wordVoicelist.contains([voice]) {
+                print("clean voice:\(voice)")
                 self.cleanAudioData(voiceAddr: voice)
             }
         }
@@ -100,12 +101,14 @@ class WordService : NSObject {
         } catch {
             print(error)
         }
+        tempVoiceList.removeAll()
     }
     
     func cancelAddNewWord() {
-        for voice in voiceList {
+        for voice in tempVoiceList {
             self.cleanAudioData(voiceAddr: voice)
         }
+        tempVoiceList.removeAll()
     }
     
     func confirmUpdateWord() {
