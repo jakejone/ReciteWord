@@ -29,5 +29,5 @@ Demo
 3. forgetting curve ,three button
 4. optimize word banner list
 5. optimize record view
-6. 
+6. complete ReadMe
    
