@@ -1,11 +1,17 @@
 # ReciteWords
 
-A Simple tool help me learning English
+A Simple tool helping me learning English
+
+all data should be record by yourself 
+
+and it's a voice drive everything tool
+
+you need to record the word, the word meaning ,and the sentence, the tool will generate text by your audio
 
 ## Features
 
  - WordBanner
- - Voice generate Word
+ 
 
 
 ## Usage
@@ -14,3 +20,6 @@ A Simple tool help me learning English
 Demo
 
 ```
+
+## TODO
+1. edit mode
