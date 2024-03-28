@@ -20,9 +20,21 @@ struct NewwordView : View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    var isUpdate = false
+    
     func cleanData() {
         self.newWord = nil
         self.sentenceCardCount = 0
+    }
+    
+    init() {
+        
+    }
+    
+    init(word:Word) {
+        _newWord = State(initialValue: word)
+        isUpdate = true
+        _sentenceCardCount = State(initialValue: self.newWord!.wordSentenceList.count)
     }
     
     var body: some View {
@@ -31,7 +43,7 @@ struct NewwordView : View {
                 ScrollView {
                     VStack {
                         Text("新增").font(.title)
-                        RecordView(title: "new word") { transContent, voiceAddr in
+                        RecordView(title: "new word", content: self.newWord?.content) { transContent, voiceAddr in
                             if (self.newWord == nil) {
                                 self.newWord = Word()
                             }
@@ -84,9 +96,7 @@ struct NewwordView : View {
                         .padding([.leading,.trailing],10)
                     
                     Button {
-                        // TODO:jake alert confirm
                         self.wordService.confirmAddNewWord(newWord: self.newWord!)
-                        // TODO:jake loading animattion, and back
                         self.cleanData()
                         self.presentationMode.wrappedValue.dismiss()
                     } label: {

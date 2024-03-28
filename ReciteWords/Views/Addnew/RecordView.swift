@@ -39,6 +39,15 @@ struct RecordView : View {
         self.compleHandler = contentHandler
     }
     
+    init(title:String, content:String?, contentHandler:@escaping (String,String)->()) {
+        if title.count > 0 {
+            self.title = title
+        }
+        if let showContent = content {
+            _recogniContent = State(initialValue: showContent)
+        }
+        self.compleHandler = contentHandler
+    }
     var body: some View {
         GeometryReader { proxy in
             VStack (alignment:.leading) {

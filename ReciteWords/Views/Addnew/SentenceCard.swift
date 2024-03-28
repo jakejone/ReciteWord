@@ -13,26 +13,27 @@ struct SentenceCard : View {
     
     var wsHandler:(_ wordSentenceArray:Array<WordSentence>)->Void
     
-    var word:Word
-    
     var wordService:WordService
     
-    @State var sentenceCount:Int = 0
+    @State var word:Word
+    
+    @State var sentenceCount:Int
     
     let wordSentence:WordSentence
     
     init(word:Word, wordService:WordService, cardIndex:Int, wordSentenceHandler:@escaping (_ wordSentenceArray:Array<WordSentence>)->()) {
         self.wsHandler = wordSentenceHandler
-        self.word = word
+        _word = State(initialValue: word)
         self.wordService = wordService
         self.wordSentence  = word.wordSentenceList[cardIndex]
+        _sentenceCount = State(initialValue:self.wordSentence.sentencelist.count)
     }
     
     var body: some View {
         GeometryReader {proxy in
             VStack (alignment:.leading) {
                 VStack {
-                    RecordView(title: "word meaning") { transContent, voiceAddr in
+                    RecordView(title: "word meaning", content: self.wordSentence.wordDesc) { transContent, voiceAddr in
                         self.wordSentence.wordDesc = transContent
                         self.wordSentence.wordDescVoiceAddr = voiceAddr
                         wordService.markAudio(voiceAddr)
@@ -53,8 +54,7 @@ struct SentenceCard : View {
                     ScrollView {
                         ForEach((0..<sentenceCount), id: \.self) { sIndex in
                             let sentence = wordSentence.sentencelist[sIndex]
-                            RecordView(title: "record new sentence") { transContent, voiceAddr in
-                                // TODO:jake attension the edit, and the position of the sentence
+                            RecordView(title: "record new sentence",content: sentence.content) { transContent, voiceAddr in
                                 sentence.content = transContent
                                 sentence.voiceAddr = voiceAddr
                                 wordService.markAudio(voiceAddr)

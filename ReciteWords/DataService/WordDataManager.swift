@@ -48,19 +48,42 @@ class WordDataManager {
             print(" error is : \(error).")
         }
     }
-   
+    
     // MARK: - CRUD
     func fetchWordList() throws ->Array<Word> {
         var wordList = Array<Word>()
         do {
-            for word in try db.prepare(t_wordTable) {
+            for word in try db.prepare(t_wordTable.limit(20, offset: 0)) {
                 let voiceLastComponent = word[tw_voiceAddr]
                 let voiceAddr = self.generateVoiceAddr(lastComponent: voiceLastComponent)
-                let word = Word(id: UUID(uuidString:word[tw_uuid])!,
-                                    date: word[tw_date],
-                                    content: word[tw_content],
-                                    voiceAddr: voiceAddr)
-                wordList.append(word)
+                let wordObj = Word(id: UUID(uuidString:word[tw_uuid])!,
+                                   date: word[tw_date],
+                                   content: word[tw_content],
+                                   voiceAddr: voiceAddr)
+                
+                for ws in try db.prepare(t_wordSentenceTable.filter(tws_wordid == wordObj.id.uuidString)) {
+                    let wsVoiceLastComponent = ws[tws_wordDescVoice]
+                    let wsVoiceAddr = self.generateVoiceAddr(lastComponent: wsVoiceLastComponent)
+                    
+                    let wsObj = WordSentence(wordid: wordObj.id,
+                                             wsid: UUID(uuidString: ws[tws_wsid])!,
+                                             wordDesc: ws[tws_wordDesc],
+                                             wordDescVoiceAddr: wsVoiceAddr,
+                                             sentencelist: Array<Sentence>())
+                    wordObj.wordSentenceList.append(wsObj)
+                    
+                    for sentence in try db.prepare(t_sentenceTable.filter(ts_wsid == wsObj.wsid.uuidString)) {
+                        let sVoiceLastComponent = sentence[ts_sVoiceAddr]
+                        let sVoiceAddr = self.generateVoiceAddr(lastComponent: sVoiceLastComponent)
+                        
+                        let sObj = Sentence(sid: UUID(uuidString: sentence[ts_sid])!,
+                                            wsid: wsObj.wsid,
+                                            content: sentence[ts_sContent],
+                                            voiceAddr: sVoiceAddr)
+                        wsObj.sentencelist.append(sObj)
+                    }
+                }
+                wordList.append(wordObj)
             }
         } catch {
             print(error)
@@ -70,10 +93,11 @@ class WordDataManager {
     
     func addNewWord(word:Word) throws {
         let voice = URL(filePath: word.voiceAddr!).lastPathComponent
-        let insert = t_wordTable.insert(tw_uuid <- word.id.uuidString,
+        let insert = t_wordTable.upsert(tw_uuid <- word.id.uuidString,
                                         tw_date <- word.date,
                                         tw_content <- word.content!,
-                                        tw_voiceAddr <- voice)
+                                        tw_voiceAddr <- voice,
+                                        onConflictOf: tw_uuid)
         try db.run(insert)
         
     }
@@ -82,13 +106,14 @@ class WordDataManager {
         do {
             for wordSentence in wordSentenceList {
                 let voice = URL(filePath: wordSentence.wordDescVoiceAddr!).lastPathComponent
-                let insert = t_wordSentenceTable.insert(tws_wsid  <- wordSentence.wsid.uuidString,
+                let insert = t_wordSentenceTable.upsert(tws_wsid  <- wordSentence.wsid.uuidString,
                                                         tws_wordid <- wordSentence.wordid.uuidString,
                                                         tws_wordDesc <- wordSentence.wordDesc!,
-                                                        tws_wordDescVoice <- voice)
+                                                        tws_wordDescVoice <- voice,
+                                                        onConflictOf: tws_wsid)
                 try db.run(insert)
             }
-
+            
         } catch {
             print(error)
         }
@@ -98,10 +123,11 @@ class WordDataManager {
         do {
             for sentence in sentencelist {
                 let voice = URL(filePath: sentence.voiceAddr!).lastPathComponent
-                let insert = t_sentenceTable.insert(ts_sid <- sentence.sid.uuidString,
+                let insert = t_sentenceTable.upsert(ts_sid <- sentence.sid.uuidString,
                                                     ts_wsid <- sentence.wsid.uuidString,
                                                     ts_sContent <- sentence.content!,
-                                                    ts_sVoiceAddr <- voice)
+                                                    ts_sVoiceAddr <- voice,
+                                                    onConflictOf: ts_sid)
                 try db.run(insert)
             }
         } catch {
@@ -111,7 +137,7 @@ class WordDataManager {
     
     // MARK: - create table
     func createWordTable() throws {
-       try db.run(t_wordTable.create (ifNotExists:true) { t in
+        try db.run(t_wordTable.create (ifNotExists:true) { t in
             t.column(tw_uuid, primaryKey: true)
             t.column(tw_date)
             t.column(tw_content)
@@ -121,8 +147,8 @@ class WordDataManager {
     
     func createWordSentenceTable() throws {
         try db.run(t_wordSentenceTable.create (ifNotExists:true) { t in
+            t.column(tws_wsid, primaryKey: true)
             t.column(tws_wordid)
-            t.column(tws_wsid)
             t.column(tws_wordDesc)
             t.column(tws_wordDescVoice)
         })
@@ -146,7 +172,7 @@ class WordDataManager {
         let fileManager = FileManager.default
         if !fileManager.fileExists(atPath: destinationDir) {
             do {
-              try fileManager.createDirectory(atPath: destinationDir, withIntermediateDirectories: false)
+                try fileManager.createDirectory(atPath: destinationDir, withIntermediateDirectories: false)
             } catch {
                 print(error)
             }

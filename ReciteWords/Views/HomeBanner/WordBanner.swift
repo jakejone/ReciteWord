@@ -26,7 +26,6 @@ struct WordBanner :View {
         let wordArray = wordService.getHomeWordList(pageIndex: pageIndex)
         _wordList = State(initialValue: wordArray)
         _wordCount = State(initialValue: wordArray!.count)
-        
     }
     
     func reloadWordList() {
@@ -49,8 +48,9 @@ struct WordBanner :View {
                                 .onFrameChange { frame in
                                     
                                     if (frame.origin.x == 30.0 && frame.origin.y == 85.0) {
-//                                        audioPlayer.speak(text: word.content!, id: word.id)
-                                        audioPlayer.playWithFileURL(fileURL: URL(fileURLWithPath: word.voiceAddr!), id: word.id)
+                                        audioPlayer.playWithFileURL(fileURL: URL(fileURLWithPath: word.voiceAddr!), id: word.id) {
+                                            audioPlayer.speak(text: word.content!, id: word.id)
+                                        }
                                     }
                                 }
                                 Spacer()

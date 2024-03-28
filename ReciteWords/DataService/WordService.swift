@@ -33,47 +33,12 @@ class WordService : NSObject {
         print("ccurreent voicce count is : \(tempVoiceList.count)")
     }
     
-    func addWordSentence(wordSentence:WordSentence, index:Int) {
-        
-        //
-        //        if word.wordSentenceList.count == index {
-        //            word.wordSentenceList[index]  = wordSentence
-        //        }
-        //
-        //        voiceList.append(wordSentence.wordDescVoiceAddr!)
-    }
-    
-    func addSentence(wordSentence:WordSentence, sentence:Sentence, index:Int) {
-        
-        //        if wordSentence.sentencelist.count == index {
-        //            wordSentence.sentencelist[index] = sentence
-        //        }
-        //        voiceList.append(sentence.voiceAddr!)
-    }
-    
-    //    func updateWordSentence(wordSentence:WordSentence, index:Int) {
-    //
-    //        self.currentWord?.wordSentenceList[index] = wordSentence
-    //
-    //        if !voiceList.contains([wordSentence.wordDescVoiceAddr!]) {
-    //            voiceList.append(wordSentence.wordDescVoiceAddr!)
-    //        }
-    //    }
-    
-    func updateSentence(wordSentence:WordSentence, sentence:Sentence, index:Int) {
-        
-    }
-    
     func cleanAudioData(voiceAddr:String) {
         do {
             try FileManager.default.removeItem(at: URL(filePath: voiceAddr))
         } catch {
             print(error)
         }
-    }
-    
-    func cleanWordSentence(wordSentence:WordSentence) {
-        
     }
     
     // 提交当前的，并清空
@@ -88,7 +53,7 @@ class WordService : NSObject {
         }
         
         do {
-            // 1. save word
+            // 1. save word 
             try self.dataManager.addNewWord(word:newWord)
             
             // 2. save wordSentence
@@ -109,9 +74,5 @@ class WordService : NSObject {
             self.cleanAudioData(voiceAddr: voice)
         }
         tempVoiceList.removeAll()
-    }
-    
-    func confirmUpdateWord() {
-        
     }
 }

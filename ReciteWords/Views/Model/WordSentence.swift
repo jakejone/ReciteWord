@@ -48,4 +48,12 @@ class Sentence {
         self.sid = sid
         self.wsid = wsid
     }
+    
+    init(sid: UUID = UUID(), wsid: UUID, content:String ,voiceAddr:String) {
+        self.sid = sid
+        self.wsid = wsid
+        self.content = content
+        self.voiceAddr = voiceAddr
+    }
+    
 }

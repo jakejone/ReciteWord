@@ -18,11 +18,18 @@ struct WordCard : View {
     
     var body: some View {
         VStack {
+            HStack (alignment:.top) {
+                Spacer()
+                NavigationLink(destination: NewwordView(word: self.word)) {
+                    Image("pen").resizable()
+                }.frame(width:40,height: 40).padding([.top],60)
+            }
+            
             Spacer()
             Text(self.word.content!)
             Spacer()
             HStack {
-                Button("I don't know it") {
+                Button("no idea") {
                     
                 }.frame(maxWidth: .infinity)
                     .frame(height:40)
@@ -36,7 +43,7 @@ struct WordCard : View {
                     .foregroundColor(.white)
                     .background(.orange)
                     .cornerRadius(10)
-                Button("I know it") {
+                Button("gotcha") {
                     
                 }.frame(maxWidth: .infinity).frame(height:40)
                     .foregroundColor(.white)
@@ -44,6 +51,6 @@ struct WordCard : View {
                     .cornerRadius(10)
                     .padding([.trailing],10)
             }
-        }
+        }.padding([.bottom], 10)
     }
 }
