@@ -12,39 +12,43 @@ struct WordCard : View {
     
     @State var word:Word
     
-    init(word: Word) {
+    var completeHandler:()->Void?
+    
+    init(word: Word, completeHandler:@escaping ()->Void) {
         self.word = word
+        self.completeHandler = completeHandler
     }
     
     var body: some View {
         VStack {
-            HStack (alignment:.top) {
-                Spacer()
-                NavigationLink(destination: NewwordView(word: self.word)) {
-                    Image("pen").resizable()
-                }.frame(width:40,height: 40).padding([.top],60)
+            ZStack {
+                HStack (alignment:.top) {
+                    Spacer()
+                    NavigationLink(destination: NewwordView(word: self.word)) {
+                        Image("pen").resizable()
+                    }.frame(width:40,height: 40).padding([.top],60)
+                }
+                Text(self.word.content!).font(.largeTitle).padding([.top],30)
             }
             
             Spacer()
-            Text(self.word.content!)
-            Spacer()
             HStack {
                 Button("no idea") {
-                    
+                    self.completeHandler()
                 }.frame(maxWidth: .infinity)
                     .frame(height:40)
                     .foregroundColor(.white)
                     .background(.orange)
                     .cornerRadius(10).padding([.leading],10)
                 Button("ring a bell") {
-                    
+                    self.completeHandler()
                 }.frame(maxWidth: .infinity)
                     .frame(height:40)
                     .foregroundColor(.white)
                     .background(.orange)
                     .cornerRadius(10)
                 Button("gotcha") {
-                    
+                    self.completeHandler()
                 }.frame(maxWidth: .infinity).frame(height:40)
                     .foregroundColor(.white)
                     .background(.orange)

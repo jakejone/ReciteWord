@@ -22,10 +22,15 @@ struct WordBanner :View {
     
     @State var lastSpeakWordID:UUID?
     
+    @State private var currentIndex = 0
+    
+    @State private var scrollID: Int?
+    
     init () {
         let wordArray = wordService.getHomeWordList(pageIndex: pageIndex)
         _wordList = State(initialValue: wordArray)
         _wordCount = State(initialValue: wordArray!.count)
+        _scrollID = State(initialValue: 0)
     }
     
     func reloadWordList() {
@@ -35,6 +40,7 @@ struct WordBanner :View {
     }
     
     var body: some View {
+        
         GeometryReader { proxy in
             // scroll view
             ScrollViewReader { value in
@@ -43,10 +49,11 @@ struct WordBanner :View {
                         ForEach(0..<wordCount,  id: \.self) { index in
                             VStack {
                                 let word = self.wordList![index]
-                                WordCard(word: word).frame(width: proxy.size.width,
+                                WordCard(word: word, completeHandler: {
+                                    self.scrollToNext()
+                                }).frame(width: proxy.size.width,
                                                            height: proxy.size.height)
                                 .onFrameChange { frame in
-                                    
                                     if (frame.origin.x == 30.0 && frame.origin.y == 85.0) {
                                         audioPlayer.playWithFileURL(fileURL: URL(fileURLWithPath: word.voiceAddr!), id: word.id) {
                                             audioPlayer.speak(text: word.content!, id: word.id)
@@ -57,10 +64,22 @@ struct WordBanner :View {
                             }.id(index)
                         }
                     }.scrollTargetLayout()
-                }.scrollTargetBehavior(.viewAligned)
+                    
+                }.scrollTargetBehavior(.viewAligned).scrollDisabled(true).scrollPosition(id: $scrollID).onChange(of: scrollID) { oldValue, newValue in
+                    print(newValue ?? "")
+                }
+                
             }.background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
         }.onAppear() {
             self.reloadWordList()
+        }
+    }
+    
+    func scrollToNext() {
+        withAnimation {
+            if (scrollID! < self.wordCount - 1) {
+                scrollID = self.scrollID! + 1
+            }
         }
     }
 }
@@ -83,5 +102,11 @@ extension View {
     private func beforeReturn(_ onBeforeReturn: ()->()) -> Self {
         onBeforeReturn()
         return self
+    }
+}
+
+extension Comparable {
+    func clamped(to range: Range<Self>) -> Self {
+        return min(max(self, range.lowerBound), range.upperBound)
     }
 }
