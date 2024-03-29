@@ -49,7 +49,9 @@ struct WordBanner :View {
                         ForEach(0..<wordCount,  id: \.self) { index in
                             VStack {
                                 let word = self.wordList![index]
-                                WordCard(word: word, completeHandler: {
+                                WordCard(word: word, completeHandler: { wordMemory in
+                                    word.rememberWord(memory: wordMemory)
+                                    self.wordService.updateWord(word: word)
                                     self.scrollToNext()
                                 }).frame(width: proxy.size.width,
                                                            height: proxy.size.height)

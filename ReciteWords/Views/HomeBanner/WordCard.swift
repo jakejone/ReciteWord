@@ -12,9 +12,9 @@ struct WordCard : View {
     
     @State var word:Word
     
-    var completeHandler:()->Void?
+    var completeHandler:(WordMemory)->Void?
     
-    init(word: Word, completeHandler:@escaping ()->Void) {
+    init(word: Word, completeHandler:@escaping (WordMemory)->Void) {
         self.word = word
         self.completeHandler = completeHandler
     }
@@ -34,21 +34,21 @@ struct WordCard : View {
             Spacer()
             HStack {
                 Button("no idea") {
-                    self.completeHandler()
+                    self.completeHandler(WordMemory.NoIdea)
                 }.frame(maxWidth: .infinity)
                     .frame(height:40)
                     .foregroundColor(.white)
                     .background(.orange)
                     .cornerRadius(10).padding([.leading],10)
                 Button("ring a bell") {
-                    self.completeHandler()
+                    self.completeHandler(WordMemory.RingABell)
                 }.frame(maxWidth: .infinity)
                     .frame(height:40)
                     .foregroundColor(.white)
                     .background(.orange)
                     .cornerRadius(10)
                 Button("gotcha") {
-                    self.completeHandler()
+                    self.completeHandler(WordMemory.Gotcha)
                 }.frame(maxWidth: .infinity).frame(height:40)
                     .foregroundColor(.white)
                     .background(.orange)

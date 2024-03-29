@@ -7,8 +7,14 @@
 
 import Foundation
 
-class Word :Identifiable {
+enum WordMemory {
+    case Gotcha
+    case RingABell
+    case NoIdea
+}
 
+class Word :Identifiable {
+    
     public let id:UUID
     
     public let date:Date
@@ -16,6 +22,8 @@ class Word :Identifiable {
     public var content:String?
     
     public var voiceAddr:String?
+    
+    public var score = 0
     
     public var wordSentenceList:Array<WordSentence>
     
@@ -27,11 +35,12 @@ class Word :Identifiable {
         self.wordSentenceList = wordSentenceList
     }
     
-    init(id: UUID = UUID(), date: Date = Date(), content: String, voiceAddr: String) {
+    init(id: UUID = UUID(), date: Date = Date(), content: String, voiceAddr: String, score:Int) {
         self.id = id
         self.date = date
         self.content = content
         self.voiceAddr = voiceAddr
+        self.score = score
         self.wordSentenceList = Array()
     }
     
@@ -57,4 +66,14 @@ class Word :Identifiable {
         return voiceList
     }
     
+    func rememberWord(memory:WordMemory) {
+        switch memory {
+        case .Gotcha:
+            self.score += 6
+        case .RingABell:
+            self.score += 3
+        case .NoIdea:
+            self.score += 1
+        }
+    }
 }

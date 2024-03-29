@@ -18,6 +18,7 @@ class WordDataManager {
     let tw_date = Expression<Date>("date")
     let tw_content = Expression<String>("content")
     let tw_voiceAddr = Expression<String>("voiceAddr")
+    let tw_score = Expression<Int>("score")
     
     // word - sentencec
     let t_wordSentenceTable = Table("wordSentence")
@@ -43,7 +44,6 @@ class WordDataManager {
             try self.createWordTable()
             try self.createWordSentenceTable()
             try self.createSentenceTable()
-            
         } catch {
             print(" error is : \(error).")
         }
@@ -53,13 +53,14 @@ class WordDataManager {
     func fetchWordList() throws ->Array<Word> {
         var wordList = Array<Word>()
         do {
-            for word in try db.prepare(t_wordTable.limit(20, offset: 0)) {
+            for word in try db.prepare(t_wordTable.order(tw_score.asc,tw_date.asc).limit(20, offset: 0)) {
                 let voiceLastComponent = word[tw_voiceAddr]
                 let voiceAddr = self.generateVoiceAddr(lastComponent: voiceLastComponent)
                 let wordObj = Word(id: UUID(uuidString:word[tw_uuid])!,
                                    date: word[tw_date],
                                    content: word[tw_content],
-                                   voiceAddr: voiceAddr)
+                                   voiceAddr: voiceAddr,
+                                   score: word[tw_score])
                 
                 for ws in try db.prepare(t_wordSentenceTable.filter(tws_wordid == wordObj.id.uuidString)) {
                     let wsVoiceLastComponent = ws[tws_wordDescVoice]
@@ -91,12 +92,13 @@ class WordDataManager {
         return wordList
     }
     
-    func addNewWord(word:Word) throws {
+    func addOrUpdateWord(word:Word) throws {
         let voice = URL(filePath: word.voiceAddr!).lastPathComponent
         let insert = t_wordTable.upsert(tw_uuid <- word.id.uuidString,
                                         tw_date <- word.date,
                                         tw_content <- word.content!,
                                         tw_voiceAddr <- voice,
+                                        tw_score <- word.score,
                                         onConflictOf: tw_uuid)
         try db.run(insert)
         
@@ -142,6 +144,7 @@ class WordDataManager {
             t.column(tw_date)
             t.column(tw_content)
             t.column(tw_voiceAddr)
+            t.column(tw_score)
         })
     }
     
@@ -168,7 +171,7 @@ class WordDataManager {
     func getDBPath() -> String {
         let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         let destinationDir = documents + "/wordData/"
-        
+        print("!. db path is : \(destinationDir)")
         let fileManager = FileManager.default
         if !fileManager.fileExists(atPath: destinationDir) {
             do {

@@ -63,7 +63,7 @@ class AudioRecorder {
                 AVFormatIDKey: kAudioFormatMPEG4AAC,
                 AVSampleRateKey: 44100.0,
                 AVNumberOfChannelsKey: 2,
-                AVEncoderAudioQualityKey: AVAudioQuality.medium.rawValue
+                AVEncoderAudioQualityKey: AVAudioQuality.low.rawValue
             ]
             let currentUrl = self.generateVoiceURL()
             audioRecorder = try AVAudioRecorder(url: currentUrl, settings: settings)
@@ -84,9 +84,7 @@ class AudioRecorder {
     
     func getCurrentTimeStamp() -> Int {
         let someDate = Date()
-        // convert Date to TimeInterval (typealias for Double)
         let timeInterval = someDate.timeIntervalSince1970
-        // convert to Integer
         return Int(timeInterval)
     }
     

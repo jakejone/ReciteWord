@@ -9,10 +9,10 @@ import Foundation
 
 class WordService : NSObject {
     
-    var dataManager = WordDataManager()
+    private var dataManager = WordDataManager()
     
     // save all the audio data，and clean it，at last
-    var tempVoiceList = Array<String>()
+    private var tempVoiceList = Array<String>()
     
     override init() {
         super.init()
@@ -41,6 +41,14 @@ class WordService : NSObject {
         }
     }
     
+    func updateWord(word:Word) {
+        do {
+            try self.dataManager.addOrUpdateWord(word:word)
+        } catch {
+            print(error)
+        }
+    }
+    
     // 提交当前的，并清空
     func confirmAddNewWord(newWord:Word) {
         let wordVoicelist = newWord.getAllVoiceList()
@@ -54,7 +62,7 @@ class WordService : NSObject {
         
         do {
             // 1. save word 
-            try self.dataManager.addNewWord(word:newWord)
+            try self.dataManager.addOrUpdateWord(word:newWord)
             
             // 2. save wordSentence
             self.dataManager.addWordSentence(wordSentenceList: newWord.wordSentenceList)
