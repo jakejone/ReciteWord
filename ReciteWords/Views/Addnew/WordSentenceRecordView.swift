@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SentenceCard : View {
+struct WordSentenceRecordView : View {
     
     var btnWidth = 40.0
     
@@ -33,7 +33,7 @@ struct SentenceCard : View {
         GeometryReader {proxy in
             VStack (alignment:.leading) {
                 VStack {
-                    RecordView(title: "word meaning", content: self.wordSentence.wordDesc) { transContent, voiceAddr in
+                    AudioRecordView(title: "word meaning", content: self.wordSentence.wordDesc) { transContent, voiceAddr in
                         self.wordSentence.wordDesc = transContent
                         self.wordSentence.wordDescVoiceAddr = voiceAddr
                         wordService.markAudio(voiceAddr)
@@ -54,7 +54,7 @@ struct SentenceCard : View {
                     ScrollView {
                         ForEach((0..<sentenceCount), id: \.self) { sIndex in
                             let sentence = wordSentence.sentencelist[sIndex]
-                            RecordView(title: "record new sentence",content: sentence.content) { transContent, voiceAddr in
+                            AudioRecordView(title: "record new sentence",content: sentence.content) { transContent, voiceAddr in
                                 sentence.content = transContent
                                 sentence.voiceAddr = voiceAddr
                                 wordService.markAudio(voiceAddr)

@@ -54,9 +54,10 @@ struct WordBanner :View {
                                     self.wordService.updateWord(word: word)
                                     self.scrollToNext()
                                 }).frame(width: proxy.size.width,
-                                                           height: proxy.size.height)
+                                         height: proxy.size.height)
                                 .onFrameChange { frame in
-                                    if (frame.origin.x == 30.0 && frame.origin.y == 85.0) {
+                                    
+                                    if (frame.origin.x == 30.0) {
                                         audioPlayer.playWithFileURL(fileURL: URL(fileURLWithPath: word.voiceAddr!), id: word.id) {
                                             audioPlayer.speak(text: word.content!, id: word.id)
                                         }
@@ -80,7 +81,7 @@ struct WordBanner :View {
     func scrollToNext() {
         withAnimation {
             if (scrollID! < self.wordCount - 1) {
-                scrollID = self.scrollID! + 1
+                scrollID = scrollID! + 1
             }
         }
     }
