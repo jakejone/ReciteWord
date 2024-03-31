@@ -12,17 +12,14 @@ struct WordCard : View {
     
     var btnWidth = 40.0
     
-    
-    @State var word:Word
-    
-    @State var wordSentenceCount = 0
+    @StateObject var word:Word
     
     var completeHandler:(WordMemory)->Void?
     
     init(word: Word, completeHandler:@escaping (WordMemory)->Void) {
-        self.word = word
+        print("!.. word init, word content:\(word.content!)")
+        _word = StateObject(wrappedValue: word)
         self.completeHandler = completeHandler
-        _wordSentenceCount = State(initialValue: word.wordSentenceList.count)
     }
     
     var body: some View {
@@ -35,13 +32,14 @@ struct WordCard : View {
                             Image("editing").resizable()
                         }.frame(width:40,height: 40).padding([.top],60)
                     }
+                    
                     Text(self.word.content!).font(.largeTitle).padding([.top],30)
                 }
                 
                 ScrollViewReader { value in
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack {
-                            ForEach(0..<self.wordSentenceCount,  id: \.self) { index in
+                            ForEach(0..<self.word.wordSentenceList.count,  id: \.self) { index in
                                 VStack {
                                     WordSentenceDisplayView(sentenceList: self.word.wordSentenceList[0].sentencelist ).frame(width:proxy.size.width - 20,height: proxy.size.height - (self.btnWidth + 40) - 30 - 40 - 150 ).padding(10)
                                     Spacer()

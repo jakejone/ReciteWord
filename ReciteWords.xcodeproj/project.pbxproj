@@ -29,6 +29,7 @@
 		230B2ADC2BB278FE00989D3D /* WordSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACA2BB278FE00989D3D /* WordSentence.swift */; };
 		230B2ADD2BB278FE00989D3D /* WordSentenceRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACB2BB278FE00989D3D /* WordSentenceRecordView.swift */; };
 		230B2ADE2BB278FE00989D3D /* NewwordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACC2BB278FE00989D3D /* NewwordView.swift */; };
+		230B2AE62BB9106600989D3D /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AE52BB9106600989D3D /* Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		230B2ACA2BB278FE00989D3D /* WordSentence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSentence.swift; sourceTree = "<group>"; };
 		230B2ACB2BB278FE00989D3D /* WordSentenceRecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSentenceRecordView.swift; sourceTree = "<group>"; };
 		230B2ACC2BB278FE00989D3D /* NewwordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewwordView.swift; sourceTree = "<group>"; };
+		230B2AE52BB9106600989D3D /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,11 +128,12 @@
 			children = (
 				230B2A8D2BB272E600989D3D /* ReciteWordsApp.swift */,
 				230B2A8F2BB272E600989D3D /* ContentView.swift */,
+				230B2ABA2BB278F400989D3D /* Views */,
 				230B2AE02BB28E8100989D3D /* AudioTool */,
 				230B2ADF2BB2791400989D3D /* DataService */,
-				230B2ABA2BB278F400989D3D /* Views */,
 				230B2A912BB272E700989D3D /* Assets.xcassets */,
 				230B2A932BB272E700989D3D /* Preview Content */,
+				230B2AE52BB9106600989D3D /* Test.swift */,
 			);
 			path = ReciteWords;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				230B2AD32BB278FE00989D3D /* AudioRecordView.swift in Sources */,
 				230B2AD52BB278FE00989D3D /* WordDataManager.swift in Sources */,
 				230B2AD92BB278FE00989D3D /* WordService.swift in Sources */,
+				230B2AE62BB9106600989D3D /* Test.swift in Sources */,
 				230B2ADC2BB278FE00989D3D /* WordSentence.swift in Sources */,
 				230B2A902BB272E600989D3D /* ContentView.swift in Sources */,
 				230B2ADD2BB278FE00989D3D /* WordSentenceRecordView.swift in Sources */,

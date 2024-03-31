@@ -32,6 +32,7 @@ struct NewwordView : View {
     }
     
     init(word:Word) {
+        print("!.. word init content : \(word.content!)")
         _newWord = State(initialValue: word)
         isUpdate = true
         _sentenceCardCount = State(initialValue: self.newWord!.wordSentenceList.count)

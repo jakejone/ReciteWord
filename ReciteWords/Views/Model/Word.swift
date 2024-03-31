@@ -13,19 +13,19 @@ enum WordMemory {
     case NoIdea
 }
 
-class Word :Identifiable {
+class Word :Identifiable,ObservableObject{
     
     public let id:UUID
     
     public let date:Date
     
-    public var content:String?
+    @Published public var content:String?
     
-    public var voiceAddr:String?
+    @Published public var voiceAddr:String?
     
     public var score = 0
     
-    public var wordSentenceList:Array<WordSentence>
+    @Published public var wordSentenceList:Array<WordSentence>
     
     init(id: UUID = UUID(), date: Date = Date(), content: String, voiceAddr: String, wordSentenceList: Array<WordSentence>) {
         self.id = id

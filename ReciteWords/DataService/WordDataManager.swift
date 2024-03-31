@@ -53,7 +53,7 @@ class WordDataManager {
     func fetchWordList() throws ->Array<Word> {
         var wordList = Array<Word>()
         do {
-            for word in try db.prepare(t_wordTable.order(tw_score.asc,tw_date.asc).limit(20, offset: 0)) {
+            for word in try db.prepare(t_wordTable.order(tw_score.asc,tw_date.desc).limit(20, offset: 0)) {
                 let voiceLastComponent = word[tw_voiceAddr]
                 let voiceAddr = self.generateVoiceAddr(lastComponent: voiceLastComponent)
                 let wordObj = Word(id: UUID(uuidString:word[tw_uuid])!,
@@ -171,7 +171,7 @@ class WordDataManager {
     func getDBPath() -> String {
         let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         let destinationDir = documents + "/wordData/"
-        print("!. db path is : \(destinationDir)")
+        // print("!. db path is : \(destinationDir)")
         let fileManager = FileManager.default
         if !fileManager.fileExists(atPath: destinationDir) {
             do {

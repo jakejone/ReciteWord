@@ -10,33 +10,25 @@ import AVFoundation
 
 struct WordBanner :View {
     
-    var wordService = WordService()
-    
     var pageIndex = 0
     
+    var wordService = WordService()
+    
     let audioPlayer = AudioPlayer()
-    
-    @State var wordList:Array<Word>?
-    
-    @State var wordCount:Int
-    
-    @State var lastSpeakWordID:UUID?
-    
-    @State private var currentIndex = 0
+    // StateObject = https://www.hackingwithswift.com/forums/swiftui/foreach-view-not-updating/5405
+    @State var wordList:Array<Word> = []
     
     @State private var scrollID: Int?
     
     init () {
         let wordArray = wordService.getHomeWordList(pageIndex: pageIndex)
-        _wordList = State(initialValue: wordArray)
-        _wordCount = State(initialValue: wordArray!.count)
+        _wordList = State(initialValue: wordArray!)
         _scrollID = State(initialValue: 0)
     }
     
     func reloadWordList() {
         let wordArray = wordService.getHomeWordList(pageIndex: pageIndex)
-        self.wordList = wordArray
-        self.wordCount = wordArray!.count
+        self.wordList = wordArray!
     }
     
     var body: some View {
@@ -46,9 +38,9 @@ struct WordBanner :View {
             ScrollViewReader { value in
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack {
-                        ForEach(0..<wordCount,  id: \.self) { index in
+                        ForEach(0..<self.wordList.count,  id: \.self) { index in
+                            let word = self.wordList[index]
                             VStack {
-                                let word = self.wordList![index]
                                 WordCard(word: word, completeHandler: { wordMemory in
                                     word.rememberWord(memory: wordMemory)
                                     self.wordService.updateWord(word: word)
@@ -56,7 +48,6 @@ struct WordBanner :View {
                                 }).frame(width: proxy.size.width,
                                          height: proxy.size.height)
                                 .onFrameChange { frame in
-                                    
                                     if (frame.origin.x == 30.0) {
                                         audioPlayer.playWithFileURL(fileURL: URL(fileURLWithPath: word.voiceAddr!), id: word.id) {
                                             audioPlayer.speak(text: word.content!, id: word.id)
@@ -68,21 +59,21 @@ struct WordBanner :View {
                         }
                     }.scrollTargetLayout()
                     
-                }.scrollTargetBehavior(.viewAligned).scrollDisabled(true).scrollPosition(id: $scrollID).onChange(of: scrollID) { oldValue, newValue in
+                }.scrollTargetBehavior(.viewAligned).scrollPosition(id: $scrollID).onChange(of: scrollID) { oldValue, newValue in
                     print(newValue ?? "")
                 }
                 
             }.background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
         }.onAppear() {
+            print("!.. reload")
             self.reloadWordList()
+            scrollID = 0
         }
     }
     
     func scrollToNext() {
-        withAnimation {
-            if (scrollID! < self.wordCount - 1) {
-                scrollID = scrollID! + 1
-            }
+        if (scrollID! < self.wordList.count - 1) {
+            scrollID = scrollID! + 1
         }
     }
 }

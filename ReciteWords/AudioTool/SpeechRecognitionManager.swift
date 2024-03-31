@@ -68,8 +68,6 @@ class SpeechRecognitionManager {
 
             audioEngine.prepare()
             try audioEngine.start()
-
-            print("Listening...")
         } catch {
             print("Error setting up audio session: \(error)")
         }
