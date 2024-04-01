@@ -64,7 +64,7 @@ class AudioPlayer: NSObject {
     }
     
     func audioPlayerDidFinishPlaying() {
-        print("222")
+        
     }
     
     func play() {

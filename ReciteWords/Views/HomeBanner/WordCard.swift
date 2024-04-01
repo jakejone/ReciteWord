@@ -17,7 +17,6 @@ struct WordCard : View {
     var completeHandler:(WordMemory)->Void?
     
     init(word: Word, completeHandler:@escaping (WordMemory)->Void) {
-        print("!.. word init, word content:\(word.content!)")
         self.word = word
         self.completeHandler = completeHandler
     }
@@ -30,7 +29,7 @@ struct WordCard : View {
                         Spacer()
                         NavigationLink(destination: NewwordView(word: self.word)) {
                             Image("editing").resizable()
-                        }.frame(width:40,height: 40).padding([.top],60)
+                        }.frame(width:40,height: 40).padding([.top],60).padding([.trailing],10)
                     }
                     
                     Text(self.word.content!).font(.largeTitle).padding([.top],30)

@@ -11,15 +11,10 @@ import Speech
 struct ContentView: View {
     
     var body: some View {
-//        VStack {
-//            Test()
-//        }
-        
+
         NavigationStack {
             ZStack (alignment: .topTrailing) {
-                
                 WordBanner().padding(30)
-                
                 HStack (alignment:.top) {
                     VStack(alignment:.trailing) {
                         NavigationLink(destination: NewwordView()) {

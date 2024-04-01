@@ -32,7 +32,6 @@ struct WordBanner :View {
     }
     
     var body: some View {
-        
         GeometryReader { proxy in
             // scroll view
             ScrollViewReader { value in
@@ -59,13 +58,12 @@ struct WordBanner :View {
                         }
                     }.scrollTargetLayout()
                     
-                }.scrollTargetBehavior(.viewAligned).scrollPosition(id: $scrollID).onChange(of: scrollID) { oldValue, newValue in
+                }.scrollDisabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/).scrollTargetBehavior(.viewAligned).scrollPosition(id: $scrollID).onChange(of: scrollID) { oldValue, newValue in
                     print(newValue ?? "")
                 }
                 
             }.background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
         }.onAppear() {
-            print("!.. reload")
             self.reloadWordList()
             scrollID = 0
         }
