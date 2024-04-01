@@ -12,13 +12,13 @@ struct WordCard : View {
     
     var btnWidth = 40.0
     
-    @StateObject var word:Word
+    @ObservedObject var word:Word
     
     var completeHandler:(WordMemory)->Void?
     
     init(word: Word, completeHandler:@escaping (WordMemory)->Void) {
         print("!.. word init, word content:\(word.content!)")
-        _word = StateObject(wrappedValue: word)
+        self.word = word
         self.completeHandler = completeHandler
     }
     
