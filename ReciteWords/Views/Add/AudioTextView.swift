@@ -8,7 +8,7 @@
 import SwiftUI
 import AVFoundation
 
-struct AudioRecordView : View {
+struct AudioTextView : View {
     
     var btnWidth = 40.0
     

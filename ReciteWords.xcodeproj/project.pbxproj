@@ -18,7 +18,7 @@
 		230B2AD02BB278FE00989D3D /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ABE2BB278FD00989D3D /* Word.swift */; };
 		230B2AD12BB278FE00989D3D /* VoiceWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ABF2BB278FD00989D3D /* VoiceWave.swift */; };
 		230B2AD22BB278FE00989D3D /* WordBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC02BB278FE00989D3D /* WordBanner.swift */; };
-		230B2AD32BB278FE00989D3D /* AudioRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC12BB278FE00989D3D /* AudioRecordView.swift */; };
+		230B2AD32BB278FE00989D3D /* AudioTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC12BB278FE00989D3D /* AudioTextView.swift */; };
 		230B2AD42BB278FE00989D3D /* WordSentenceDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC22BB278FE00989D3D /* WordSentenceDisplayView.swift */; };
 		230B2AD52BB278FE00989D3D /* WordDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC32BB278FE00989D3D /* WordDataManager.swift */; };
 		230B2AD62BB278FE00989D3D /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC42BB278FE00989D3D /* AudioRecorder.swift */; };
@@ -27,7 +27,7 @@
 		230B2ADA2BB278FE00989D3D /* SpeechRecognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC82BB278FE00989D3D /* SpeechRecognitionManager.swift */; };
 		230B2ADB2BB278FE00989D3D /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC92BB278FE00989D3D /* AudioPlayer.swift */; };
 		230B2ADC2BB278FE00989D3D /* WordSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACA2BB278FE00989D3D /* WordSentence.swift */; };
-		230B2ADD2BB278FE00989D3D /* WordSentenceRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACB2BB278FE00989D3D /* WordSentenceRecordView.swift */; };
+		230B2ADD2BB278FE00989D3D /* SentenceRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACB2BB278FE00989D3D /* SentenceRecordView.swift */; };
 		230B2ADE2BB278FE00989D3D /* AddNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACC2BB278FE00989D3D /* AddNewView.swift */; };
 		230B2B2D2BBA9E1600989D3D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B2C2BBA9E1600989D3D /* ViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -63,7 +63,7 @@
 		230B2ABE2BB278FD00989D3D /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		230B2ABF2BB278FD00989D3D /* VoiceWave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceWave.swift; sourceTree = "<group>"; };
 		230B2AC02BB278FE00989D3D /* WordBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordBanner.swift; sourceTree = "<group>"; };
-		230B2AC12BB278FE00989D3D /* AudioRecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecordView.swift; sourceTree = "<group>"; };
+		230B2AC12BB278FE00989D3D /* AudioTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTextView.swift; sourceTree = "<group>"; };
 		230B2AC22BB278FE00989D3D /* WordSentenceDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSentenceDisplayView.swift; sourceTree = "<group>"; };
 		230B2AC32BB278FE00989D3D /* WordDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDataManager.swift; sourceTree = "<group>"; };
 		230B2AC42BB278FE00989D3D /* AudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		230B2AC82BB278FE00989D3D /* SpeechRecognitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionManager.swift; sourceTree = "<group>"; };
 		230B2AC92BB278FE00989D3D /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		230B2ACA2BB278FE00989D3D /* WordSentence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSentence.swift; sourceTree = "<group>"; };
-		230B2ACB2BB278FE00989D3D /* WordSentenceRecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSentenceRecordView.swift; sourceTree = "<group>"; };
+		230B2ACB2BB278FE00989D3D /* SentenceRecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentenceRecordView.swift; sourceTree = "<group>"; };
 		230B2ACC2BB278FE00989D3D /* AddNewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewView.swift; sourceTree = "<group>"; };
 		230B2B2C2BBA9E1600989D3D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,8 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				230B2ACC2BB278FE00989D3D /* AddNewView.swift */,
-				230B2ACB2BB278FE00989D3D /* WordSentenceRecordView.swift */,
-				230B2AC12BB278FE00989D3D /* AudioRecordView.swift */,
+				230B2ACB2BB278FE00989D3D /* SentenceRecordView.swift */,
+				230B2AC12BB278FE00989D3D /* AudioTextView.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -367,12 +367,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				230B2AD02BB278FE00989D3D /* Word.swift in Sources */,
-				230B2AD32BB278FE00989D3D /* AudioRecordView.swift in Sources */,
+				230B2AD32BB278FE00989D3D /* AudioTextView.swift in Sources */,
 				230B2AD52BB278FE00989D3D /* WordDataManager.swift in Sources */,
 				230B2AD92BB278FE00989D3D /* WordService.swift in Sources */,
 				230B2ADC2BB278FE00989D3D /* WordSentence.swift in Sources */,
 				230B2A902BB272E600989D3D /* ContentView.swift in Sources */,
-				230B2ADD2BB278FE00989D3D /* WordSentenceRecordView.swift in Sources */,
+				230B2ADD2BB278FE00989D3D /* SentenceRecordView.swift in Sources */,
 				230B2AD62BB278FE00989D3D /* AudioRecorder.swift in Sources */,
 				230B2ADB2BB278FE00989D3D /* AudioPlayer.swift in Sources */,
 				230B2B2D2BBA9E1600989D3D /* ViewModel.swift in Sources */,

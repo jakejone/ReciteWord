@@ -43,7 +43,7 @@ struct AddNewView : View {
                 ScrollView {
                     VStack {
                         Text("新增").font(.title)
-                        AudioRecordView(title: "new word", content: self.newWord?.content) { transContent, voiceAddr in
+                        AudioTextView(title: "new word", content: self.newWord?.content) { transContent, voiceAddr in
                             if (self.newWord == nil) {
                                 self.newWord = Word()
                             }
@@ -71,7 +71,7 @@ struct AddNewView : View {
                                 LazyHStack {
                                     ForEach(0..<sentenceCardCount,  id: \.self) { index in
                                         VStack {
-                                            WordSentenceRecordView(word:self.newWord!, wordService: self.wordService, cardIndex: index) { wordSentenceArray in
+                                            SentenceRecordView(word:self.newWord!, wordService: self.wordService, cardIndex: index) { wordSentenceArray in
                                                 self.newWord!.wordSentenceList = wordSentenceArray
                                             }.frame(width:proxy.size.width - 20,height: proxy.size.height - (self.btnWidth + 40) - 30 - 40 - 150 ).padding(10)
                                             Spacer()

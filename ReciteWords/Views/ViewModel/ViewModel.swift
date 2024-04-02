@@ -49,4 +49,6 @@ class ViewModel: ObservableObject {
         }
     
     @Published private(set) var state = State.idle
+    
+    
 }
