@@ -15,7 +15,7 @@ struct WordBanner :View {
     var wordService = WordService()
     
     let audioPlayer = AudioPlayer()
-    // StateObject = https://www.hackingwithswift.com/forums/swiftui/foreach-view-not-updating/5405
+    
     @State var wordList:Array<Word> = []
     
     @State private var scrollID: Int?

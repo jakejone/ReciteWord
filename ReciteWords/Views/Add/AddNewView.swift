@@ -8,7 +8,7 @@
 import SwiftUI
 import AVKit
 
-struct NewwordView : View {
+struct AddNewView : View {
     
     var wordService = WordService()
     

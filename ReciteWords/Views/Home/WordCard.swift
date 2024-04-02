@@ -27,7 +27,7 @@ struct WordCard : View {
                 ZStack {
                     HStack (alignment:.top) {
                         Spacer()
-                        NavigationLink(destination: NewwordView(word: self.word)) {
+                        NavigationLink(destination: AddNewView(word: self.word)) {
                             Image("editing").resizable()
                         }.frame(width:40,height: 40).padding([.top],60).padding([.trailing],10)
                     }

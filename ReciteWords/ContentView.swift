@@ -17,7 +17,7 @@ struct ContentView: View {
                 WordBanner().padding(30)
                 HStack (alignment:.top) {
                     VStack(alignment:.trailing) {
-                        NavigationLink(destination: NewwordView()) {
+                        NavigationLink(destination: AddNewView()) {
                             Image("plus").resizable()
                         }.frame(width:60,height: 60)
                     }
