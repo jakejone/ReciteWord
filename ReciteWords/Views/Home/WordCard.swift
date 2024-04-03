@@ -10,15 +10,14 @@ import AVFoundation
 
 struct WordCard : View {
     
-    var btnWidth = 40.0
+    @EnvironmentObject var vm:ViewModel
     
     @ObservedObject var word:Word
     
-    var completeHandler:(WordMemory)->Void?
+    var btnWidth = 40.0
     
-    init(word: Word, completeHandler:@escaping (WordMemory)->Void) {
+    init(word: Word) {
         self.word = word
-        self.completeHandler = completeHandler
     }
     
     var body: some View {
@@ -40,7 +39,7 @@ struct WordCard : View {
                         LazyHStack {
                             ForEach(0..<self.word.wordSentenceList.count,  id: \.self) { index in
                                 VStack {
-                                    WordSentenceDisplayView(sentenceList: self.word.wordSentenceList[0].sentencelist ).frame(width:proxy.size.width - 20,height: proxy.size.height - (self.btnWidth + 40) - 30 - 40 - 150 ).padding(10)
+                                    SentenceDisplayView(sentenceList: self.word.wordSentenceList[0].sentencelist ).frame(width:proxy.size.width - 20,height: proxy.size.height - (self.btnWidth + 40) - 30 - 40 - 150 ).padding(10)
                                     Spacer()
                                 }.id(index)
                             }
@@ -49,31 +48,60 @@ struct WordCard : View {
                 }.background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
                 
                 Spacer()
+                bottomBtn
+                
+            }.padding([.bottom], 10)
+        }
+    }
+    
+    private var bottomBtn : some View {
+        switch vm.memoryBtnState {
+        case .origin:
+            return AnyView(
                 HStack {
-                    Button("no idea") {
-                        self.completeHandler(WordMemory.NoIdea)
-                    }.frame(maxWidth: .infinity)
-                        .frame(height:40)
-                        .foregroundColor(.white)
-                        .background(.orange)
-                        .cornerRadius(10).padding([.leading],10)
-                    Button("ring a bell") {
-                        self.completeHandler(WordMemory.RingABell)
-                    }.frame(maxWidth: .infinity)
-                        .frame(height:40)
+                    Button(action: {
+                        self.vm.markInMemory(memory: .NoIdea)
+                    }, label: {
+                        Text("no idea").frame(maxWidth: .infinity).contentShape(Rectangle())
+                    }).frame(maxWidth: .infinity).frame(height:40)
                         .foregroundColor(.white)
                         .background(.orange)
                         .cornerRadius(10)
-                    Button("gotcha") {
-                        self.completeHandler(WordMemory.Gotcha)
-                    }.frame(maxWidth: .infinity).frame(height:40)
+                        .padding([.leading],10)
+                    
+                    Button(action: {
+                        self.vm.markInMemory(memory: .RingABell)
+                    }, label: {
+                        Text("ring a bell").frame(maxWidth: .infinity).contentShape(Rectangle())
+                    }).frame(maxWidth: .infinity).frame(height:40)
+                        .foregroundColor(.white)
+                        .background(.orange)
+                        .cornerRadius(10)
+                    
+                    Button(action: {
+                        self.vm.markInMemory(memory: .Gotcha)
+                    }, label: {
+                        Text("gotcha").frame(maxWidth: .infinity).contentShape(Rectangle())
+                    }).frame(maxWidth: .infinity).frame(height:40)
                         .foregroundColor(.white)
                         .background(.orange)
                         .cornerRadius(10)
                         .padding([.trailing],10)
                 }
-            }.padding([.bottom], 10)
+            )
+        case .gotoNext:
+            return AnyView(
+                Button(action: {
+                    self.vm.nextWord()
+                }, label: {
+                    Text("Next Word").frame(maxWidth: .infinity).contentShape(Rectangle())
+                }).frame(maxWidth: .infinity).frame(height:40)
+                    .foregroundColor(.white)
+                    .background(.orange)
+                    .cornerRadius(10)
+                    .padding([.leading],10)
+                    .padding([.trailing],10)
+            )
         }
-        
     }
 }

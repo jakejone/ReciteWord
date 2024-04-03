@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct WordSentenceDisplayView : View {
+struct SentenceDisplayView : View {
     
     var btnWidth = 40.0
     

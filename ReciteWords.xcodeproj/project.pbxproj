@@ -19,7 +19,7 @@
 		230B2AD12BB278FE00989D3D /* VoiceWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ABF2BB278FD00989D3D /* VoiceWave.swift */; };
 		230B2AD22BB278FE00989D3D /* WordBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC02BB278FE00989D3D /* WordBanner.swift */; };
 		230B2AD32BB278FE00989D3D /* AudioTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC12BB278FE00989D3D /* AudioTextView.swift */; };
-		230B2AD42BB278FE00989D3D /* WordSentenceDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC22BB278FE00989D3D /* WordSentenceDisplayView.swift */; };
+		230B2AD42BB278FE00989D3D /* SentenceDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC22BB278FE00989D3D /* SentenceDisplayView.swift */; };
 		230B2AD52BB278FE00989D3D /* WordDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC32BB278FE00989D3D /* WordDataManager.swift */; };
 		230B2AD62BB278FE00989D3D /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC42BB278FE00989D3D /* AudioRecorder.swift */; };
 		230B2AD72BB278FE00989D3D /* WordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC52BB278FE00989D3D /* WordCard.swift */; };
@@ -64,7 +64,7 @@
 		230B2ABF2BB278FD00989D3D /* VoiceWave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceWave.swift; sourceTree = "<group>"; };
 		230B2AC02BB278FE00989D3D /* WordBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordBanner.swift; sourceTree = "<group>"; };
 		230B2AC12BB278FE00989D3D /* AudioTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTextView.swift; sourceTree = "<group>"; };
-		230B2AC22BB278FE00989D3D /* WordSentenceDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSentenceDisplayView.swift; sourceTree = "<group>"; };
+		230B2AC22BB278FE00989D3D /* SentenceDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentenceDisplayView.swift; sourceTree = "<group>"; };
 		230B2AC32BB278FE00989D3D /* WordDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDataManager.swift; sourceTree = "<group>"; };
 		230B2AC42BB278FE00989D3D /* AudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		230B2AC52BB278FE00989D3D /* WordCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCard.swift; sourceTree = "<group>"; };
@@ -206,7 +206,7 @@
 		230B2AE22BB28EB600989D3D /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				230B2AC22BB278FE00989D3D /* WordSentenceDisplayView.swift */,
+				230B2AC22BB278FE00989D3D /* SentenceDisplayView.swift */,
 				230B2AC52BB278FE00989D3D /* WordCard.swift */,
 				230B2AC02BB278FE00989D3D /* WordBanner.swift */,
 			);
@@ -382,7 +382,7 @@
 				230B2AD12BB278FE00989D3D /* VoiceWave.swift in Sources */,
 				230B2ADA2BB278FE00989D3D /* SpeechRecognitionManager.swift in Sources */,
 				230B2AD72BB278FE00989D3D /* WordCard.swift in Sources */,
-				230B2AD42BB278FE00989D3D /* WordSentenceDisplayView.swift in Sources */,
+				230B2AD42BB278FE00989D3D /* SentenceDisplayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

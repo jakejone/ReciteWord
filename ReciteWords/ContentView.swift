@@ -10,19 +10,25 @@ import Speech
 
 struct ContentView: View {
     
+    @StateObject var vm = ViewModel()
+    
     var body: some View {
-
+        
         NavigationStack {
-            ZStack (alignment: .topTrailing) {
-                WordBanner().padding(30)
-                HStack (alignment:.top) {
-                    VStack(alignment:.trailing) {
+            GeometryReader { geometry in
+                WordBanner().frame(width: geometry.size.width,height: geometry.size.height)
+                ZStack {
+                    HStack {
+                        Spacer()
                         NavigationLink(destination: AddNewView()) {
                             Image("plus").resizable()
-                        }.frame(width:60,height: 60)
+                        }.frame(width:40,height: 40).padding([.trailing], 10)
                     }
-                }.padding([.trailing], 30)
-            }
+                }
+            }.environmentObject(vm)
+                .onAppear() {
+                self.vm.reload()
+            }.background(Color.red)
         }
     }
 }
