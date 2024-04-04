@@ -39,6 +39,34 @@ struct WordCard : View {
                 }
                 
                 VStack {
+                    
+                    wordSentence
+                    
+                    Spacer()
+                    bottomBtn
+                    
+                }.padding([.bottom], 10)
+            }
+            
+            
+        }
+    }
+    
+    private var wordSentence : some View {
+        switch vm.sentenceState {
+        case .hidden:
+            return AnyView(
+                GeometryReader { proxy in
+                    Button(action: {
+                        self.vm.markInMemory(memory: .RingABell)
+                    }, label: {
+                        Text("").frame(width:proxy.size.width,height: proxy.size.height)
+                    })
+                }
+            )
+        case .show:
+            return AnyView(
+                GeometryReader { proxy in
                     ScrollViewReader { value in
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack {
@@ -51,14 +79,8 @@ struct WordCard : View {
                             }.scrollTargetLayout()
                         }.scrollTargetBehavior(.viewAligned)
                     }.background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
-                    
-                    Spacer()
-                    bottomBtn
-                    
-                }.padding([.bottom], 10)
-            }
-            
-            
+                }
+            )
         }
     }
     

@@ -43,9 +43,14 @@ class ViewModel: ObservableObject {
         case gotoNext
     }
     
-    private let audioPlayer = AudioPlayer()
+    enum SentenceState {
+        case hidden
+        case show
+    }
     
     @Published private(set) var state = State.idle
+    
+    @Published private(set) var sentenceState = SentenceState.hidden
     
     @Published private(set) var memoryBtnState = MemoryBtnState.origin
     
@@ -55,6 +60,7 @@ class ViewModel: ObservableObject {
     
     var wordService = WordService()
     
+    private let audioPlayer = AudioPlayer()
     
     func reload() {
         if let wordsFromDB = wordService.getHomeWordList(pageIndex: 0) {
@@ -70,15 +76,18 @@ class ViewModel: ObservableObject {
         case .RingABell:
             // TODO : sentence state
             self.memoryBtnState = .gotoNext
+            self.sentenceState = .show
         case .NoIdea:
             // TODO : sentence state
             self.memoryBtnState = .gotoNext
+            self.sentenceState = .show
         }
     }
     
     func nextWord() {
         self.wordBannerShowNext()
         self.memoryBtnState = .origin
+        self.sentenceState = .hidden
     }
     
     private func wordBannerShowNext() {
