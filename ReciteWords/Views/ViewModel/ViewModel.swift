@@ -43,6 +43,7 @@ class ViewModel: ObservableObject {
         case gotoNext
     }
     
+    private let audioPlayer = AudioPlayer()
     
     @Published private(set) var state = State.idle
     
@@ -88,5 +89,13 @@ class ViewModel: ObservableObject {
         }
     }
     
+    func playWord(word:Word) {
+        self.playWord(word: word, force: false)
+    }
     
+    func playWord(word:Word, force:Bool) {
+        audioPlayer.playWithFileURL(fileURL: URL(fileURLWithPath: word.voiceAddr!), force: force, id: word.id) {
+            self.audioPlayer.speak(text: word.content!, id: word.id)
+        }
+    }
 }

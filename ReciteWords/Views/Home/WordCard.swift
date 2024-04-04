@@ -24,33 +24,41 @@ struct WordCard : View {
         GeometryReader { proxy in
             VStack {
                 ZStack {
-                    HStack (alignment:.top) {
+                    Button(action: {
+                        vm.playWord(word: word, force: true)
+                    }, label: {
+                        Text(self.word.content!).frame(width:proxy.size.width, alignment: .center).font(.largeTitle).padding([.top],60)
+                    })
+                    
+                    HStack {
                         Spacer()
                         NavigationLink(destination: AddNewView(word: self.word)) {
                             Image("editing").resizable()
                         }.frame(width:40,height: 40).padding([.top],60).padding([.trailing],10)
                     }
-                    
-                    Text(self.word.content!).font(.largeTitle).padding([.top],30)
                 }
                 
-                ScrollViewReader { value in
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHStack {
-                            ForEach(0..<self.word.wordSentenceList.count,  id: \.self) { index in
-                                VStack {
-                                    SentenceDisplayView(sentenceList: self.word.wordSentenceList[0].sentencelist ).frame(width:proxy.size.width - 20,height: proxy.size.height - (self.btnWidth + 40) - 30 - 40 - 150 ).padding(10)
-                                    Spacer()
-                                }.id(index)
-                            }
-                        }.scrollTargetLayout()
-                    }.scrollTargetBehavior(.viewAligned)
-                }.background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
-                
-                Spacer()
-                bottomBtn
-                
-            }.padding([.bottom], 10)
+                VStack {
+                    ScrollViewReader { value in
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHStack {
+                                ForEach(0..<self.word.wordSentenceList.count,  id: \.self) { index in
+                                    VStack {
+                                        SentenceDisplayView(sentenceList: self.word.wordSentenceList[0].sentencelist ).frame(width:proxy.size.width - 20,height: proxy.size.height - (self.btnWidth + 40) - 30 - 40 - 150 ).padding(10)
+                                        Spacer()
+                                    }.id(index)
+                                }
+                            }.scrollTargetLayout()
+                        }.scrollTargetBehavior(.viewAligned)
+                    }.background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
+                    
+                    Spacer()
+                    bottomBtn
+                    
+                }.padding([.bottom], 10)
+            }
+            
+            
         }
     }
     

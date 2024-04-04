@@ -53,7 +53,11 @@ class AudioPlayer: NSObject {
     }
     
     func playWithFileURL(fileURL:URL, id:UUID, completeHandler:@escaping ()-> Void) {
-        if (lastID == id) {
+        self.playWithFileURL(fileURL: fileURL, force: false, id: id, completeHandler: completeHandler)
+    }
+    
+    func playWithFileURL(fileURL:URL, force:Bool, id:UUID, completeHandler:@escaping ()-> Void) {
+        if (lastID == id && !force) {
             return
         }
         lastID = id

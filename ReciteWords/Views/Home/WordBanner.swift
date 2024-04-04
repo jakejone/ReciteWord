@@ -12,7 +12,6 @@ struct WordBanner :View {
     
     @EnvironmentObject var vm:ViewModel
     
-    let audioPlayer = AudioPlayer()
     
     var body: some View {
         content
@@ -51,9 +50,7 @@ struct WordBanner :View {
                                              height: proxy.size.height)
                                     .onFrameChange { frame in
                                         if (frame.origin.x == 30.0) {
-                                            audioPlayer.playWithFileURL(fileURL: URL(fileURLWithPath: word.voiceAddr!), id: word.id) {
-                                                audioPlayer.speak(text: word.content!, id: word.id)
-                                            }
+                                            vm.playWord(word: word)
                                         }
                                     }
                                     Spacer()
