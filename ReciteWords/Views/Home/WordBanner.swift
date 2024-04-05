@@ -37,7 +37,7 @@ struct WordBanner :View {
                 
             }.frame(width: proxy.size.width,
                     height: proxy.size.height)
-        }.background(Color(UIColor.secondarySystemBackground))
+        }.background(Color(UIColor.systemBackground))
     }
 }
 

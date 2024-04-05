@@ -10,12 +10,12 @@ import SwiftUI
 
 struct SentenceDisplayView : View {
     
-    @State var sentenceList:Array<Sentence>
-    
     @EnvironmentObject var vm:ViewModel
     
-    init(sentenses: Array<Sentence>) {
-        self.sentenceList = sentenses
+    @ObservedObject var word:Word
+    
+    init(word:Word) {
+        self.word = word
     }
     
     var body: some View {
@@ -24,23 +24,39 @@ struct SentenceDisplayView : View {
                 ScrollViewReader { value in
                     ScrollView(.vertical, showsIndicators: false) {
                         LazyVStack {
-                            ForEach(0..<self.sentenceList.count,  id: \.self) { index in
-                                let sentence:Sentence = self.sentenceList[index]
-                                HStack{
+                            ForEach(0..<self.word.wordSentenceList.count,  id: \.self) { index in
+                                VStack {
+                                    let wordSentence:WordSentence = self.word.wordSentenceList[index]
                                     Button(action: {
-                                        vm.playSentence(sentence: sentence)
+                                        vm.playWordSentence(wordSentence: wordSentence)
                                     }){
-                                        Text(sentence.content!).font(.title2).frame(maxWidth: .infinity, alignment:.leading).padding([.top],10)
+                                        if (wordSentence.wordDesc != nil) {
+                                            Text(wordSentence.wordDesc!).font(.title2).frame(maxWidth: .infinity, alignment:.center)
+                                        }
                                     }
-                                    Spacer()
-                                }
+                                    self.sentenceListView(wordSentence: wordSentence)
+                                }.padding([.top,.leading,.trailing],10).padding([.bottom],20).background(Color(UIColor.secondarySystemBackground)).cornerRadius(15)
                             }
                         }.scrollTargetLayout()
                     }.scrollTargetBehavior(.viewAligned).frame(width: geometry.size.width, height: geometry.size.height)
-                }.background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
+                }
             }
         }
-        .font(.title3)
-        .padding()
+    }
+    
+    func sentenceListView(wordSentence:WordSentence) -> AnyView {
+        return AnyView(
+            ForEach(0..<wordSentence.sentencelist.count,  id: \.self) { sentenceIndex in
+                let sentence:Sentence = wordSentence.sentencelist[sentenceIndex]
+                HStack{
+                    Button(action: {
+                        vm.playSentence(sentence: sentence)
+                    }){
+                        Text(sentence.content!).font(.title2).frame(maxWidth: .infinity, alignment:.leading).padding([.top],10)
+                    }
+                    Spacer()
+                }
+            }
+        )
     }
 }

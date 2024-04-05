@@ -122,4 +122,10 @@ class ViewModel: ObservableObject {
             self.audioPlayer.speak(text: sentence.content!)
         }
     }
+    
+    func playWordSentence(wordSentence:WordSentence) {
+        audioPlayer.playWithFileURL(fileURL: URL(fileURLWithPath: wordSentence.wordDescVoiceAddr!)) {
+            self.audioPlayer.speak(text: wordSentence.wordDesc!)
+        }
+    }
 }

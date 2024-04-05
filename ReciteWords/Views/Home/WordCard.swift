@@ -66,15 +66,10 @@ struct WordCard : View {
                     ScrollViewReader { value in
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack {
-                                ForEach(0..<self.word.wordSentenceList.count,  id: \.self) { index in
-                                    VStack {
-                                        SentenceDisplayView(sentenses: self.word.wordSentenceList[0].sentencelist ).frame(width:geometry.size.width).frame(maxHeight:.infinity).padding(10)
-                                        Spacer()
-                                    }.id(index)
-                                }
+                                SentenceDisplayView(word: self.word ).frame(width:geometry.size.width - 20).frame(maxHeight:.infinity).padding(10)
                             }.scrollTargetLayout()
                         }.scrollTargetBehavior(.viewAligned)
-                    }.background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
+                    }
                 }
             )
         }
