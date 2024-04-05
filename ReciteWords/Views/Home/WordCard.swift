@@ -21,13 +21,13 @@ struct WordCard : View {
     }
     
     var body: some View {
-        GeometryReader { proxy in
+        GeometryReader { geometry in
             VStack {
                 ZStack {
                     Button(action: {
                         vm.playWord(word: word, force: true)
                     }, label: {
-                        Text(self.word.content!).frame(width:proxy.size.width, alignment: .center).font(.largeTitle).padding([.top],60)
+                        Text(self.word.content!).frame(width:geometry.size.width, alignment: .center).font(.largeTitle).padding([.top],60)
                     })
                     
                     HStack {
@@ -39,16 +39,12 @@ struct WordCard : View {
                 }
                 
                 VStack {
-                    
                     wordSentence
                     
-                    Spacer()
                     bottomBtn
                     
                 }.padding([.bottom], 10)
             }
-            
-            
         }
     }
     
@@ -66,13 +62,13 @@ struct WordCard : View {
             )
         case .show:
             return AnyView(
-                GeometryReader { proxy in
+                GeometryReader { geometry in
                     ScrollViewReader { value in
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack {
                                 ForEach(0..<self.word.wordSentenceList.count,  id: \.self) { index in
                                     VStack {
-                                        SentenceDisplayView(sentenceList: self.word.wordSentenceList[0].sentencelist ).frame(width:proxy.size.width - 20,height: proxy.size.height - (self.btnWidth + 40) - 30 - 40 - 150 ).padding(10)
+                                        SentenceDisplayView(sentenses: self.word.wordSentenceList[0].sentencelist ).frame(width:geometry.size.width).frame(maxHeight:.infinity).padding(10)
                                         Spacer()
                                     }.id(index)
                                 }

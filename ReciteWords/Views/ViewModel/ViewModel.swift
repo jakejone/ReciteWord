@@ -62,6 +62,9 @@ class ViewModel: ObservableObject {
     
     private let audioPlayer = AudioPlayer()
     
+    // voice play control
+    var lastPlayWordID:UUID?
+    
     func reload() {
         if let wordsFromDB = wordService.getHomeWordList(pageIndex: 0) {
             wordList = wordsFromDB
@@ -103,8 +106,20 @@ class ViewModel: ObservableObject {
     }
     
     func playWord(word:Word, force:Bool) {
-        audioPlayer.playWithFileURL(fileURL: URL(fileURLWithPath: word.voiceAddr!), force: force, id: word.id) {
-            self.audioPlayer.speak(text: word.content!, id: word.id)
+        
+        if (lastPlayWordID == word.id && !force) {
+            return
+        }
+        lastPlayWordID = word.id
+        
+        audioPlayer.playWithFileURL(fileURL: URL(fileURLWithPath: word.voiceAddr!)) {
+            self.audioPlayer.speak(text: word.content!)
+        }
+    }
+    
+    func playSentence(sentence:Sentence) {
+        audioPlayer.playWithFileURL(fileURL: URL(fileURLWithPath: sentence.voiceAddr!)) {
+            self.audioPlayer.speak(text: sentence.content!)
         }
     }
 }

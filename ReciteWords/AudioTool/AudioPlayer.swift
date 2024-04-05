@@ -20,17 +20,13 @@ class AudioPlayer: NSObject {
     
     let synthesizer = AVSpeechSynthesizer()
     
-    var lastID:UUID?
-    
     var playCompleteHandler:()->Void = {}
     
     override init() {
         super.init()
     }
     
-    func speak(text: String, id:UUID) {
-        
-        lastID = id
+    func speak(text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US") // Set language as needed
         synthesizer.speak(utterance)
@@ -42,25 +38,13 @@ class AudioPlayer: NSObject {
         }
     }
     
-    func playWithFileURL(fileURL:URL, id:UUID) {
-        if (lastID == id) {
-            return
-        }
-        lastID = id
+    func playWithFileURL(fileURL:URL) {
         if setupAudioPlayer(with: fileURL) {
             play()
         }
     }
     
-    func playWithFileURL(fileURL:URL, id:UUID, completeHandler:@escaping ()-> Void) {
-        self.playWithFileURL(fileURL: fileURL, force: false, id: id, completeHandler: completeHandler)
-    }
-    
-    func playWithFileURL(fileURL:URL, force:Bool, id:UUID, completeHandler:@escaping ()-> Void) {
-        if (lastID == id && !force) {
-            return
-        }
-        lastID = id
+    func playWithFileURL(fileURL:URL, completeHandler:@escaping ()-> Void) {
         if setupAudioPlayer(with: fileURL) {
             play()
         }
@@ -68,7 +52,7 @@ class AudioPlayer: NSObject {
     }
     
     func audioPlayerDidFinishPlaying() {
-        
+        print("play did finished")
     }
     
     func play() {

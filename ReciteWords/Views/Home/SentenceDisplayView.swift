@@ -10,44 +10,35 @@ import SwiftUI
 
 struct SentenceDisplayView : View {
     
-    var btnWidth = 40.0
+    @State var sentenceList:Array<Sentence>
     
-    var sentenceList:Array<Sentence>
+    @EnvironmentObject var vm:ViewModel
     
-    var audioPlayer = AudioPlayer()
-    
-    @State var sentenceCount:Int = 0
-    
-    init(sentenceList: Array<Sentence>) {
-        self.sentenceList = sentenceList
-        _sentenceCount = State(initialValue: sentenceList.count)
+    init(sentenses: Array<Sentence>) {
+        self.sentenceList = sentenses
     }
     
     var body: some View {
         VStack (alignment:.leading) {
-            ScrollViewReader { value in
-                ScrollView(.vertical, showsIndicators: false) {
-                    LazyVStack {
-                        ForEach(0..<self.sentenceCount,  id: \.self) { index in
-                            let sentence:Sentence = self.sentenceList[index]
-                            HStack{
-                                Text(sentence.content!)
-                                Button(action: {
-                                    if sentence.voiceAddr != nil {
-                                        self.audioPlayer.playWithFileURL(URL(fileURLWithPath: sentence.voiceAddr!))
+            GeometryReader { geometry in
+                ScrollViewReader { value in
+                    ScrollView(.vertical, showsIndicators: false) {
+                        LazyVStack {
+                            ForEach(0..<self.sentenceList.count,  id: \.self) { index in
+                                let sentence:Sentence = self.sentenceList[index]
+                                HStack{
+                                    Button(action: {
+                                        vm.playSentence(sentence: sentence)
+                                    }){
+                                        Text(sentence.content!).font(.title2).frame(maxWidth: .infinity, alignment:.leading).padding([.top],10)
                                     }
-                                }){
-                                    Image("playbtn").resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: self.btnWidth,height: self.btnWidth)
-                                        .padding([.leading])
+                                    Spacer()
                                 }
-                                Spacer()
                             }
-                        }
-                    }.scrollTargetLayout()
-                }.scrollTargetBehavior(.viewAligned)
-            }.background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
+                        }.scrollTargetLayout()
+                    }.scrollTargetBehavior(.viewAligned).frame(width: geometry.size.width, height: geometry.size.height)
+                }.background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
+            }
         }
         .font(.title3)
         .padding()
