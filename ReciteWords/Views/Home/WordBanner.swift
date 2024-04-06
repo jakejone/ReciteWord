@@ -24,7 +24,7 @@ struct WordBanner :View {
                                 WordCard(word: word).frame(width: proxy.size.width,
                                          height: proxy.size.height)
                                 .onFrameChange { frame in
-                                    if (frame.origin.x == 30.0) {
+                                    if (frame.origin.x == 0) {
                                         vm.playWord(word: word)
                                     }
                                 }

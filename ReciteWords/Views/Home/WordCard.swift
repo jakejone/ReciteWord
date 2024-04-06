@@ -66,7 +66,9 @@ struct WordCard : View {
                     ScrollViewReader { value in
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack {
-                                SentenceDisplayView(word: self.word ).frame(width:geometry.size.width - 20).frame(maxHeight:.infinity).padding(10)
+                                SentenceDisplayView(word: self.word )
+                                    .frame(width:geometry.size.width - 20)
+                                    .frame(maxHeight:.infinity).padding(10)
                             }.scrollTargetLayout()
                         }.scrollTargetBehavior(.viewAligned)
                     }
