@@ -41,7 +41,7 @@ struct WordCard : View {
                 VStack {
                     wordSentence
                     
-                    bottomBtn
+                    self.getBottomView(word: word)
                     
                 }.padding([.bottom], 10)
             }
@@ -54,7 +54,7 @@ struct WordCard : View {
             return AnyView(
                 GeometryReader { proxy in
                     Button(action: {
-                        self.vm.markInMemory(memory: .RingABell)
+                        self.vm.markInMemory(word:self.word, memory: .RingABell)
                     }, label: {
                         Text("").frame(width:proxy.size.width,height: proxy.size.height)
                     })
@@ -77,13 +77,13 @@ struct WordCard : View {
         }
     }
     
-    private var bottomBtn : some View {
+    func getBottomView(word:Word) -> AnyView {
         switch vm.memoryBtnState {
         case .origin:
             return AnyView(
                 HStack {
                     Button(action: {
-                        self.vm.markInMemory(memory: .NoIdea)
+                        self.vm.markInMemory(word:self.word, memory: .NoIdea)
                     }, label: {
                         Text("no idea").frame(maxWidth: .infinity).contentShape(Rectangle())
                     }).frame(maxWidth: .infinity).frame(height:40)
@@ -93,7 +93,7 @@ struct WordCard : View {
                         .padding([.leading],10)
                     
                     Button(action: {
-                        self.vm.markInMemory(memory: .RingABell)
+                        self.vm.markInMemory(word:self.word, memory: .RingABell)
                     }, label: {
                         Text("ring a bell").frame(maxWidth: .infinity).contentShape(Rectangle())
                     }).frame(maxWidth: .infinity).frame(height:40)
@@ -102,7 +102,7 @@ struct WordCard : View {
                         .cornerRadius(10)
                     
                     Button(action: {
-                        self.vm.markInMemory(memory: .Gotcha)
+                        self.vm.markInMemory(word:self.word, memory: .Gotcha)
                     }, label: {
                         Text("gotcha").frame(maxWidth: .infinity).contentShape(Rectangle())
                     }).frame(maxWidth: .infinity).frame(height:40)

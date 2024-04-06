@@ -30,6 +30,8 @@
 		230B2ADD2BB278FE00989D3D /* SentenceRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACB2BB278FE00989D3D /* SentenceRecordView.swift */; };
 		230B2ADE2BB278FE00989D3D /* AddNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACC2BB278FE00989D3D /* AddNewView.swift */; };
 		230B2B2D2BBA9E1600989D3D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B2C2BBA9E1600989D3D /* ViewModel.swift */; };
+		230B2B332BC11E8500989D3D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B322BC11E8500989D3D /* SettingView.swift */; };
+		230B2B352BC122DF00989D3D /* WordTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B342BC122DF00989D3D /* WordTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		230B2ACB2BB278FE00989D3D /* SentenceRecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentenceRecordView.swift; sourceTree = "<group>"; };
 		230B2ACC2BB278FE00989D3D /* AddNewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewView.swift; sourceTree = "<group>"; };
 		230B2B2C2BBA9E1600989D3D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		230B2B322BC11E8500989D3D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		230B2B342BC122DF00989D3D /* WordTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 		230B2ABA2BB278F400989D3D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				230B2B312BC11E5B00989D3D /* Setting */,
 				230B2B2B2BBA9E0500989D3D /* ViewModel */,
 				230B2AE32BB28ED300989D3D /* Model */,
 				230B2AE22BB28EB600989D3D /* Home */,
@@ -228,6 +233,15 @@
 				230B2B2C2BBA9E1600989D3D /* ViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		230B2B312BC11E5B00989D3D /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				230B2B322BC11E8500989D3D /* SettingView.swift */,
+				230B2B342BC122DF00989D3D /* WordTable.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,9 +384,11 @@
 				230B2AD32BB278FE00989D3D /* AudioTextView.swift in Sources */,
 				230B2AD52BB278FE00989D3D /* WordDataManager.swift in Sources */,
 				230B2AD92BB278FE00989D3D /* WordService.swift in Sources */,
+				230B2B352BC122DF00989D3D /* WordTable.swift in Sources */,
 				230B2ADC2BB278FE00989D3D /* WordSentence.swift in Sources */,
 				230B2A902BB272E600989D3D /* ContentView.swift in Sources */,
 				230B2ADD2BB278FE00989D3D /* SentenceRecordView.swift in Sources */,
+				230B2B332BC11E8500989D3D /* SettingView.swift in Sources */,
 				230B2AD62BB278FE00989D3D /* AudioRecorder.swift in Sources */,
 				230B2ADB2BB278FE00989D3D /* AudioPlayer.swift in Sources */,
 				230B2B2D2BBA9E1600989D3D /* ViewModel.swift in Sources */,

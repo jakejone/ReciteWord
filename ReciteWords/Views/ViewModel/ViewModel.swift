@@ -72,16 +72,17 @@ class ViewModel: ObservableObject {
         state = .loaded
     }
     
-    func markInMemory(memory:WordMemory) {
+    func markInMemory(word:Word ,memory:WordMemory) {
+        word.markWordMemory(memory: memory)
+        wordService.updateWord(word: word)
+        
         switch memory {
         case .Gotcha:
             self.nextWord()
         case .RingABell:
-            // TODO : sentence state
             self.memoryBtnState = .gotoNext
             self.sentenceState = .show
         case .NoIdea:
-            // TODO : sentence state
             self.memoryBtnState = .gotoNext
             self.sentenceState = .show
         }

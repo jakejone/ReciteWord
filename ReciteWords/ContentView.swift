@@ -23,6 +23,10 @@ struct ContentView: View {
                             NavigationLink(destination: AddNewView()) {
                                 Image("plus").resizable()
                             }.frame(width:40,height: 40).padding([.trailing], 10)
+                            
+                            NavigationLink(destination: SettingView()) {
+                                Image("settings_w").resizable()
+                            }.frame(width:40,height: 40).padding([.trailing], 10)
                         }
                     }
                 }.environmentObject(vm)

@@ -66,7 +66,7 @@ class Word :Identifiable,ObservableObject{
         return voiceList
     }
     
-    func rememberWord(memory:WordMemory) {
+    func markWordMemory(memory:WordMemory) {
         switch memory {
         case .Gotcha:
             self.score += 6
