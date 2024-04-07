@@ -14,8 +14,6 @@ struct WordCard : View {
     
     @ObservedObject var word:Word
     
-    var btnWidth = 40.0
-    
     init(word: Word) {
         self.word = word
     }

@@ -32,6 +32,7 @@
 		230B2B2D2BBA9E1600989D3D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B2C2BBA9E1600989D3D /* ViewModel.swift */; };
 		230B2B332BC11E8500989D3D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B322BC11E8500989D3D /* SettingView.swift */; };
 		230B2B352BC122DF00989D3D /* WordTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B342BC122DF00989D3D /* WordTable.swift */; };
+		230B2B382BC2364C00989D3D /* UIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B372BC2364C00989D3D /* UIConstant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		230B2B2C2BBA9E1600989D3D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		230B2B322BC11E8500989D3D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		230B2B342BC122DF00989D3D /* WordTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTable.swift; sourceTree = "<group>"; };
+		230B2B372BC2364C00989D3D /* UIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +171,8 @@
 		230B2ABA2BB278F400989D3D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				230B2B312BC11E5B00989D3D /* Setting */,
+				230B2B392BC2365700989D3D /* Constant */,
+				230B2B312BC11E5B00989D3D /* SettingPage */,
 				230B2B2B2BBA9E0500989D3D /* ViewModel */,
 				230B2AE32BB28ED300989D3D /* Model */,
 				230B2AE22BB28EB600989D3D /* HomePage */,
@@ -235,13 +238,21 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		230B2B312BC11E5B00989D3D /* Setting */ = {
+		230B2B312BC11E5B00989D3D /* SettingPage */ = {
 			isa = PBXGroup;
 			children = (
 				230B2B322BC11E8500989D3D /* SettingView.swift */,
 				230B2B342BC122DF00989D3D /* WordTable.swift */,
 			);
-			path = Setting;
+			path = SettingPage;
+			sourceTree = "<group>";
+		};
+		230B2B392BC2365700989D3D /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				230B2B372BC2364C00989D3D /* UIConstant.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,6 +394,7 @@
 				230B2AD02BB278FE00989D3D /* Word.swift in Sources */,
 				230B2AD32BB278FE00989D3D /* AudioTextView.swift in Sources */,
 				230B2AD52BB278FE00989D3D /* WordDataManager.swift in Sources */,
+				230B2B382BC2364C00989D3D /* UIConstant.swift in Sources */,
 				230B2AD92BB278FE00989D3D /* WordService.swift in Sources */,
 				230B2B352BC122DF00989D3D /* WordTable.swift in Sources */,
 				230B2ADC2BB278FE00989D3D /* WordSentence.swift in Sources */,

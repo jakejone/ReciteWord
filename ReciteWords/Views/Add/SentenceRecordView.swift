@@ -9,24 +9,15 @@ import SwiftUI
 
 struct SentenceRecordView : View {
     
-    var btnWidth = 40.0
+    var wordService:WordService = WordService()
     
-    var wsHandler:(_ wordSentenceArray:Array<WordSentence>)->Void
-    
-    var wordService:WordService
-    
-    @State var word:Word
-    
-    @State var sentenceCount:Int
+    @ObservedObject var word:Word
     
     let wordSentence:WordSentence
     
-    init(word:Word, wordService:WordService, cardIndex:Int, wordSentenceHandler:@escaping (_ wordSentenceArray:Array<WordSentence>)->()) {
-        self.wsHandler = wordSentenceHandler
-        _word = State(initialValue: word)
-        self.wordService = wordService
+    init(word:Word, cardIndex:Int) {
+        self.word = word
         self.wordSentence  = word.wordSentenceList[cardIndex]
-        _sentenceCount = State(initialValue:self.wordSentence.sentencelist.count)
     }
     
     var body: some View {
@@ -43,16 +34,15 @@ struct SentenceRecordView : View {
                 Button (action: {
                     let sentence = Sentence(wsid: wordSentence.wsid)
                     self.wordSentence.sentencelist.append(sentence)
-                    sentenceCount = self.wordSentence.sentencelist.count
                 }){
                     Image("plus").resizable()
                         .aspectRatio(contentMode: .fit)
                     Text("add new sentense")
-                }.frame(width:260,height                                                                                                                                                                                                                             : btnWidth,alignment: .leading).padding([.leading,.bottom],10)
+                }.frame(width:260,height                                                                                                                                                                                                                             : UIConstant.btnWidth,alignment: .leading).padding([.leading,.bottom],10)
                 
                 ScrollViewReader { value in
                     ScrollView {
-                        ForEach((0..<sentenceCount), id: \.self) { sIndex in
+                        ForEach((0..<self.wordSentence.sentencelist.count), id: \.self) { sIndex in
                             let sentence = wordSentence.sentencelist[sIndex]
                             AudioTextView(title: "record new sentence",content: sentence.content) { transContent, voiceAddr in
                                 sentence.content = transContent

@@ -10,8 +10,6 @@ import AVFoundation
 
 struct AudioTextView : View {
     
-    var btnWidth = 40.0
-    
     var title = "record to generate content"
     
     var audioRecorder = AudioRecorder()
@@ -88,10 +86,10 @@ struct AudioTextView : View {
                                     .aspectRatio(contentMode: .fit)
                             }
                             
-                        }.frame(width: self.btnWidth,height: self.btnWidth, alignment: .leading)
+                        }.frame(width: UIConstant.btnWidth,height: UIConstant.btnWidth, alignment: .leading)
                         
                         if voicePlayHidden == false {
-                            VoiceView().frame(width: self.btnWidth, height: 15)
+                            VoiceView().frame(width: UIConstant.btnWidth, height: 15)
                         } else {
                             Spacer().frame(height:15)
                         }
@@ -100,7 +98,7 @@ struct AudioTextView : View {
                     VStack(alignment:.leading) {
                         // contentLabel
                         TextField(self.title, text: $recogniContent, axis: .vertical)
-                            .textFieldStyle(.roundedBorder).frame(width: abs(proxy.size.width - self.btnWidth * 2 - 30.0), alignment: .leading).disabled(isRecording ? true:false)
+                            .textFieldStyle(.roundedBorder).frame(width: abs(proxy.size.width - UIConstant.btnWidth * 2 - 30.0), alignment: .leading).disabled(isRecording ? true:false)
                     }
                     
                     // play
@@ -113,7 +111,7 @@ struct AudioTextView : View {
                         }) {
                             Image("playbtn").resizable()
                                 .aspectRatio(contentMode: .fit)
-                        }.frame(width: self.btnWidth,height: self.btnWidth).padding([.leading], 5).disabled(isRecording ?  true:false)
+                        }.frame(width: UIConstant.btnWidth,height: UIConstant.btnWidth).padding([.leading], 5).disabled(isRecording ?  true:false)
                     }
                 }
             }
