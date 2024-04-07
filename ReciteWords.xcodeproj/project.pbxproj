@@ -172,7 +172,7 @@
 				230B2B312BC11E5B00989D3D /* Setting */,
 				230B2B2B2BBA9E0500989D3D /* ViewModel */,
 				230B2AE32BB28ED300989D3D /* Model */,
-				230B2AE22BB28EB600989D3D /* Home */,
+				230B2AE22BB28EB600989D3D /* HomePage */,
 				230B2AE12BB28E9300989D3D /* Add */,
 			);
 			path = Views;
@@ -208,14 +208,14 @@
 			path = Add;
 			sourceTree = "<group>";
 		};
-		230B2AE22BB28EB600989D3D /* Home */ = {
+		230B2AE22BB28EB600989D3D /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
 				230B2AC22BB278FE00989D3D /* SentenceDisplayView.swift */,
 				230B2AC52BB278FE00989D3D /* WordCard.swift */,
 				230B2AC02BB278FE00989D3D /* WordBanner.swift */,
 			);
-			path = Home;
+			path = HomePage;
 			sourceTree = "<group>";
 		};
 		230B2AE32BB28ED300989D3D /* Model */ = {

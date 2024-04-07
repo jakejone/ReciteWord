@@ -167,11 +167,9 @@ class WordDataManager {
     }
     
     // MARK: - helper
-    
     func getDBPath() -> String {
         let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         let destinationDir = documents + "/wordData/"
-        // print("!. db path is : \(destinationDir)")
         let fileManager = FileManager.default
         if !fileManager.fileExists(atPath: destinationDir) {
             do {

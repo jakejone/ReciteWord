@@ -13,16 +13,15 @@ struct WordBanner :View {
     @EnvironmentObject var vm:ViewModel
     
     var body: some View {
-        GeometryReader { proxy in
-            // scroll view
+        GeometryReader { geometry in
             ScrollViewReader { value in
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack {
                         ForEach(0..<self.vm.wordList.count,  id: \.self) { index in
                             let word = self.vm.wordList[index]
                             VStack {
-                                WordCard(word: word).frame(width: proxy.size.width,
-                                         height: proxy.size.height)
+                                WordCard(word: word).frame(width: geometry.size.width,
+                                                           height: geometry.size.height)
                                 .onFrameChange { frame in
                                     if (frame.origin.x == 0) {
                                         vm.playWord(word: word)
@@ -32,11 +31,8 @@ struct WordBanner :View {
                             }.id(index)
                         }
                     }.scrollTargetLayout()
-                    
                 }.scrollDisabled(true).scrollTargetBehavior(.viewAligned).scrollPosition(id: $vm.scrollID)
-                
-            }.frame(width: proxy.size.width,
-                    height: proxy.size.height)
+            }
         }.background(Color(UIColor.systemBackground))
     }
 }

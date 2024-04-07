@@ -72,6 +72,11 @@ class ViewModel: ObservableObject {
         state = .loaded
     }
     
+    // load more ,how to append data to the list ,after changing the score,
+    func loadMore() {
+        
+    }
+    
     func markInMemory(word:Word ,memory:WordMemory) {
         word.markWordMemory(memory: memory)
         wordService.updateWord(word: word)

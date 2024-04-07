@@ -16,23 +16,30 @@ struct ContentView: View {
         VStack {
             NavigationStack {
                 GeometryReader { geometry in
+                    
                     WordBanner().frame(width: geometry.size.width,height: geometry.size.height)
-                    ZStack {
-                        HStack {
-                            Spacer()
-                            NavigationLink(destination: AddNewView()) {
-                                Image("plus").resizable()
-                            }.frame(width:40,height: 40).padding([.trailing], 10)
-                            
-                            NavigationLink(destination: SettingView()) {
-                                Image("settings_w").resizable()
-                            }.frame(width:40,height: 40).padding([.trailing], 10)
-                        }
-                    }
-                }.environmentObject(vm)
-                    .onAppear() {
+                    
+                    operationBtns
+                    
+                }.onAppear() {
                     self.vm.reload()
-                }
+                }.environmentObject(vm)
+            }
+        }
+    }
+    
+    private var operationBtns : some View {
+        return ZStack {
+            HStack {
+                Spacer()
+                
+                NavigationLink(destination: AddNewView()) {
+                    Image("plus").resizable()
+                }.frame(width:40,height: 40).padding([.trailing], 10)
+                
+                NavigationLink(destination: SettingView()) {
+                    Image("settings_w").resizable()
+                }.frame(width:40,height: 40).padding([.trailing], 10)
             }
         }
     }
