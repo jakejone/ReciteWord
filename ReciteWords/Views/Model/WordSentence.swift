@@ -34,7 +34,7 @@ class WordSentence {
     }
 }
 
-class Sentence {
+class Sentence :Identifiable {
     
     public var sid:UUID
     
@@ -56,4 +56,5 @@ class Sentence {
         self.voiceAddr = voiceAddr
     }
     
+    var id : String {sid.uuidString}
 }

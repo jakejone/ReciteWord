@@ -15,9 +15,12 @@ struct SentenceRecordView : View {
     
     let wordSentence:WordSentence
     
+    @State var sentencelist:Array<Sentence>
+    
     init(word:Word, cardIndex:Int) {
         self.word = word
         self.wordSentence  = word.wordSentenceList[cardIndex]
+        sentencelist = self.wordSentence.sentencelist
     }
     
     var body: some View {
@@ -33,7 +36,7 @@ struct SentenceRecordView : View {
                 
                 Button (action: {
                     let sentence = Sentence(wsid: wordSentence.wsid)
-                    self.wordSentence.sentencelist.append(sentence)
+                    self.sentencelist.append(sentence)
                 }){
                     Image("plus").resizable()
                         .aspectRatio(contentMode: .fit)
@@ -42,8 +45,7 @@ struct SentenceRecordView : View {
                 
                 ScrollViewReader { value in
                     ScrollView {
-                        ForEach((0..<self.wordSentence.sentencelist.count), id: \.self) { sIndex in
-                            let sentence = wordSentence.sentencelist[sIndex]
+                        ForEach(self.sentencelist) { sentence in
                             AudioTextView(title: "record new sentence",content: sentence.content) { transContent, voiceAddr in
                                 sentence.content = transContent
                                 sentence.voiceAddr = voiceAddr

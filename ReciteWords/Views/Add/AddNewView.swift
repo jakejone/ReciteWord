@@ -9,9 +9,7 @@ import SwiftUI
 import AVKit
 
 struct AddNewView : View {
-    
-    var wordService = WordService()
-    
+
     @ObservedObject var newWord:Word
     
     @Environment(\.presentationMode) var presentationMode
@@ -19,6 +17,8 @@ struct AddNewView : View {
     var isUpdate = false
     
     var title:String
+    
+    var wordService = WordService()
     
     init() {
         self.newWord = Word()
@@ -36,7 +36,6 @@ struct AddNewView : View {
             VStack {
                 ScrollView {
                     VStack {
-                        
                         AudioTextView(title: "new word", content: self.newWord.content) { transContent, voiceAddr in
                             self.newWord.content = transContent
                             self.newWord.voiceAddr = voiceAddr
