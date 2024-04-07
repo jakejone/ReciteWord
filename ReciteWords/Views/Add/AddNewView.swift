@@ -105,7 +105,7 @@ struct AddNewView : View {
                         .background(.blue)
                         .cornerRadius(10)
                         .padding([.leading,.trailing],10)
-                }
+                }.padding([.bottom], 10)
             }
         }.onAppear(){
             if (self.newWord == nil) {
