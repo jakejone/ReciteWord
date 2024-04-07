@@ -18,13 +18,17 @@ struct AddNewView : View {
     
     var isUpdate = false
     
+    var title:String
+    
     init() {
         self.newWord = Word()
+        title = "Add New"
     }
     
     init(word:Word) {
         self.newWord = word
         isUpdate = true
+        title = "update word"
     }
     
     var body: some View {
@@ -32,7 +36,7 @@ struct AddNewView : View {
             VStack {
                 ScrollView {
                     VStack {
-                        Text("新增").font(.title)
+                        
                         AudioTextView(title: "new word", content: self.newWord.content) { transContent, voiceAddr in
                             self.newWord.content = transContent
                             self.newWord.voiceAddr = voiceAddr
@@ -92,6 +96,6 @@ struct AddNewView : View {
             if (!isUpdate) {
                 
             }
-        }
+        }.navigationTitle(title)
     }
 }
