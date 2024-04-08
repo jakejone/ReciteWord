@@ -13,7 +13,7 @@ struct WordTable : View {
     @State var wordList:Array<Word>
     var wordService = WordService()
     init() {
-        let words = wordService.getHomeWordList(pageIndex: 0)
+        let words = wordService.getHomeWordList()
         _wordList = State(initialValue: words!)
     }
     
