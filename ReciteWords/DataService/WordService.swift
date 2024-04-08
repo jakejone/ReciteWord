@@ -18,7 +18,7 @@ class WordService : NSObject {
         super.init()
     }
     
-    func getHomeWordList(pageIndex:Int) ->Array<Word>? {
+    func getHomeWordList() ->Array<Word>? {
         var wordList:Array<Word>?
         do {
              wordList = try self.dataManager.fetchWordList()

@@ -53,7 +53,7 @@ class WordDataManager {
     func fetchWordList() throws ->Array<Word> {
         var wordList = Array<Word>()
         do {
-            for word in try db.prepare(t_wordTable.order(tw_score.asc,tw_date.desc).limit(20, offset: 0)) {
+            for word in try db.prepare(t_wordTable.order(tw_score.asc,tw_date.desc)) {
                 let voiceLastComponent = word[tw_voiceAddr]
                 let voiceAddr = self.generateVoiceAddr(lastComponent: voiceLastComponent)
                 let wordObj = Word(id: UUID(uuidString:word[tw_uuid])!,

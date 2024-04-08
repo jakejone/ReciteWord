@@ -12,15 +12,7 @@ import Foundation
  */
 
 class ViewModel: ObservableObject {
-    /**
-     WordBanner state：
-     1. loading, very quick
-     2. displaying
-     3. GotCha to next
-     4. ring a bell to show centence and show next btn
-     5. no idea to show centence and show next btn
-     6.
-     */
+    
     enum State {
         case idle
         case loaded
@@ -58,6 +50,8 @@ class ViewModel: ObservableObject {
     
     @Published var scrollID: Int?
     
+    var pageIndex = 0
+    
     var wordService = WordService()
     
     private let audioPlayer = AudioPlayer()
@@ -66,15 +60,10 @@ class ViewModel: ObservableObject {
     var lastPlayWordID:UUID?
     
     func reload() {
-        if let wordsFromDB = wordService.getHomeWordList(pageIndex: 0) {
+        if let wordsFromDB = wordService.getHomeWordList() {
             wordList = wordsFromDB
         }
         state = .loaded
-    }
-    
-    // load more ,how to append data to the list ,after changing the score,
-    func loadMore() {
-        
     }
     
     func markInMemory(word:Word ,memory:WordMemory) {

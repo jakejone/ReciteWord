@@ -71,7 +71,7 @@ struct AudioTextView : View {
                                             }
                                         }
                                     } else {
-                                        // TODO:jake alert to turn on the permission
+                                        
                                     }
                                 }
                                 
