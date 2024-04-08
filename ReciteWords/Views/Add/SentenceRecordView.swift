@@ -38,8 +38,9 @@ struct SentenceRecordView : View {
                     let sentence = Sentence(wsid: wordSentence.wsid)
                     self.sentencelist.append(sentence)
                 }){
-                    Image("plus").resizable()
-                        .aspectRatio(contentMode: .fit)
+                    
+                    AdaptiveImage(light: Image("plus_l").resizable(),
+                                  dark: Image("plus_d").resizable()).frame(width:40,height: 40)
                     Text("add new sentense")
                 }.frame(width:260,height                                                                                                                                                                                                                             : UIConstant.btnWidth,alignment: .leading).padding([.leading,.bottom],10)
                 

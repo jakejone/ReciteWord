@@ -79,11 +79,11 @@ struct AudioTextView : View {
                             isRecording.toggle()
                         }) {
                             if isRecording {
-                                Image("jj_rcs").resizable()
-                                    .aspectRatio(contentMode: .fit)
+                                AdaptiveImage(light: Image("pause_l").resizable(),
+                                              dark: Image("pause_d").resizable()).frame(width:40,height: 40)
                             } else {
-                                Image("jj_rc").resizable()
-                                    .aspectRatio(contentMode: .fit)
+                                AdaptiveImage(light: Image("record_l").resizable(),
+                                              dark: Image("record_d").resizable()).frame(width:40,height: 40)
                             }
                             
                         }.frame(width: UIConstant.btnWidth,height: UIConstant.btnWidth, alignment: .leading)
@@ -109,8 +109,8 @@ struct AudioTextView : View {
                                 self.audioPlayer.playWithFileURL(self.currentUrl!)
                             }
                         }) {
-                            Image("playbtn").resizable()
-                                .aspectRatio(contentMode: .fit)
+                            AdaptiveImage(light: Image("play_l").resizable(),
+                                          dark: Image("play_d").resizable()).frame(width:40,height: 40)
                         }.frame(width: UIConstant.btnWidth,height: UIConstant.btnWidth).padding([.leading], 5).disabled(isRecording ?  true:false)
                     }
                 }

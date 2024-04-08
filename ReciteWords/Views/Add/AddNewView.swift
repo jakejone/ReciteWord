@@ -64,8 +64,8 @@ struct AddNewView : View {
                             let newWordSentence = WordSentence(wordid: self.newWord.id)
                             self.newWord.wordSentenceList.append(newWordSentence)
                         }){
-                            Image("plus").resizable()
-                                .aspectRatio(contentMode: .fit)
+                            AdaptiveImage(light: Image("plus_l").resizable(),
+                                          dark: Image("plus_d").resizable()).frame(width:40,height: 40)
                             Text("add word card")
                         }.frame(width:260,height: UIConstant.btnWidth,alignment: .leading).padding(10).background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
                         Spacer()

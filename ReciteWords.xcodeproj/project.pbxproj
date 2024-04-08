@@ -33,6 +33,7 @@
 		230B2B332BC11E8500989D3D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B322BC11E8500989D3D /* SettingView.swift */; };
 		230B2B352BC122DF00989D3D /* WordTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B342BC122DF00989D3D /* WordTable.swift */; };
 		230B2B382BC2364C00989D3D /* UIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B372BC2364C00989D3D /* UIConstant.swift */; };
+		236EFBAD2BC2E454000C0496 /* AdaptiveImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236EFBAC2BC2E454000C0496 /* AdaptiveImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		230B2B322BC11E8500989D3D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		230B2B342BC122DF00989D3D /* WordTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTable.swift; sourceTree = "<group>"; };
 		230B2B372BC2364C00989D3D /* UIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstant.swift; sourceTree = "<group>"; };
+		236EFBAC2BC2E454000C0496 /* AdaptiveImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 		230B2ABA2BB278F400989D3D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				236EFBAB2BC2E420000C0496 /* BaseUI */,
 				230B2B392BC2365700989D3D /* Constant */,
 				230B2B312BC11E5B00989D3D /* SettingPage */,
 				230B2B2B2BBA9E0500989D3D /* ViewModel */,
@@ -253,6 +256,14 @@
 				230B2B372BC2364C00989D3D /* UIConstant.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		236EFBAB2BC2E420000C0496 /* BaseUI */ = {
+			isa = PBXGroup;
+			children = (
+				236EFBAC2BC2E454000C0496 /* AdaptiveImage.swift */,
+			);
+			path = BaseUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,6 +416,7 @@
 				230B2ADB2BB278FE00989D3D /* AudioPlayer.swift in Sources */,
 				230B2B2D2BBA9E1600989D3D /* ViewModel.swift in Sources */,
 				230B2AD22BB278FE00989D3D /* WordBanner.swift in Sources */,
+				236EFBAD2BC2E454000C0496 /* AdaptiveImage.swift in Sources */,
 				230B2A8E2BB272E600989D3D /* ReciteWordsApp.swift in Sources */,
 				230B2ADE2BB278FE00989D3D /* AddNewView.swift in Sources */,
 				230B2AD12BB278FE00989D3D /* VoiceWave.swift in Sources */,
