@@ -16,7 +16,12 @@ Voice drive data
 <img width="790" alt="Screenshot 2024-04-09 at 08 43 26" src="https://github.com/jakejone/ReciteWords/assets/3777462/8f509472-c6e6-4880-aabb-78225fb2697f">
 
 ### iPhone adaptor
-![Simulator Screenshot - iPhone 15 Pro - 2024-04-09 at 09 12 57](https://github.com/jakejone/ReciteWords/assets/3777462/98760ab7-2d04-4e82-a02f-bacbf5d9ce13)
+
+
+
+![Simulator](https://github.com/jakejone/ReciteWords/assets/3777462/867a96d4-8196-4812-82bc-cf78d2acecc9)
+
+
 
 
 
