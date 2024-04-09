@@ -27,14 +27,21 @@ struct SentenceDisplayView : View {
                             ForEach(0..<self.word.wordSentenceList.count,  id: \.self) { index in
                                 VStack {
                                     let wordSentence:WordSentence = self.word.wordSentenceList[index]
-                                    Button(action: {
-                                        vm.playWordSentence(wordSentence: wordSentence)
-                                    }){
-                                        if (wordSentence.wordDesc != nil) {
-                                            Text(wordSentence.wordDesc!).font(.title2).frame(maxWidth: .infinity, alignment:.center)
+                                    HStack (alignment: .top) {
+                                        Text("Meanning:")
+                                        Button(action: {
+                                            vm.playWordSentence(wordSentence: wordSentence)
+                                        }){
+                                            if (wordSentence.wordDesc != nil) {
+                                                Text(wordSentence.wordDesc!).frame(maxWidth: .infinity, alignment:.leading)
+                                            }
                                         }
                                     }
-                                    self.sentenceListView(wordSentence: wordSentence)
+                                    VStack (alignment:.leading) {
+                                        Text("Sentences:")
+                                        self.sentenceListView(wordSentence: wordSentence)
+                                    }
+                                    
                                 }.padding([.top,.leading,.trailing],10).padding([.bottom],20).background(Color(UIColor.secondarySystemBackground)).cornerRadius(15)
                             }
                         }.scrollTargetLayout()
@@ -52,7 +59,7 @@ struct SentenceDisplayView : View {
                     Button(action: {
                         vm.playSentence(sentence: sentence)
                     }){
-                        Text(sentence.content!).font(.title2).frame(maxWidth: .infinity, alignment:.leading).padding([.top],10)
+                        Text(sentence.content!).frame(maxWidth: .infinity, alignment:.leading)
                     }
                     Spacer()
                 }

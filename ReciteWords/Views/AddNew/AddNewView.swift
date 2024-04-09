@@ -91,10 +91,6 @@ struct AddNewView : View {
                         .padding([.leading,.trailing],10)
                 }.padding([.bottom], 10)
             }
-        }.onAppear(){
-            if (!isUpdate) {
-                
-            }
         }.navigationTitle(title)
     }
 }
