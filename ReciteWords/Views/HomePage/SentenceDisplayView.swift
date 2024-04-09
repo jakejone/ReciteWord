@@ -36,11 +36,12 @@ struct SentenceDisplayView : View {
                                                 Text(wordSentence.wordDesc!).frame(maxWidth: .infinity, alignment:.leading)
                                             }
                                         }
-                                    }
+                                    }.padding([.top], 3)
+                                    
                                     VStack (alignment:.leading) {
                                         Text("Sentences:")
                                         self.sentenceListView(wordSentence: wordSentence)
-                                    }
+                                    }.padding([.top], 5)
                                     
                                 }.padding([.top,.leading,.trailing],10).padding([.bottom],20).background(Color(UIColor.secondarySystemBackground)).cornerRadius(15)
                             }
@@ -61,8 +62,7 @@ struct SentenceDisplayView : View {
                     }){
                         Text(sentence.content!).frame(maxWidth: .infinity, alignment:.leading)
                     }
-                    Spacer()
-                }
+                }.padding([.top],5)
             }
         )
     }
