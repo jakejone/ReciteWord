@@ -56,7 +56,7 @@ struct SentenceRecordView : View {
                         Spacer()
                     }
                 }
-            }.background(Color(UIColor.lightGray)).cornerRadius(15.0)
+            }.background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
         }
     }
 }
