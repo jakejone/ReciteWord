@@ -33,14 +33,14 @@ struct AddNewView : View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack {
+            VStack (alignment: .leading) {
                 ScrollView {
                     VStack {
                         AudioTextView(title: "new word", content: self.newWord.content) { transContent, voiceAddr in
                             self.newWord.content = transContent
                             self.newWord.voiceAddr = voiceAddr
                             wordService.markAudio(voiceAddr)
-                        }.padding(10).frame(width: abs(geometry.size.width - 20), height: UIConstant.btnWidth + 40.0).background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
+                        }.padding(10).frame(maxWidth: .infinity).frame(height: UIConstant.btnWidth * 2).background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
                         
                         ScrollViewReader { value in
                             ScrollView(.horizontal, showsIndicators: false) {
