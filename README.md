@@ -17,9 +17,7 @@ Voice drive data
 
 ### iPhone adaptor
 
-
-
-![Simulator](https://github.com/jakejone/ReciteWords/assets/3777462/867a96d4-8196-4812-82bc-cf78d2acecc9)
+<img width="390" alt="S" src="[https://github.com/jakejone/ReciteWords/assets/3777462/8f509472-c6e6-4880-aabb-78225fb2697f](https://github.com/jakejone/ReciteWords/assets/3777462/867a96d4-8196-4812-82bc-cf78d2acecc9)">
 
 
 
