@@ -17,11 +17,11 @@ struct SettingView : View {
                 }.padding([.trailing], 10)
                 
                 NavigationLink(destination: EmptyView()) {
-                    Text("export data to( TO DO ) ")
+                    Text("export data to(TODO: add web server ,support data download ) ")
                 }.padding([.trailing], 10)
                 
                 NavigationLink(destination: EmptyView()) {
-                    Text("import data from( TO DO ) ")
+                    Text("import data from(TODO: add web server, drag data to web page or post request ) ")
                 }.padding([.trailing], 10)
             }
         }
