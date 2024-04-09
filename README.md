@@ -15,6 +15,9 @@ Voice drive data
 <img width="789" alt="Screenshot 2024-04-09 at 08 43 46" src="https://github.com/jakejone/ReciteWords/assets/3777462/d3e3b46b-40f1-4634-812f-a8b96bb9da7a">
 <img width="790" alt="Screenshot 2024-04-09 at 08 43 26" src="https://github.com/jakejone/ReciteWords/assets/3777462/8f509472-c6e6-4880-aabb-78225fb2697f">
 
+### iPhone adaptor
+![Simulator Screenshot - iPhone 15 Pro - 2024-04-09 at 09 12 57](https://github.com/jakejone/ReciteWords/assets/3777462/98760ab7-2d04-4e82-a02f-bacbf5d9ce13)
+
 
 
 ## TODO
@@ -22,8 +25,6 @@ Voice drive data
 2. UI optimize
 3. data compress
 4. Test
-5. 
- 
    
 
 ## icon
