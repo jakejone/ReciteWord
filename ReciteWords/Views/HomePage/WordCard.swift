@@ -25,23 +25,21 @@ struct WordCard : View {
                     Button(action: {
                         vm.playWord(word: word, force: true)
                     }, label: {
-                        Text(self.word.content!).frame(width:geometry.size.width, alignment: .center).font(.largeTitle).padding([.top],60)
-                    })
+                        Text(self.word.content!).frame(width:geometry.size.width, alignment: .center).font(.largeTitle).padding([.top],60).contentShape(Rectangle())
+                    }).buttonStyle(PlainButtonStyle())
                     
                     HStack {
                         Spacer()
                         NavigationLink(destination: AddNewView(word: self.word)) {
                             Image("editing").resizable()
-                        }.frame(width:40,height: 40).padding([.top],60).padding([.trailing],10)
+                        }.frame(width:40,height: 40).padding([.top],50).padding([.trailing],20).buttonStyle(PlainButtonStyle())
                     }
                 }
                 
                 VStack {
                     wordSentence
-                    
                     self.getBottomView(word: word)
-                    
-                }.padding([.bottom], 10)
+                }
             }
         }
     }
@@ -54,8 +52,8 @@ struct WordCard : View {
                     Button(action: {
                         self.vm.markInMemory(word:self.word, memory: .RingABell)
                     }, label: {
-                        Text("").frame(width:proxy.size.width,height: proxy.size.height)
-                    })
+                        Text("").frame(width:proxy.size.width,height: proxy.size.height).contentShape(Rectangle())
+                    }).buttonStyle(PlainButtonStyle())
                 }
             )
         case .show:
@@ -64,7 +62,7 @@ struct WordCard : View {
                     ScrollViewReader { value in
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack {
-                                SentenceDisplayView(word: self.word )
+                                SentenceDisplayView(word: self.word)
                                     .frame(width:geometry.size.width - 20)
                                     .frame(maxHeight:.infinity).padding(10)
                             }.scrollTargetLayout()
@@ -84,9 +82,10 @@ struct WordCard : View {
                         self.vm.markInMemory(word:self.word, memory: .NoIdea)
                     }, label: {
                         Text("no idea").frame(maxWidth: .infinity).contentShape(Rectangle())
-                    }).frame(maxWidth: .infinity).frame(height:40)
+                    }).buttonStyle(BlueButtonStyle())
+                        .frame(maxWidth: .infinity).frame(height:40)
                         .foregroundColor(.white)
-                        .background(.orange)
+                        .background(.blue)
                         .cornerRadius(10)
                         .padding([.leading],10)
                     
@@ -94,18 +93,20 @@ struct WordCard : View {
                         self.vm.markInMemory(word:self.word, memory: .RingABell)
                     }, label: {
                         Text("ring a bell").frame(maxWidth: .infinity).contentShape(Rectangle())
-                    }).frame(maxWidth: .infinity).frame(height:40)
+                    }).buttonStyle(BlueButtonStyle())
+                        .frame(maxWidth: .infinity).frame(height:40)
                         .foregroundColor(.white)
-                        .background(.orange)
+                        .background(.blue)
                         .cornerRadius(10)
                     
                     Button(action: {
                         self.vm.markInMemory(word:self.word, memory: .Gotcha)
                     }, label: {
                         Text("gotcha").frame(maxWidth: .infinity).contentShape(Rectangle())
-                    }).frame(maxWidth: .infinity).frame(height:40)
+                    }).buttonStyle(BlueButtonStyle())
+                        .frame(maxWidth: .infinity).frame(height:40)
                         .foregroundColor(.white)
-                        .background(.orange)
+                        .background(.blue)
                         .cornerRadius(10)
                         .padding([.trailing],10)
                 }
@@ -116,9 +117,10 @@ struct WordCard : View {
                     self.vm.nextWord()
                 }, label: {
                     Text("Next Word").frame(maxWidth: .infinity).contentShape(Rectangle())
-                }).frame(maxWidth: .infinity).frame(height:40)
+                }).buttonStyle(BlueButtonStyle())
+                    .frame(maxWidth: .infinity).frame(height:40)
                     .foregroundColor(.white)
-                    .background(.orange)
+                    .background(.blue)
                     .cornerRadius(10)
                     .padding([.leading],10)
                     .padding([.trailing],10)

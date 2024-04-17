@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 /*
  1. wordbanner card , wordSentence
@@ -46,7 +47,7 @@ class ViewModel: ObservableObject {
     
     @Published private(set) var memoryBtnState = MemoryBtnState.origin
     
-    @Published var wordList:Array<Word> = []
+    @Published var wordList:Array<Word> = loadData()
     
     @Published var scrollID: Int?
     
@@ -58,6 +59,18 @@ class ViewModel: ObservableObject {
     
     // voice play control
     var lastPlayWordID:UUID?
+    
+#if os(macOS)
+    var operationList:Array<OpeRow> {
+        get {
+            var list = Array<OpeRow>()
+            list.append(OpeRow(category: OpeRow.Category.Banner))
+            list.append(OpeRow(category: OpeRow.Category.AddNew))
+            list.append(OpeRow(category: OpeRow.Category.Setting))
+            return list
+        }
+    }
+#endif
     
     func reload() {
         if let wordsFromDB = wordService.getHomeWordList() {
@@ -123,4 +136,9 @@ class ViewModel: ObservableObject {
             self.audioPlayer.speak(text: wordSentence.wordDesc!)
         }
     }
+}
+
+func loadData() -> Array<Word> {
+    let wordService = WordService()
+    return wordService.getHomeWordList()!
 }

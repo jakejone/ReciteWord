@@ -4,47 +4,32 @@
 //
 //  Created by jake on 2024/3/18.
 //
+// It's a shit
 
 import SwiftUI
 import AVFoundation
 
 struct AudioTextView : View {
     
-    var title = "record to generate content"
+    @StateObject var vm = AudioTextViewModel()
     
-    var audioRecorder = AudioRecorder()
+    @State private var content = String()
+    @State private var voiceAddr = String()
     
-    var audioPlayer = AudioPlayer()
+    private let placeHolder:String
+    var completeHandler:(String, String) -> Void
     
-    var audioRecognizer = SpeechRecognitionManager()
-    
-    @State private var isRecording = false
-    
-    @State private var voicePlayHidden = true
-    
-    @State private var voiceRecordFinish = false
-    
-    @State private var recogniContent = String()
-    
-    @State var currentUrl:URL?
-    
-    var compleHandler:(String, String) -> Void
-    
-    init(title:String, contentHandler:@escaping (String,String)->()) {
-        if title.count > 0 {
-            self.title = title
-        }
-        self.compleHandler = contentHandler
+    init(placeHolder:String, contentHandler:@escaping (String,String)->()) {
+        self.placeHolder = placeHolder
+        self.completeHandler = contentHandler
     }
     
-    init(title:String, content:String?, contentHandler:@escaping (String,String)->()) {
-        if title.count > 0 {
-            self.title = title
+    init(placeHolder:String, content:String?, contentHandler:@escaping (String,String)->()) {
+        self.placeHolder = placeHolder
+        if let inContent = content {
+            _content = State(initialValue: inContent)
         }
-        if let showContent = content {
-            _recogniContent = State(initialValue: showContent)
-        }
-        self.compleHandler = contentHandler
+        self.completeHandler = contentHandler
     }
     var body: some View {
         GeometryReader { proxy in
@@ -53,68 +38,66 @@ struct AudioTextView : View {
                     VStack {
                         // record
                         Button(action: {
-                            voicePlayHidden.toggle()
-                            if isRecording {
-                                audioRecorder.stopRecording()
-                                audioRecognizer.stopSpeechRecognition()
-                                
-                                voiceRecordFinish = true
-                                
-                                self.compleHandler(self.recogniContent, self.currentUrl!.relativePath)
-                            } else {
-                                audioRecorder.checkAudioPermissionWithGrantedHandler { granted in
-                                    if (granted) {
-                                        self.currentUrl = audioRecorder.startRecording()
-                                        audioRecognizer.startSpeechRecognition { transContent in
-                                            if transContent.count > 0 {
-                                                self.recogniContent = transContent
-                                            }
-                                        }
-                                    } else {
-                                        
-                                    }
-                                }
-                                
+                            vm.clickRecord { content, voiceAddr in
+                                self.content = content
+                                self.voiceAddr = voiceAddr
+                                self.completeHandler(content,voiceAddr)
                             }
-                            isRecording.toggle()
                         }) {
-                            if isRecording {
-                                AdaptiveImage(light: Image("pause_l").resizable(),
-                                              dark: Image("pause_d").resizable()).frame(width:40,height: 40)
-                            } else {
-                                AdaptiveImage(light: Image("record_l").resizable(),
-                                              dark: Image("record_d").resizable()).frame(width:40,height: 40)
-                            }
-                            
-                        }.frame(width: UIConstant.btnWidth,height: UIConstant.btnWidth, alignment: .leading)
+                            Image("plus_l").resizable()
+                                .aspectRatio(contentMode: .fill).frame(width: 40, height: 40)
+                        }.buttonStyle(PlainButtonStyle())
+                            .frame(width: UIConstant.btnWidth,height: UIConstant.btnWidth)
                         
-                        if voicePlayHidden == false {
-                            VoiceView().frame(width: UIConstant.btnWidth, height: 15)
-                        } else {
-                            Spacer().frame(height:15)
-                        }
+                        recordAnimationView
                     }
                     
-                    VStack(alignment:.leading) {
+                    VStack {
                         // contentLabel
-                        TextField(self.title, text: $recogniContent, axis: .vertical)
-                            .textFieldStyle(.roundedBorder).frame(width: abs(proxy.size.width - UIConstant.btnWidth * 2 - 30.0), alignment: .leading).disabled(isRecording ? true:false)
+                        TextField(self.placeHolder, text: $vm.recordingContent, axis: .vertical)
+                            .frame(width: abs(proxy.size.width - UIConstant.btnWidth * 2 - 30.0), alignment: .leading).disabled(vm.recordState == .recording ? true:false)
                     }
                     
-                    // play
-                    if voiceRecordFinish {
+                    if vm.recordState == .recorded {
                         Button(action: {
-                            // play
-                            if self.currentUrl != nil && self.currentUrl!.isFileURL {
-                                self.audioPlayer.playWithFileURL(self.currentUrl!)
-                            }
+                            vm.clickPlay(urlString: self.voiceAddr)
                         }) {
                             AdaptiveImage(light: Image("play_l").resizable(),
                                           dark: Image("play_d").resizable()).frame(width:40,height: 40)
-                        }.frame(width: UIConstant.btnWidth,height: UIConstant.btnWidth).padding([.leading], 5).disabled(isRecording ?  true:false)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        .frame(width: UIConstant.btnWidth,height: UIConstant.btnWidth)
+                        .padding([.trailing], 10)
+                        .disabled(vm.recordState == .recording ?  true:false)
                     }
                 }
-            }
+            }.padding(10)
+        }.background(RWColor.secondaryBgColor).cornerRadius(15.0)
+    }
+    
+    @ViewBuilder
+    private var recordBtnView : some View {
+        switch vm.recordState {
+        case .origin:
+            Image("record_l").resizable().frame(width: 40, height: 40).buttonStyle(PlainButtonStyle()).background(Color.clear).border(Color.red)
+                        AdaptiveImage(light: Image("record_l").resizable(),
+                                      dark: Image("record_d").resizable()).frame(width:40,height: 40)
+        case .recording:
+            AdaptiveImage(light: Image("pause_l").resizable(),
+                          dark: Image("pause_d").resizable()).frame(width:40,height: 40)
+        case .recorded:
+            AdaptiveImage(light: Image("record_l").resizable(),
+                          dark: Image("record_d").resizable()).frame(width:40,height: 40)
+        }
+    }
+    
+    @ViewBuilder
+    private var recordAnimationView : some View {
+        switch vm.playState {
+        case .hidden:
+            EmptyView().frame(height:15)
+        case .show:
+            VoiceView().frame(width: UIConstant.btnWidth, height: 15)
         }
     }
 }

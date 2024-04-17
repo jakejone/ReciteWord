@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WordSentence {
+class WordSentence : ObservableObject {
     
     public var wordid:UUID
     

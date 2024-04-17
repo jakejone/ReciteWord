@@ -14,10 +14,12 @@ struct AdaptiveImage: View {
     let dark: Image
 
     @ViewBuilder var body: some View {
-        if colorScheme == .light {
-            light
-        } else {
-            dark
-        }
+        VStack {
+            if colorScheme == .light {
+                light.background(Color.clear)
+            } else {
+                dark.background(Color.clear)
+            }
+        }.background(Color.clear)
     }
 }

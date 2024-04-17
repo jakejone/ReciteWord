@@ -33,7 +33,54 @@
 		230B2B332BC11E8500989D3D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B322BC11E8500989D3D /* SettingView.swift */; };
 		230B2B352BC122DF00989D3D /* WordTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B342BC122DF00989D3D /* WordTable.swift */; };
 		230B2B382BC2364C00989D3D /* UIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B372BC2364C00989D3D /* UIConstant.swift */; };
+		2319F7F32BC7BAF3003F10D2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B322BC11E8500989D3D /* SettingView.swift */; };
+		2319F7F42BC7BB00003F10D2 /* AdaptiveImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236EFBAC2BC2E454000C0496 /* AdaptiveImage.swift */; };
+		2319F7F52BC7BB03003F10D2 /* UIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B372BC2364C00989D3D /* UIConstant.swift */; };
+		2319F7F62BC7BB09003F10D2 /* WordTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B342BC122DF00989D3D /* WordTable.swift */; };
+		2319F7F72BC7BB0F003F10D2 /* WordSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACA2BB278FE00989D3D /* WordSentence.swift */; };
+		2319F7F82BC7BB13003F10D2 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ABE2BB278FD00989D3D /* Word.swift */; };
+		2319F7F92BC7BB15003F10D2 /* SentenceDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC22BB278FE00989D3D /* SentenceDisplayView.swift */; };
+		2319F7FA2BC7BB18003F10D2 /* WordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC52BB278FE00989D3D /* WordCard.swift */; };
+		2319F7FB2BC7BB1F003F10D2 /* SentenceRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACB2BB278FE00989D3D /* SentenceRecordView.swift */; };
+		2319F7FC2BC7BB22003F10D2 /* AudioTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC12BB278FE00989D3D /* AudioTextView.swift */; };
+		2319F7FD2BC7BB26003F10D2 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC92BB278FE00989D3D /* AudioPlayer.swift */; };
+		2319F7FE2BC7BB29003F10D2 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC42BB278FE00989D3D /* AudioRecorder.swift */; };
+		2319F7FF2BC7BB2C003F10D2 /* SpeechRecognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC82BB278FE00989D3D /* SpeechRecognitionManager.swift */; };
+		2319F8002BC7BB2F003F10D2 /* VoiceWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ABF2BB278FD00989D3D /* VoiceWave.swift */; };
+		2319F8012BC7BB32003F10D2 /* WordDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC32BB278FE00989D3D /* WordDataManager.swift */; };
+		2319F8022BC7BB35003F10D2 /* WordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC72BB278FE00989D3D /* WordService.swift */; };
+		2319F8032BC7BB39003F10D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 230B2A912BB272E700989D3D /* Assets.xcassets */; };
+		2319F8062BC7BB6D003F10D2 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 2319F8052BC7BB6D003F10D2 /* SQLite */; };
+		232B55832BC7BA5400CE6F4F /* MacReciteWordsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232B55822BC7BA5400CE6F4F /* MacReciteWordsApp.swift */; };
+		232B55852BC7BA5400CE6F4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232B55842BC7BA5400CE6F4F /* ContentView.swift */; };
+		232B55872BC7BA5500CE6F4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 232B55862BC7BA5500CE6F4F /* Assets.xcassets */; };
+		232B558A2BC7BA5500CE6F4F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 232B55892BC7BA5500CE6F4F /* Preview Assets.xcassets */; };
+		232B55952BC7BA5600CE6F4F /* MacReciteWordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232B55942BC7BA5600CE6F4F /* MacReciteWordsTests.swift */; };
+		232B559F2BC7BA5600CE6F4F /* MacReciteWordsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232B559E2BC7BA5600CE6F4F /* MacReciteWordsUITests.swift */; };
+		232B55A12BC7BA5600CE6F4F /* MacReciteWordsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232B55A02BC7BA5600CE6F4F /* MacReciteWordsUITestsLaunchTests.swift */; };
+		232B55AB2BC7BAB700CE6F4F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B2C2BBA9E1600989D3D /* ViewModel.swift */; };
+		232B55AC2BC7BAC200CE6F4F /* WordBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC02BB278FE00989D3D /* WordBanner.swift */; };
+		232B55AD2BC7BACF00CE6F4F /* AddNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACC2BB278FE00989D3D /* AddNewView.swift */; };
 		236EFBAD2BC2E454000C0496 /* AdaptiveImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236EFBAC2BC2E454000C0496 /* AdaptiveImage.swift */; };
+		23B2B5DA2BC922FF008754C2 /* RWColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5D92BC922FF008754C2 /* RWColor.swift */; };
+		23B2B5DB2BC92E18008754C2 /* RWColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5D92BC922FF008754C2 /* RWColor.swift */; };
+		23B2B5DD2BC988CD008754C2 /* RWNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5DC2BC988CD008754C2 /* RWNavigationLink.swift */; };
+		23B2B5E02BCA21F2008754C2 /* RWNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5DC2BC988CD008754C2 /* RWNavigationLink.swift */; };
+		23B2B5E42BCA286A008754C2 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5E32BCA286A008754C2 /* HomePage.swift */; };
+		23B2B5E82BCA5531008754C2 /* OpeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5E72BCA5531008754C2 /* OpeRow.swift */; };
+		23B2B5EA2BCA7A73008754C2 /* OperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5E92BCA7A73008754C2 /* OperationCell.swift */; };
+		23B2B5EC2BCC213C008754C2 /* AudioTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5EB2BCC213C008754C2 /* AudioTextViewModel.swift */; };
+		23B2B5ED2BCC213C008754C2 /* AudioTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5EB2BCC213C008754C2 /* AudioTextViewModel.swift */; };
+		23B2B5F22BCCD0C6008754C2 /* PressAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5F12BCCD0C6008754C2 /* PressAction.swift */; };
+		23B2B5F32BCCD0C6008754C2 /* PressAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5F12BCCD0C6008754C2 /* PressAction.swift */; };
+		23B2B5F62BCE61D0008754C2 /* AudioTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5F52BCE61D0008754C2 /* AudioTextModel.swift */; };
+		23B2B5F72BCE61D0008754C2 /* AudioTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5F52BCE61D0008754C2 /* AudioTextModel.swift */; };
+		23B2B5F92BCF8A7E008754C2 /* AddNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5F82BCF8A7E008754C2 /* AddNewViewModel.swift */; };
+		23B2B5FA2BCF8A7E008754C2 /* AddNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5F82BCF8A7E008754C2 /* AddNewViewModel.swift */; };
+		23B2B5FC2BCF9244008754C2 /* WordSentenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5FB2BCF9244008754C2 /* WordSentenceViewModel.swift */; };
+		23B2B5FD2BCF9244008754C2 /* WordSentenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5FB2BCF9244008754C2 /* WordSentenceViewModel.swift */; };
+		23B2B6012BCFD167008754C2 /* RWButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B6002BCFD167008754C2 /* RWButtonStyles.swift */; };
+		23B2B6022BCFD167008754C2 /* RWButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B6002BCFD167008754C2 /* RWButtonStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +97,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 230B2A892BB272E600989D3D;
 			remoteInfo = ReciteWords;
+		};
+		232B55912BC7BA5600CE6F4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 230B2A822BB272E600989D3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 232B557F2BC7BA5400CE6F4F;
+			remoteInfo = MacReciteWords;
+		};
+		232B559B2BC7BA5600CE6F4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 230B2A822BB272E600989D3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 232B557F2BC7BA5400CE6F4F;
+			remoteInfo = MacReciteWords;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -82,7 +143,29 @@
 		230B2B322BC11E8500989D3D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		230B2B342BC122DF00989D3D /* WordTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTable.swift; sourceTree = "<group>"; };
 		230B2B372BC2364C00989D3D /* UIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstant.swift; sourceTree = "<group>"; };
+		232B55802BC7BA5400CE6F4F /* MacReciteWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacReciteWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		232B55822BC7BA5400CE6F4F /* MacReciteWordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacReciteWordsApp.swift; sourceTree = "<group>"; };
+		232B55842BC7BA5400CE6F4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		232B55862BC7BA5500CE6F4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		232B55892BC7BA5500CE6F4F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		232B558B2BC7BA5500CE6F4F /* MacReciteWords.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacReciteWords.entitlements; sourceTree = "<group>"; };
+		232B55902BC7BA5500CE6F4F /* MacReciteWordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacReciteWordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		232B55942BC7BA5600CE6F4F /* MacReciteWordsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacReciteWordsTests.swift; sourceTree = "<group>"; };
+		232B559A2BC7BA5600CE6F4F /* MacReciteWordsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacReciteWordsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		232B559E2BC7BA5600CE6F4F /* MacReciteWordsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacReciteWordsUITests.swift; sourceTree = "<group>"; };
+		232B55A02BC7BA5600CE6F4F /* MacReciteWordsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacReciteWordsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		236EFBAC2BC2E454000C0496 /* AdaptiveImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveImage.swift; sourceTree = "<group>"; };
+		23B2B5D92BC922FF008754C2 /* RWColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWColor.swift; sourceTree = "<group>"; };
+		23B2B5DC2BC988CD008754C2 /* RWNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWNavigationLink.swift; sourceTree = "<group>"; };
+		23B2B5E32BCA286A008754C2 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		23B2B5E72BCA5531008754C2 /* OpeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeRow.swift; sourceTree = "<group>"; };
+		23B2B5E92BCA7A73008754C2 /* OperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationCell.swift; sourceTree = "<group>"; };
+		23B2B5EB2BCC213C008754C2 /* AudioTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTextViewModel.swift; sourceTree = "<group>"; };
+		23B2B5F12BCCD0C6008754C2 /* PressAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressAction.swift; sourceTree = "<group>"; };
+		23B2B5F52BCE61D0008754C2 /* AudioTextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTextModel.swift; sourceTree = "<group>"; };
+		23B2B5F82BCF8A7E008754C2 /* AddNewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewModel.swift; sourceTree = "<group>"; };
+		23B2B5FB2BCF9244008754C2 /* WordSentenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSentenceViewModel.swift; sourceTree = "<group>"; };
+		23B2B6002BCFD167008754C2 /* RWButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWButtonStyles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +191,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		232B557D2BC7BA5400CE6F4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2319F8062BC7BB6D003F10D2 /* SQLite in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232B558D2BC7BA5500CE6F4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232B55972BC7BA5600CE6F4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -117,7 +222,11 @@
 				230B2A8C2BB272E600989D3D /* ReciteWords */,
 				230B2A9D2BB272E700989D3D /* ReciteWordsTests */,
 				230B2AA72BB272E700989D3D /* ReciteWordsUITests */,
+				232B55812BC7BA5400CE6F4F /* MacReciteWords */,
+				232B55932BC7BA5600CE6F4F /* MacReciteWordsTests */,
+				232B559D2BC7BA5600CE6F4F /* MacReciteWordsUITests */,
 				230B2A8B2BB272E600989D3D /* Products */,
+				2319F8042BC7BB6D003F10D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +236,9 @@
 				230B2A8A2BB272E600989D3D /* ReciteWords.app */,
 				230B2A9A2BB272E700989D3D /* ReciteWordsTests.xctest */,
 				230B2AA42BB272E700989D3D /* ReciteWordsUITests.xctest */,
+				232B55802BC7BA5400CE6F4F /* MacReciteWords.app */,
+				232B55902BC7BA5500CE6F4F /* MacReciteWordsTests.xctest */,
+				232B559A2BC7BA5600CE6F4F /* MacReciteWordsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,7 +288,6 @@
 				236EFBAB2BC2E420000C0496 /* BaseUI */,
 				230B2B392BC2365700989D3D /* Constant */,
 				230B2B312BC11E5B00989D3D /* SettingPage */,
-				230B2B2B2BBA9E0500989D3D /* ViewModel */,
 				230B2AE32BB28ED300989D3D /* Model */,
 				230B2AE22BB28EB600989D3D /* HomePage */,
 				230B2AE12BB28E9300989D3D /* AddNew */,
@@ -207,6 +318,7 @@
 		230B2AE12BB28E9300989D3D /* AddNew */ = {
 			isa = PBXGroup;
 			children = (
+				23B2B5FE2BCF9D01008754C2 /* ViewModel */,
 				230B2ACC2BB278FE00989D3D /* AddNewView.swift */,
 				230B2ACB2BB278FE00989D3D /* SentenceRecordView.swift */,
 				230B2AC12BB278FE00989D3D /* AudioTextView.swift */,
@@ -217,6 +329,7 @@
 		230B2AE22BB28EB600989D3D /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				23B2B5FF2BCF9D17008754C2 /* ViewModel */,
 				230B2AC22BB278FE00989D3D /* SentenceDisplayView.swift */,
 				230B2AC52BB278FE00989D3D /* WordCard.swift */,
 				230B2AC02BB278FE00989D3D /* WordBanner.swift */,
@@ -229,16 +342,9 @@
 			children = (
 				230B2ACA2BB278FE00989D3D /* WordSentence.swift */,
 				230B2ABE2BB278FD00989D3D /* Word.swift */,
+				23B2B5F52BCE61D0008754C2 /* AudioTextModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		230B2B2B2BBA9E0500989D3D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				230B2B2C2BBA9E1600989D3D /* ViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		230B2B312BC11E5B00989D3D /* SettingPage */ = {
@@ -258,12 +364,89 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		2319F8042BC7BB6D003F10D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		232B55812BC7BA5400CE6F4F /* MacReciteWords */ = {
+			isa = PBXGroup;
+			children = (
+				23B2B5E62BCA551D008754C2 /* SplitViews */,
+				232B55822BC7BA5400CE6F4F /* MacReciteWordsApp.swift */,
+				232B55842BC7BA5400CE6F4F /* ContentView.swift */,
+				23B2B5E32BCA286A008754C2 /* HomePage.swift */,
+				232B55862BC7BA5500CE6F4F /* Assets.xcassets */,
+				232B558B2BC7BA5500CE6F4F /* MacReciteWords.entitlements */,
+				232B55882BC7BA5500CE6F4F /* Preview Content */,
+			);
+			path = MacReciteWords;
+			sourceTree = "<group>";
+		};
+		232B55882BC7BA5500CE6F4F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				232B55892BC7BA5500CE6F4F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		232B55932BC7BA5600CE6F4F /* MacReciteWordsTests */ = {
+			isa = PBXGroup;
+			children = (
+				232B55942BC7BA5600CE6F4F /* MacReciteWordsTests.swift */,
+			);
+			path = MacReciteWordsTests;
+			sourceTree = "<group>";
+		};
+		232B559D2BC7BA5600CE6F4F /* MacReciteWordsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				232B559E2BC7BA5600CE6F4F /* MacReciteWordsUITests.swift */,
+				232B55A02BC7BA5600CE6F4F /* MacReciteWordsUITestsLaunchTests.swift */,
+			);
+			path = MacReciteWordsUITests;
+			sourceTree = "<group>";
+		};
 		236EFBAB2BC2E420000C0496 /* BaseUI */ = {
 			isa = PBXGroup;
 			children = (
 				236EFBAC2BC2E454000C0496 /* AdaptiveImage.swift */,
+				23B2B5D92BC922FF008754C2 /* RWColor.swift */,
+				23B2B5DC2BC988CD008754C2 /* RWNavigationLink.swift */,
+				23B2B5F12BCCD0C6008754C2 /* PressAction.swift */,
+				23B2B6002BCFD167008754C2 /* RWButtonStyles.swift */,
 			);
 			path = BaseUI;
+			sourceTree = "<group>";
+		};
+		23B2B5E62BCA551D008754C2 /* SplitViews */ = {
+			isa = PBXGroup;
+			children = (
+				23B2B5E72BCA5531008754C2 /* OpeRow.swift */,
+				23B2B5E92BCA7A73008754C2 /* OperationCell.swift */,
+			);
+			path = SplitViews;
+			sourceTree = "<group>";
+		};
+		23B2B5FE2BCF9D01008754C2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				23B2B5EB2BCC213C008754C2 /* AudioTextViewModel.swift */,
+				23B2B5F82BCF8A7E008754C2 /* AddNewViewModel.swift */,
+				23B2B5FB2BCF9244008754C2 /* WordSentenceViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		23B2B5FF2BCF9D17008754C2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				230B2B2C2BBA9E1600989D3D /* ViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +508,62 @@
 			productReference = 230B2AA42BB272E700989D3D /* ReciteWordsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		232B557F2BC7BA5400CE6F4F /* MacReciteWords */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 232B55A82BC7BA5600CE6F4F /* Build configuration list for PBXNativeTarget "MacReciteWords" */;
+			buildPhases = (
+				232B557C2BC7BA5400CE6F4F /* Sources */,
+				232B557D2BC7BA5400CE6F4F /* Frameworks */,
+				232B557E2BC7BA5400CE6F4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacReciteWords;
+			packageProductDependencies = (
+				2319F8052BC7BB6D003F10D2 /* SQLite */,
+			);
+			productName = MacReciteWords;
+			productReference = 232B55802BC7BA5400CE6F4F /* MacReciteWords.app */;
+			productType = "com.apple.product-type.application";
+		};
+		232B558F2BC7BA5500CE6F4F /* MacReciteWordsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 232B55A92BC7BA5600CE6F4F /* Build configuration list for PBXNativeTarget "MacReciteWordsTests" */;
+			buildPhases = (
+				232B558C2BC7BA5500CE6F4F /* Sources */,
+				232B558D2BC7BA5500CE6F4F /* Frameworks */,
+				232B558E2BC7BA5500CE6F4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				232B55922BC7BA5600CE6F4F /* PBXTargetDependency */,
+			);
+			name = MacReciteWordsTests;
+			productName = MacReciteWordsTests;
+			productReference = 232B55902BC7BA5500CE6F4F /* MacReciteWordsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		232B55992BC7BA5600CE6F4F /* MacReciteWordsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 232B55AA2BC7BA5600CE6F4F /* Build configuration list for PBXNativeTarget "MacReciteWordsUITests" */;
+			buildPhases = (
+				232B55962BC7BA5600CE6F4F /* Sources */,
+				232B55972BC7BA5600CE6F4F /* Frameworks */,
+				232B55982BC7BA5600CE6F4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				232B559C2BC7BA5600CE6F4F /* PBXTargetDependency */,
+			);
+			name = MacReciteWordsUITests;
+			productName = MacReciteWordsUITests;
+			productReference = 232B559A2BC7BA5600CE6F4F /* MacReciteWordsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -345,6 +584,17 @@
 					230B2AA32BB272E700989D3D = {
 						CreatedOnToolsVersion = 15.2;
 						TestTargetID = 230B2A892BB272E600989D3D;
+					};
+					232B557F2BC7BA5400CE6F4F = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					232B558F2BC7BA5500CE6F4F = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 232B557F2BC7BA5400CE6F4F;
+					};
+					232B55992BC7BA5600CE6F4F = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 232B557F2BC7BA5400CE6F4F;
 					};
 				};
 			};
@@ -367,6 +617,9 @@
 				230B2A892BB272E600989D3D /* ReciteWords */,
 				230B2A992BB272E700989D3D /* ReciteWordsTests */,
 				230B2AA32BB272E700989D3D /* ReciteWordsUITests */,
+				232B557F2BC7BA5400CE6F4F /* MacReciteWords */,
+				232B558F2BC7BA5500CE6F4F /* MacReciteWordsTests */,
+				232B55992BC7BA5600CE6F4F /* MacReciteWordsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -395,6 +648,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		232B557E2BC7BA5400CE6F4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232B558A2BC7BA5500CE6F4F /* Preview Assets.xcassets in Resources */,
+				2319F8032BC7BB39003F10D2 /* Assets.xcassets in Resources */,
+				232B55872BC7BA5500CE6F4F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232B558E2BC7BA5500CE6F4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232B55982BC7BA5600CE6F4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -402,10 +679,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23B2B5F22BCCD0C6008754C2 /* PressAction.swift in Sources */,
 				230B2AD02BB278FE00989D3D /* Word.swift in Sources */,
 				230B2AD32BB278FE00989D3D /* AudioTextView.swift in Sources */,
 				230B2AD52BB278FE00989D3D /* WordDataManager.swift in Sources */,
+				23B2B6012BCFD167008754C2 /* RWButtonStyles.swift in Sources */,
+				23B2B5F92BCF8A7E008754C2 /* AddNewViewModel.swift in Sources */,
 				230B2B382BC2364C00989D3D /* UIConstant.swift in Sources */,
+				23B2B5DA2BC922FF008754C2 /* RWColor.swift in Sources */,
 				230B2AD92BB278FE00989D3D /* WordService.swift in Sources */,
 				230B2B352BC122DF00989D3D /* WordTable.swift in Sources */,
 				230B2ADC2BB278FE00989D3D /* WordSentence.swift in Sources */,
@@ -414,6 +695,9 @@
 				230B2B332BC11E8500989D3D /* SettingView.swift in Sources */,
 				230B2AD62BB278FE00989D3D /* AudioRecorder.swift in Sources */,
 				230B2ADB2BB278FE00989D3D /* AudioPlayer.swift in Sources */,
+				23B2B5FC2BCF9244008754C2 /* WordSentenceViewModel.swift in Sources */,
+				23B2B5DD2BC988CD008754C2 /* RWNavigationLink.swift in Sources */,
+				23B2B5EC2BCC213C008754C2 /* AudioTextViewModel.swift in Sources */,
 				230B2B2D2BBA9E1600989D3D /* ViewModel.swift in Sources */,
 				230B2AD22BB278FE00989D3D /* WordBanner.swift in Sources */,
 				236EFBAD2BC2E454000C0496 /* AdaptiveImage.swift in Sources */,
@@ -421,6 +705,7 @@
 				230B2ADE2BB278FE00989D3D /* AddNewView.swift in Sources */,
 				230B2AD12BB278FE00989D3D /* VoiceWave.swift in Sources */,
 				230B2ADA2BB278FE00989D3D /* SpeechRecognitionManager.swift in Sources */,
+				23B2B5F62BCE61D0008754C2 /* AudioTextModel.swift in Sources */,
 				230B2AD72BB278FE00989D3D /* WordCard.swift in Sources */,
 				230B2AD42BB278FE00989D3D /* SentenceDisplayView.swift in Sources */,
 			);
@@ -443,6 +728,62 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		232B557C2BC7BA5400CE6F4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2319F7FB2BC7BB1F003F10D2 /* SentenceRecordView.swift in Sources */,
+				2319F7F72BC7BB0F003F10D2 /* WordSentence.swift in Sources */,
+				23B2B5F72BCE61D0008754C2 /* AudioTextModel.swift in Sources */,
+				232B55852BC7BA5400CE6F4F /* ContentView.swift in Sources */,
+				2319F7F92BC7BB15003F10D2 /* SentenceDisplayView.swift in Sources */,
+				23B2B5DB2BC92E18008754C2 /* RWColor.swift in Sources */,
+				2319F8002BC7BB2F003F10D2 /* VoiceWave.swift in Sources */,
+				2319F7F62BC7BB09003F10D2 /* WordTable.swift in Sources */,
+				232B55AD2BC7BACF00CE6F4F /* AddNewView.swift in Sources */,
+				232B55AC2BC7BAC200CE6F4F /* WordBanner.swift in Sources */,
+				2319F7F52BC7BB03003F10D2 /* UIConstant.swift in Sources */,
+				23B2B5E42BCA286A008754C2 /* HomePage.swift in Sources */,
+				2319F7F82BC7BB13003F10D2 /* Word.swift in Sources */,
+				23B2B5EA2BCA7A73008754C2 /* OperationCell.swift in Sources */,
+				2319F7FC2BC7BB22003F10D2 /* AudioTextView.swift in Sources */,
+				2319F7FE2BC7BB29003F10D2 /* AudioRecorder.swift in Sources */,
+				2319F7F32BC7BAF3003F10D2 /* SettingView.swift in Sources */,
+				23B2B5E82BCA5531008754C2 /* OpeRow.swift in Sources */,
+				2319F7FD2BC7BB26003F10D2 /* AudioPlayer.swift in Sources */,
+				2319F7F42BC7BB00003F10D2 /* AdaptiveImage.swift in Sources */,
+				23B2B5E02BCA21F2008754C2 /* RWNavigationLink.swift in Sources */,
+				23B2B5ED2BCC213C008754C2 /* AudioTextViewModel.swift in Sources */,
+				23B2B5FD2BCF9244008754C2 /* WordSentenceViewModel.swift in Sources */,
+				232B55AB2BC7BAB700CE6F4F /* ViewModel.swift in Sources */,
+				23B2B6022BCFD167008754C2 /* RWButtonStyles.swift in Sources */,
+				2319F7FF2BC7BB2C003F10D2 /* SpeechRecognitionManager.swift in Sources */,
+				2319F8022BC7BB35003F10D2 /* WordService.swift in Sources */,
+				23B2B5FA2BCF8A7E008754C2 /* AddNewViewModel.swift in Sources */,
+				23B2B5F32BCCD0C6008754C2 /* PressAction.swift in Sources */,
+				2319F8012BC7BB32003F10D2 /* WordDataManager.swift in Sources */,
+				2319F7FA2BC7BB18003F10D2 /* WordCard.swift in Sources */,
+				232B55832BC7BA5400CE6F4F /* MacReciteWordsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232B558C2BC7BA5500CE6F4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232B55952BC7BA5600CE6F4F /* MacReciteWordsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232B55962BC7BA5600CE6F4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232B55A12BC7BA5600CE6F4F /* MacReciteWordsUITestsLaunchTests.swift in Sources */,
+				232B559F2BC7BA5600CE6F4F /* MacReciteWordsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -455,6 +796,16 @@
 			isa = PBXTargetDependency;
 			target = 230B2A892BB272E600989D3D /* ReciteWords */;
 			targetProxy = 230B2AA52BB272E700989D3D /* PBXContainerItemProxy */;
+		};
+		232B55922BC7BA5600CE6F4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 232B557F2BC7BA5400CE6F4F /* MacReciteWords */;
+			targetProxy = 232B55912BC7BA5600CE6F4F /* PBXContainerItemProxy */;
+		};
+		232B559C2BC7BA5600CE6F4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 232B557F2BC7BA5400CE6F4F /* MacReciteWords */;
+			targetProxy = 232B559B2BC7BA5600CE6F4F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -716,6 +1067,148 @@
 			};
 			name = Release;
 		};
+		232B55A22BC7BA5600CE6F4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MacReciteWords/MacReciteWords.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacReciteWords/Preview Content\"";
+				DEVELOPMENT_TEAM = MWH5BXA827;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jake.MacReciteWords;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		232B55A32BC7BA5600CE6F4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MacReciteWords/MacReciteWords.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacReciteWords/Preview Content\"";
+				DEVELOPMENT_TEAM = MWH5BXA827;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jake.MacReciteWords;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		232B55A42BC7BA5600CE6F4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MWH5BXA827;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jake.MacReciteWordsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacReciteWords.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MacReciteWords";
+			};
+			name = Debug;
+		};
+		232B55A52BC7BA5600CE6F4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MWH5BXA827;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jake.MacReciteWordsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacReciteWords.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MacReciteWords";
+			};
+			name = Release;
+		};
+		232B55A62BC7BA5600CE6F4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MWH5BXA827;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jake.MacReciteWordsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MacReciteWords;
+			};
+			name = Debug;
+		};
+		232B55A72BC7BA5600CE6F4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MWH5BXA827;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jake.MacReciteWordsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MacReciteWords;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -755,6 +1248,33 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		232B55A82BC7BA5600CE6F4F /* Build configuration list for PBXNativeTarget "MacReciteWords" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				232B55A22BC7BA5600CE6F4F /* Debug */,
+				232B55A32BC7BA5600CE6F4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		232B55A92BC7BA5600CE6F4F /* Build configuration list for PBXNativeTarget "MacReciteWordsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				232B55A42BC7BA5600CE6F4F /* Debug */,
+				232B55A52BC7BA5600CE6F4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		232B55AA2BC7BA5600CE6F4F /* Build configuration list for PBXNativeTarget "MacReciteWordsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				232B55A62BC7BA5600CE6F4F /* Debug */,
+				232B55A72BC7BA5600CE6F4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -770,6 +1290,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		230B2AB82BB2730700989D3D /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 230B2AB72BB2730700989D3D /* XCRemoteSwiftPackageReference "SQLite" */;
+			productName = SQLite;
+		};
+		2319F8052BC7BB6D003F10D2 /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 230B2AB72BB2730700989D3D /* XCRemoteSwiftPackageReference "SQLite" */;
 			productName = SQLite;

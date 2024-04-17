@@ -35,7 +35,7 @@ struct SentenceDisplayView : View {
                                             if (wordSentence.wordDesc != nil) {
                                                 Text(wordSentence.wordDesc!).frame(maxWidth: .infinity, alignment:.leading)
                                             }
-                                        }
+                                        }.buttonStyle(BorderlessButtonStyle())
                                     }.padding([.top], 3)
                                     
                                     VStack (alignment:.leading) {
@@ -43,7 +43,7 @@ struct SentenceDisplayView : View {
                                         self.sentenceListView(wordSentence: wordSentence)
                                     }.padding([.top], 5)
                                     
-                                }.padding([.top,.leading,.trailing],10).padding([.bottom],20).background(Color(UIColor.secondarySystemBackground)).cornerRadius(15)
+                                }.padding([.top,.leading,.trailing],10).padding([.bottom],20).background(RWColor.thirdBgColor).cornerRadius(15)
                             }
                         }.scrollTargetLayout()
                     }.scrollTargetBehavior(.viewAligned).frame(width: geometry.size.width, height: geometry.size.height)
@@ -61,7 +61,7 @@ struct SentenceDisplayView : View {
                         vm.playSentence(sentence: sentence)
                     }){
                         Text(sentence.content!).frame(maxWidth: .infinity, alignment:.leading)
-                    }
+                    }.buttonStyle(BorderlessButtonStyle())
                 }.padding([.top],5)
             }
         )

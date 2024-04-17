@@ -13,7 +13,7 @@ enum WordMemory {
     case NoIdea
 }
 
-class Word :Identifiable,ObservableObject{
+class Word :Identifiable,ObservableObject {
     
     public let id:UUID
     
@@ -26,6 +26,10 @@ class Word :Identifiable,ObservableObject{
     public var score = 0
     
     @Published public var wordSentenceList:Array<WordSentence>
+    
+    @Published var dataArray:Array<String> = Array()
+    
+    @Published var myDataList:Array<String> = Array()
     
     init(id: UUID = UUID(), date: Date = Date(), content: String, voiceAddr: String, wordSentenceList: Array<WordSentence>) {
         self.id = id
@@ -75,5 +79,15 @@ class Word :Identifiable,ObservableObject{
         case .NoIdea:
             self.score += 1
         }
+    }
+}
+
+extension Word: Hashable {
+    static func == (lhs: Word, rhs: Word) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }

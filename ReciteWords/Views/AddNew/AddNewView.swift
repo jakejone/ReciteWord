@@ -9,88 +9,91 @@ import SwiftUI
 import AVKit
 
 struct AddNewView : View {
-
-    @ObservedObject var newWord:Word
+    
+    @StateObject var vm:AddNewViewModel
     
     @Environment(\.presentationMode) var presentationMode
-    
-    var isUpdate = false
-    
-    var title:String
-    
-    var wordService = WordService()
+
+    @State private var showAlert = false
     
     init() {
-        self.newWord = Word()
-        title = "Add New"
+        _vm = StateObject(wrappedValue: AddNewViewModel())
     }
     
     init(word:Word) {
-        self.newWord = word
-        isUpdate = true
-        title = "update word"
+        _vm = StateObject(wrappedValue: AddNewViewModel(word: word))
     }
     
     var body: some View {
         GeometryReader { geometry in
             VStack (alignment: .leading) {
-                ScrollView {
-                    VStack {
-                        AudioTextView(title: "new word", content: self.newWord.content) { transContent, voiceAddr in
-                            self.newWord.content = transContent
-                            self.newWord.voiceAddr = voiceAddr
-                            wordService.markAudio(voiceAddr)
-                        }.padding(10).frame(maxWidth: .infinity).frame(height: UIConstant.btnWidth * 2).background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
-                        
-                        ScrollViewReader { value in
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                LazyHStack {
-                                    ForEach(0..<self.newWord.wordSentenceList.count,  id: \.self) { index in
-                                        VStack {
-                                            SentenceRecordView(word:self.newWord, cardIndex: index)
-                                                .frame(width: geometry.size.width - 40,height: 400)
-                                                .padding(10)
-                                        }.id(index)
-                                    }
-                                }.scrollTargetLayout()
-                            }.scrollTargetBehavior(.viewAligned)
-                        }.background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
-                    }
-                }.padding(10)
+                // audio text
+                AudioTextView(placeHolder: "word", content: vm.word.content) { transContent, voiceAddr in
+                    vm.wordRecordFinished(content: transContent, voiceAddr: voiceAddr)
+                }.frame(maxWidth: .infinity).frame(height: UIConstant.btnWidth * 2)
+                
+                // word sentenceCard scrollView
+                ScrollViewReader { value in
+                    ScrollView(.horizontal, showsIndicators: true) {
+                        LazyHStack {
+                            ForEach(0..<self.vm.wordSentenceCount,  id: \.self) { index in
+                                VStack {
+                                    SentenceRecordView(wordSentence:self.vm.word.wordSentenceList[index])
+                                        .frame(width: geometry.size.width)
+                                }.id(index)
+                            }
+                        }.scrollTargetLayout()
+                    }.scrollTargetBehavior(.viewAligned)
+                }.frame(maxHeight: .infinity).cornerRadius(15.0)
+                
                 Spacer()
+                // bottom Operation bar
                 HStack {
                     HStack {
                         Button (action: {
-                            let newWordSentence = WordSentence(wordid: self.newWord.id)
-                            self.newWord.wordSentenceList.append(newWordSentence)
+                            vm.addCardBtnClick()
                         }){
-                            AdaptiveImage(light: Image("plus_l").resizable(),
-                                          dark: Image("plus_d").resizable()).frame(width:40,height: 40)
-                            Text("add word card")
-                        }.frame(width:260,height: UIConstant.btnWidth,alignment: .leading).padding(10).background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
+                            HStack {
+                                AdaptiveImage(light: Image("plus_l").resizable(),
+                                              dark: Image("plus_d").resizable()).frame(width:40,height: 40)
+                                Text("add card")
+                            }
+                        }.buttonStyle(PlainButtonStyle()).frame(width:100,height: UIConstant.btnWidth,alignment: .leading).padding(10)
                         Spacer()
                     }.padding([.leading],10)
-                    
-                    Button {
+#if os(iOS) || os(watchOS) || os(tvOS)
+                    Button("cancel") {
                         self.presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Text("cancel")
-                    }.frame(width:100, height:40).foregroundColor(.white)
+                    }.buttonStyle(BlueButtonStyle())
+                        .frame(width:100, height:40)
+                        .foregroundColor(.white)
+                        .background(.blue)
+                        .cornerRadius(10)
+                        .padding([.leading,.trailing],10)
+#endif
+                    Button("commit") {
+                        vm.commitBtnClick()
+                        showAlert = true
+                    }.buttonStyle(BlueButtonStyle())
+                        .frame(width:100, height:40)
+                        .foregroundColor(.white)
                         .background(.blue)
                         .cornerRadius(10)
                         .padding([.leading,.trailing],10)
                     
-                    Button {
-                        self.wordService.confirmAddNewWord(newWord: self.newWord)
-                        self.presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Text("commit")
-                    }.frame(width:100, height:40).foregroundColor(.white)
-                        .background(.blue)
-                        .cornerRadius(10)
-                        .padding([.leading,.trailing],10)
                 }.padding([.bottom], 10)
             }
-        }.navigationTitle(title)
+        }.navigationTitle(vm.title).environmentObject(vm).alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("success"),
+                dismissButton: .default(Text("add new"), action: {
+                    vm.clean()
+                })
+            )
+        }
+    }
+    
+    func reloadAddNew() {
+        
     }
 }

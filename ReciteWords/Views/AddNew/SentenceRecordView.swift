@@ -9,54 +9,51 @@ import SwiftUI
 
 struct SentenceRecordView : View {
     
-    var wordService:WordService = WordService()
+    @EnvironmentObject var vm:AddNewViewModel
     
-    @ObservedObject var word:Word
+    @StateObject var wsvm:WordSentenceViewModel
     
-    let wordSentence:WordSentence
-    
-    @State var sentencelist:Array<Sentence>
-    
-    init(word:Word, cardIndex:Int) {
-        self.word = word
-        self.wordSentence  = word.wordSentenceList[cardIndex]
-        sentencelist = self.wordSentence.sentencelist
+    init(wordSentence:WordSentence) {
+        _wsvm = StateObject(wrappedValue: WordSentenceViewModel(wordSentence: wordSentence))
     }
     
     var body: some View {
         GeometryReader {proxy in
-            VStack (alignment:.leading) {
-                VStack {
-                    AudioTextView(title: "word meaning", content: self.wordSentence.wordDesc) { transContent, voiceAddr in
-                        self.wordSentence.wordDesc = transContent
-                        self.wordSentence.wordDescVoiceAddr = voiceAddr
-                        wordService.markAudio(voiceAddr)
-                    }.padding(10).frame(height: 80.0)
-                }
-                
-                Button (action: {
-                    let sentence = Sentence(wsid: wordSentence.wsid)
-                    self.sentencelist.append(sentence)
-                }){
+            ZStack {
+                VStack (alignment:.leading) {
+                    AudioTextView(placeHolder: "word meaning", content: wsvm.wordSentence.wordDesc) { transContent, voiceAddr in
+                        vm.meaningRecordFinished(wordSentence: wsvm.wordSentence, content: transContent, voiceAddr: voiceAddr)
+                    }.frame(height: UIConstant.btnWidth * 2)
                     
-                    AdaptiveImage(light: Image("plus_l").resizable(),
-                                  dark: Image("plus_d").resizable()).frame(width:40,height: 40)
-                    Text("add new sentense")
-                }.frame(width:260,height                                                                                                                                                                                                                             : UIConstant.btnWidth,alignment: .leading).padding([.leading,.bottom],10)
-                
-                ScrollViewReader { value in
-                    ScrollView {
-                        ForEach(self.sentencelist) { sentence in
-                            AudioTextView(title: "record new sentence",content: sentence.content) { transContent, voiceAddr in
-                                sentence.content = transContent
-                                sentence.voiceAddr = voiceAddr
-                                wordService.markAudio(voiceAddr)
-                            }.padding(10).frame(height: 80.0)
+                    ScrollViewReader { value in
+                        ScrollView {
+                            ForEach(0..<self.wsvm.sentenceCount,  id: \.self) { index in
+                                let sentence = self.wsvm.wordSentence.sentencelist[index]
+                                AudioTextView(placeHolder: "record new sentence",content: sentence.content) { transContent, voiceAddr in
+                                    vm.sentenceRecordFinished(sentence: sentence, content: transContent, voiceAddr: voiceAddr)
+                                }.frame(height: 80.0)
+                            }
+                            Spacer()
                         }
+                    }
+                }.cornerRadius(15.0)
+                
+                VStack {
+                    Spacer()
+                    HStack {
                         Spacer()
+                        Button (action: {
+                            wsvm.addSentenceBtnClick()
+                        }){
+                            HStack {
+                                AdaptiveImage(light: Image("plus_l").resizable(),
+                                              dark: Image("plus_d").resizable()).frame(width:40,height: 40)
+                                Text("add sentence")
+                            }
+                        }.buttonStyle(PlainButtonStyle()).frame(width:100,height: UIConstant.btnWidth,alignment: .leading).padding(10)
                     }
                 }
-            }.background(Color(UIColor.secondarySystemBackground)).cornerRadius(15.0)
+            }
         }
     }
 }

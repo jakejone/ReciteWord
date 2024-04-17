@@ -28,8 +28,11 @@ class SpeechRecognitionManager {
         }
 
         do {
+#if os(iOS)
             try AVAudioSession.sharedInstance().setCategory(.record, mode: .measurement, options: .duckOthers)
             try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+#endif
+            
 
             recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
             
