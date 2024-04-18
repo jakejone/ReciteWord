@@ -28,7 +28,7 @@ struct AddNewView : View {
         GeometryReader { geometry in
             VStack (alignment: .leading) {
                 // audio text
-                AudioTextView(placeHolder: "word", content: vm.word.content) { transContent, voiceAddr in
+                AudioTextView(placeHolder: "word", content: vm.word.content, voiceAddr: vm.word.voiceAddr) { transContent, voiceAddr in
                     vm.wordRecordFinished(content: transContent, voiceAddr: voiceAddr)
                 }.frame(maxWidth: .infinity).frame(height: UIConstant.btnWidth * 2)
                 

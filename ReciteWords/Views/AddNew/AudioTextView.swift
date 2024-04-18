@@ -11,7 +11,7 @@ import AVFoundation
 
 struct AudioTextView : View {
     
-    @StateObject var vm = AudioTextViewModel()
+    @StateObject var vm:AudioTextViewModel
     
     @State private var content = String()
     @State private var voiceAddr = String()
@@ -20,17 +20,22 @@ struct AudioTextView : View {
     var completeHandler:(String, String) -> Void
     
     init(placeHolder:String, contentHandler:@escaping (String,String)->()) {
+        _vm = StateObject(wrappedValue: AudioTextViewModel())
         self.placeHolder = placeHolder
         self.completeHandler = contentHandler
     }
     
-    init(placeHolder:String, content:String?, contentHandler:@escaping (String,String)->()) {
+    init(placeHolder:String, content:String?, voiceAddr:String?, contentHandler:@escaping (String,String)->()) {
         self.placeHolder = placeHolder
         if let inContent = content {
-            _content = State(initialValue: inContent)
+            // todo ,tow param if let
+            _vm = StateObject(wrappedValue: AudioTextViewModel(inContent: inContent, inVoiceAddr: voiceAddr!))
+        } else {
+            _vm = StateObject(wrappedValue: AudioTextViewModel())
         }
         self.completeHandler = contentHandler
     }
+    
     var body: some View {
         GeometryReader { proxy in
             VStack (alignment:.leading) {
@@ -80,8 +85,8 @@ struct AudioTextView : View {
         switch vm.recordState {
         case .origin:
             Image("record_l").resizable().frame(width: 40, height: 40).buttonStyle(PlainButtonStyle()).background(Color.clear).border(Color.red)
-                        AdaptiveImage(light: Image("record_l").resizable(),
-                                      dark: Image("record_d").resizable()).frame(width:40,height: 40)
+            AdaptiveImage(light: Image("record_l").resizable(),
+                          dark: Image("record_d").resizable()).frame(width:40,height: 40)
         case .recording:
             AdaptiveImage(light: Image("pause_l").resizable(),
                           dark: Image("pause_d").resizable()).frame(width:40,height: 40)
@@ -93,10 +98,12 @@ struct AudioTextView : View {
     
     @ViewBuilder
     private var recordAnimationView : some View {
-        switch vm.playState {
-        case .hidden:
+        switch vm.recordState {
+        case .origin:
             EmptyView().frame(height:15)
-        case .show:
+        case .recorded:
+            EmptyView().frame(height:15)
+        case .recording:
             VoiceView().frame(width: UIConstant.btnWidth, height: 15)
         }
     }

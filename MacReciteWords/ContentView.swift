@@ -30,7 +30,7 @@ struct ContentView: View {
                         OperationCell(operation: operation)
                     }.tag(operation)
                 }
-            }.navigationTitle("11")
+            }
         } detail: {
             Text("Select a Landmark")
         }

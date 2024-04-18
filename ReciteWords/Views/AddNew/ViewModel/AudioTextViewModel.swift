@@ -15,17 +15,13 @@ class AudioTextViewModel: ObservableObject {
         case recording
         case recorded
     }
-    
-    enum PlayState {
-        case hidden
-        case show
-    }
 
     @Published private(set) var recordState = RecordState.origin
     
-    @Published private(set) var playState = PlayState.hidden
-    
     @Published var recordingContent = String()
+    
+    // prevent very quick double click
+    private var isRecording = false
     
     private var recordingUrl:URL?
     
@@ -34,6 +30,16 @@ class AudioTextViewModel: ObservableObject {
     private var audioPlayer = AudioPlayer()
     
     private var audioRecognizer = SpeechRecognitionManager()
+    
+    init() {
+        recordingContent = ""
+    }
+    
+    init(inContent:String, inVoiceAddr:String) {
+        recordingContent = inContent
+        recordingUrl = URL(fileURLWithPath: inVoiceAddr)
+        recordState = .recorded
+    }
     
     func clickRecord(contentHandler:@escaping (String,String)->()) {
         switch recordState {
@@ -47,8 +53,15 @@ class AudioTextViewModel: ObservableObject {
     }
     
     func startRecord() {
+        
         audioRecorder.checkAudioPermissionWithGrantedHandler { granted in
             if (granted) {
+                if (self.isRecording) {
+                    print("double click triggle")
+                    return
+                }
+                self.isRecording = true
+                
                 self.recordingUrl = self.audioRecorder.startRecording()
                 self.audioRecognizer.startSpeechRecognition { transContent in
                     if transContent.count > 0 {
@@ -59,7 +72,6 @@ class AudioTextViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self.recordState = .recording
                 }
-                
             } else {
                 print("no permission")
             }
@@ -71,6 +83,7 @@ class AudioTextViewModel: ObservableObject {
         audioRecognizer.stopSpeechRecognition()
         contentHandler(self.recordingContent, self.recordingUrl!.relativePath)
         self.recordState = .recorded
+        self.isRecording = false
     }
     
     func clickPlay(urlString:String) {
