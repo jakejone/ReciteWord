@@ -49,8 +49,7 @@ struct AudioTextView : View {
                                 self.completeHandler(content,voiceAddr)
                             }
                         }) {
-                            Image("plus_l").resizable()
-                                .aspectRatio(contentMode: .fill).frame(width: 40, height: 40)
+                            recordBtnView
                         }.buttonStyle(PlainButtonStyle())
                             .frame(width: UIConstant.btnWidth,height: UIConstant.btnWidth)
                         
@@ -60,19 +59,18 @@ struct AudioTextView : View {
                     VStack {
                         // contentLabel
                         TextField(self.placeHolder, text: $vm.recordingContent, axis: .vertical)
-                            .frame(width: abs(proxy.size.width - UIConstant.btnWidth * 2 - 30.0), alignment: .leading).disabled(vm.recordState == .recording ? true:false)
+                            .frame(width: abs(proxy.size.width - UIConstant.btnWidth * 2 - 30.0),alignment: .leading ).disabled(vm.recordState == .recording ? true:false)
                     }
                     
                     if vm.recordState == .recorded {
                         Button(action: {
                             vm.clickPlay(urlString: self.voiceAddr)
                         }) {
-                            AdaptiveImage(light: Image("play_l").resizable(),
-                                          dark: Image("play_d").resizable()).frame(width:40,height: 40)
+                            Image("play").resizable().frame(width:40,height: 40)
                         }
                         .buttonStyle(PlainButtonStyle())
                         .frame(width: UIConstant.btnWidth,height: UIConstant.btnWidth)
-                        .padding([.trailing], 10)
+                        .padding([.trailing], 15)
                         .disabled(vm.recordState == .recording ?  true:false)
                     }
                 }
@@ -84,15 +82,11 @@ struct AudioTextView : View {
     private var recordBtnView : some View {
         switch vm.recordState {
         case .origin:
-            Image("record_l").resizable().frame(width: 40, height: 40).buttonStyle(PlainButtonStyle()).background(Color.clear).border(Color.red)
-            AdaptiveImage(light: Image("record_l").resizable(),
-                          dark: Image("record_d").resizable()).frame(width:40,height: 40)
+            Image("record").resizable().aspectRatio(contentMode: .fill).frame(width: 40, height: 40).buttonStyle(PlainButtonStyle()).background(Color.clear)
         case .recording:
-            AdaptiveImage(light: Image("pause_l").resizable(),
-                          dark: Image("pause_d").resizable()).frame(width:40,height: 40)
+            Image("pause").resizable().aspectRatio(contentMode: .fill).frame(width: 40, height: 40).buttonStyle(PlainButtonStyle()).background(Color.clear)
         case .recorded:
-            AdaptiveImage(light: Image("record_l").resizable(),
-                          dark: Image("record_d").resizable()).frame(width:40,height: 40)
+            Image("record").resizable().aspectRatio(contentMode: .fill).frame(width: 40, height: 40).buttonStyle(PlainButtonStyle()).background(Color.clear)
         }
     }
     
@@ -100,9 +94,9 @@ struct AudioTextView : View {
     private var recordAnimationView : some View {
         switch vm.recordState {
         case .origin:
-            EmptyView().frame(height:15)
+            Text("").frame(height:15)
         case .recorded:
-            EmptyView().frame(height:15)
+            Text("").frame(height:15)
         case .recording:
             VoiceView().frame(width: UIConstant.btnWidth, height: 15)
         }

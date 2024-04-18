@@ -39,7 +39,7 @@ struct VoiceView : View {
     
     func bar(low: CGFloat = 0.0, high: CGFloat = 1.0) -> some View {
         RoundedRectangle(cornerRadius: 3)
-            .fill(.indigo.gradient)
+            .fill(Color(red: 26/255.0, green: 145/255.0, blue: 1).gradient)
             .frame(height: (drawingHeight ? high : low) * barHeight)
             .frame(height: barHeight, alignment: .center)
     }

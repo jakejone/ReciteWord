@@ -34,14 +34,12 @@ struct ContentView: View {
                 Spacer()
                 
                 NavigationLink(destination: AddNewView()) {
-                    AdaptiveImage(light: Image("plus_l").resizable(),
-                                  dark: Image("plus_d").resizable()).frame(width:40,height: 40)
+                    Image("plus").resizable().frame(width:40,height: 40)
                     
                 }.padding([.trailing], 10)
                 
                 NavigationLink(destination: SettingView()) {
-                    AdaptiveImage(light: Image("settings_l").resizable(),
-                                  dark: Image("settings_d").resizable()).frame(width:40,height: 40)
+                    Image("settings").resizable().frame(width:40,height: 40)
                 }.padding([.trailing], 10)
             }
         }

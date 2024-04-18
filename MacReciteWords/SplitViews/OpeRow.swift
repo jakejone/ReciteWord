@@ -23,11 +23,11 @@ struct OpeRow : Identifiable{
         get {
             switch category {
             case .Banner:
-                return "editing"
+                return "words"
             case .AddNew:
-                return "plus_l"
+                return "plus"
             case .Setting:
-                return "setting_l"
+                return "settings"
             }
         }
     }

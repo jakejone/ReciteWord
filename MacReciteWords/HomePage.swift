@@ -34,30 +34,15 @@ struct HomePage : View {
         return ZStack {
             HStack {
                 Spacer()
-                
-                
-                
-                
                 NavigationLink(destination: AddNewView()) {
                     
                     NavigationLink(destination: Text("123123123")) {
                         ButtonView()
                     }
-                    
-                    
-                    //                    VStack {
-                    //                        Image("plus_l").frame(width: 40, height: 40).resizable().aspectRatio(contentMode: .fit).border(Color.red)
-                    //                    }.frame(width: 40, height: 40).border(Color.purple)
-                    
-                    
-                    //                    AdaptiveImage(light: ,
-                    //                                  dark: Image("plus_d").resizable()).frame(width:40,height: 40).background(Color.white)
-                    
                 }.background(Color.clear).padding([.trailing], 10)
                 
                 NavigationLink(destination: SettingView()) {
-                    AdaptiveImage(light: Image("settings_l").resizable(),
-                                  dark: Image("settings_d").resizable()).frame(width:40,height: 40)
+                    Image("settings").resizable().frame(width:40,height: 40)
                 }.padding([.trailing], 10)
             }
         }

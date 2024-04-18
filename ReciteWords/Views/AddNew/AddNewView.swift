@@ -54,8 +54,7 @@ struct AddNewView : View {
                             vm.addCardBtnClick()
                         }){
                             HStack {
-                                AdaptiveImage(light: Image("plus_l").resizable(),
-                                              dark: Image("plus_d").resizable()).frame(width:40,height: 40)
+                                Image("plus").resizable().frame(width:40,height: 40)
                                 Text("add card")
                             }
                         }.buttonStyle(PlainButtonStyle()).frame(width:100,height: UIConstant.btnWidth,alignment: .leading).padding(10)

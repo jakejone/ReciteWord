@@ -46,8 +46,7 @@ struct SentenceRecordView : View {
                             wsvm.addSentenceBtnClick()
                         }){
                             HStack {
-                                AdaptiveImage(light: Image("plus_l").resizable(),
-                                              dark: Image("plus_d").resizable()).frame(width:40,height: 40)
+                                Image("plus").resizable().frame(width:40,height: 40)
                                 Text("add sentence")
                             }
                         }.buttonStyle(PlainButtonStyle()).frame(width:100,height: UIConstant.btnWidth,alignment: .leading).padding(10)
