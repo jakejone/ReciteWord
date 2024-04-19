@@ -11,28 +11,30 @@ import Speech
 struct ContentView: View {
     
     @EnvironmentObject var vm:ViewModel
-    @State private var selectedWord: Word?
+    @State private var selectedItem = OpeRow.Category.Banner
     
     var body: some View {
         NavigationSplitView {
-            List(selection: $selectedWord) {
-                ForEach(vm.operationList) { operation in
-                    NavigationLink {
-                        switch operation.category {
-                        case .Banner:
-                            WordBanner()
-                        case .AddNew:
-                            AddNewView()
-                        case .Setting:
-                            SettingView()
-                        }
-                    } label: {
-                        OperationCell(operation: operation)
-                    }.tag(operation)
+            List(selection: $selectedItem) {
+                ForEach(0..<vm.operationList.count, id:\.self) { index in
+                    let operation = vm.operationList[index]
+                    NavigationLink(value: operation.category) {
+                        Label(
+                            title: { Text(operation.text) },
+                            icon: { Image(operation.image).resizable().frame(width: 20,height: 20) }
+                        )
+                    }
                 }
-            }
+            }.listStyle(.sidebar)
         } detail: {
-            Text("Select a Landmark")
+            switch self.selectedItem {
+            case .Banner:
+                WordBanner()
+            case .AddNew:
+                AddNewView()
+            case .Setting:
+                SettingView()
+            }
         }
     }
 }
