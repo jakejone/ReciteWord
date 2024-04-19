@@ -28,6 +28,7 @@ class AddNewViewModel : ObservableObject {
     
     init(word:Word) {
         self.word = word
+        wordSentenceCount = word.wordSentenceList.count
         self.title = "update"
     }
     

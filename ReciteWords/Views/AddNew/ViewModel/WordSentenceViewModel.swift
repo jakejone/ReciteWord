@@ -15,6 +15,7 @@ class WordSentenceViewModel : ObservableObject {
     
     init(wordSentence: WordSentence) {
         self.wordSentence = wordSentence
+        sentenceCount = wordSentence.sentencelist.count
     }
     
     func addSentenceBtnClick() {
