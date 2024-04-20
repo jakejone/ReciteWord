@@ -9,6 +9,13 @@ import Foundation
 import SwiftUI
 
 struct SettingView : View {
+    
+    var dbPath: String {
+        get {
+            return WordDataManager().getDBPath()
+        }
+    }
+    
     var body: some View {
         VStack {
             List {
@@ -23,6 +30,9 @@ struct SettingView : View {
                 NavigationLink(destination: EmptyView()) {
                     Text("import data from(TODO: add web server, drag data to web page or post request ) ")
                 }.padding([.trailing], 10)
+                
+                TextEditor(text: .constant(self.dbPath))
+                
             }
         }
     }
