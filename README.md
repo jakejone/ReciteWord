@@ -7,16 +7,25 @@ Voice drive data
 
 ## Features
 
-### record data
-<img width="791" alt="Screenshot 2024-04-09 at 09 08 51" src="https://github.com/jakejone/ReciteWords/assets/3777462/c099b279-4af9-4d39-bb2e-ec3fdb6e3e1c">
+### record data or update
+<img width="822" alt="Screenshot 2024-04-20 at 09 29 25" src="https://github.com/jakejone/ReciteWords/assets/3777462/7951eb45-e5c2-496b-965a-91933519d924">
+
 
 
 ### display data
-<img width="732" alt="Screenshot 2024-04-09 at 23 29 32" src="https://github.com/jakejone/ReciteWords/assets/3777462/325e9208-32a2-4145-8c4d-4de8a6b4d8d6">
+light:
+<img width="817" alt="Screenshot 2024-04-20 at 09 14 02" src="https://github.com/jakejone/ReciteWords/assets/3777462/b2a2a3da-c516-4a3e-a8d8-40fb15a7d6f4">
+dark:
+<img width="819" alt="Screenshot 2024-04-20 at 09 16 18" src="https://github.com/jakejone/ReciteWords/assets/3777462/7d739461-4fe3-42b8-af36-d208b15362b7">
+
+
+
 
 ### iPhone adaptor
 
-<img width="390" alt="S" src="https://github.com/jakejone/ReciteWords/assets/3777462/867a96d4-8196-4812-82bc-cf78d2acecc9">
+
+<img width="399" alt="iPhone adaptor" src="https://github.com/jakejone/ReciteWords/assets/3777462/c2507f81-9943-4b57-b018-043335af9442">
+
 
 
 
