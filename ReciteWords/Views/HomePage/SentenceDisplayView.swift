@@ -56,7 +56,7 @@ struct SentenceDisplayView : View {
         return AnyView(
             ForEach(0..<wordSentence.sentencelist.count,  id: \.self) { sentenceIndex in
                 let sentence:Sentence = wordSentence.sentencelist[sentenceIndex]
-                HStack{
+                HStack {
                     Button(action: {
                         vm.playSentence(sentence: sentence)
                     }){

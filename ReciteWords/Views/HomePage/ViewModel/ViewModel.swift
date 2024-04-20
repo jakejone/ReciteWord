@@ -104,9 +104,14 @@ class ViewModel: ObservableObject {
     private func wordBannerShowNext() {
         if scrollID != nil {
             scrollID! += 1
+            if (scrollID! >= self.wordList.count) {
+                self.reload()
+                scrollID = 0
+            }
         } else {
             scrollID = 1
         }
+        
     }
     
     func playWord(word:Word) {
