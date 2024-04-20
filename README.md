@@ -13,9 +13,9 @@ Voice drive data
 
 
 ### display data
-light:
+
 <img width="817" alt="Screenshot 2024-04-20 at 09 14 02" src="https://github.com/jakejone/ReciteWords/assets/3777462/b2a2a3da-c516-4a3e-a8d8-40fb15a7d6f4">
-dark:
+
 <img width="819" alt="Screenshot 2024-04-20 at 09 16 18" src="https://github.com/jakejone/ReciteWords/assets/3777462/7d739461-4fe3-42b8-af36-d208b15362b7">
 
 
