@@ -1,8 +1,6 @@
 # ReciteWords
 
-All data record by yourself
-
-Voice drive data
+Record your voice to generate text content,this tool can recoginze your voice to text, Helps you saying words and sentences correctly
 
 
 ## Features
