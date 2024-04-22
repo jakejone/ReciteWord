@@ -3,6 +3,10 @@
 Record your voice to generate text content,this tool can recoginze your voice to text, Helps you saying words and sentences correctly
 
 
+Voice -> text content 
+
+Voice -> memory
+
 ## Features
 
 ### record data or update
