@@ -32,6 +32,23 @@ class WordSentence : ObservableObject {
         self.wsid = wsid
         self.sentencelist = Array()
     }
+    
+    func cleanEmpty() {
+        var emptySentence = Array<Sentence>()
+        for sentence in sentencelist {
+            if let content = sentence.content {
+                if content.count < 1 {
+                    emptySentence.append(sentence)
+                }
+            } else {
+                emptySentence.append(sentence)
+            }
+        }
+        
+        if (emptySentence.count > 0) {
+            sentencelist = sentencelist.filter({item in !emptySentence.contains(where: {$0.sid == item.sid})})
+        }
+    }
 }
 
 class Sentence :Identifiable {

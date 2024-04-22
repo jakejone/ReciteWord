@@ -23,7 +23,7 @@ struct WordBanner :View {
                                 WordCard(word: word).frame(width: geometry.size.width,
                                                            height: geometry.size.height)
                                 .onFrameChange { frame in
-                                    if (frame.origin.x == 0) {
+                                    if (frame.origin.x == 0 || frame.origin.y == 48.0) {
                                         vm.playWord(word: word)
                                     }
                                 }

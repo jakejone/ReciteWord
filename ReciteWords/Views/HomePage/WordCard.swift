@@ -14,10 +14,6 @@ struct WordCard : View {
     
     @ObservedObject var word:Word
     
-    init(word: Word) {
-        self.word = word
-    }
-    
     var body: some View {
         GeometryReader { geometry in
             VStack {

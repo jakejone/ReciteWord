@@ -80,6 +80,28 @@ class Word :Identifiable,ObservableObject {
             self.score += 1
         }
     }
+    
+    func cleanEmpty() {
+        var emptyWordSentence = Array<WordSentence>()
+        for wordSentence in wordSentenceList {
+            if let content = wordSentence.wordDesc {
+                if content.count < 1 {
+                    emptyWordSentence.append(wordSentence)
+                }
+            } else {
+                emptyWordSentence.append(wordSentence)
+            }
+        }
+        
+        if (emptyWordSentence.count > 0) {
+            wordSentenceList = wordSentenceList.filter({item in !emptyWordSentence.contains(where: {$0.wsid == item.wsid})})
+        }
+        
+        for wordSentence in wordSentenceList {
+            wordSentence.cleanEmpty()
+        }
+    }
+    
 }
 
 extension Word: Hashable {

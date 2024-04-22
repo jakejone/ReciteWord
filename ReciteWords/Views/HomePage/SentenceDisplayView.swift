@@ -14,10 +14,6 @@ struct SentenceDisplayView : View {
     
     @ObservedObject var word:Word
     
-    init(word:Word) {
-        self.word = word
-    }
-    
     var body: some View {
         VStack (alignment:.leading) {
             GeometryReader { geometry in

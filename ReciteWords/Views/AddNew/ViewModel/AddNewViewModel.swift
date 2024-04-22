@@ -16,9 +16,10 @@ class AddNewViewModel : ObservableObject {
     @Published var wordSentenceCount = 0
     
     var wordService = WordService()
+
     var isUpdate = false
     
-    var title = "record to generate content"
+    var title:String
     
     init() {
         let newWord = Word()
@@ -30,12 +31,17 @@ class AddNewViewModel : ObservableObject {
         self.word = word
         wordSentenceCount = word.wordSentenceList.count
         self.title = "update"
+        isUpdate = true
     }
     
     func clean() {
-        let newWord = Word()
-        self.word = newWord
-        wordSentenceCount = 0
+        if isUpdate {
+            word.cleanEmpty()
+        } else {
+            let newWord = Word()
+            self.word = newWord
+            wordSentenceCount = 0
+        }
     }
     
     func wordRecordFinished(content:String?, voiceAddr:String?) {
@@ -76,5 +82,4 @@ class AddNewViewModel : ObservableObject {
     func commitBtnClick() {
         self.wordService.confirmAddNewWord(newWord: self.word)
     }
-    
 }
