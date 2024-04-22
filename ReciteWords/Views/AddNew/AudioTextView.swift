@@ -28,7 +28,6 @@ struct AudioTextView : View {
     init(placeHolder:String, content:String?, voiceAddr:String?, contentHandler:@escaping (String,String)->()) {
         self.placeHolder = placeHolder
         if let inContent = content {
-            // todo ,tow param if let
             _vm = StateObject(wrappedValue: AudioTextViewModel(inContent: inContent, inVoiceAddr: voiceAddr!))
         } else {
             _vm = StateObject(wrappedValue: AudioTextViewModel())
