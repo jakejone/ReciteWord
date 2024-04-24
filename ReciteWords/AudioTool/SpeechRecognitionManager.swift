@@ -79,6 +79,6 @@ class SpeechRecognitionManager {
     func stopSpeechRecognition() {
         audioEngine.stop()
         recognitionRequest?.endAudio()
-        recognitionTask?.cancel()
+        recognitionTask?.finish()
     }
 }
