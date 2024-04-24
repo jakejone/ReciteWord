@@ -184,8 +184,7 @@ class WordDataManager {
     }
     
     func generateVoiceAddr(lastComponent:String) -> String {
-        let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        let voiceDataDir = documents + "/wordData/voiceData/"
+        let voiceDataDir = self.getVoiceDir()
         if FileManager.default.fileExists(atPath: voiceDataDir) == false {
             do {
                 try FileManager.default.createDirectory(at: URL(filePath: voiceDataDir), withIntermediateDirectories: false)
@@ -194,5 +193,11 @@ class WordDataManager {
             }
         }
         return voiceDataDir + lastComponent
+    }
+    
+    func getVoiceDir() -> String {
+        let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let voiceDataDir = documents + "/wordData/voiceData/"
+        return voiceDataDir
     }
 }

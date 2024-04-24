@@ -33,6 +33,10 @@ struct SettingView : View {
                 
                 TextEditor(text: .constant(self.dbPath))
                 
+                Button("clean extra voice data") {
+                    WordService().cleanExtraVoiceData()
+                }
+                
             }
         }
     }

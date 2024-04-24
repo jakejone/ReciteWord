@@ -21,7 +21,7 @@ class WordService : NSObject {
     func getHomeWordList() ->Array<Word>? {
         var wordList:Array<Word>?
         do {
-             wordList = try self.dataManager.fetchWordList()
+            wordList = try self.dataManager.fetchWordList()
         } catch {
             print("geet home word list error:\(error)")
         }
@@ -61,7 +61,7 @@ class WordService : NSObject {
         }
         
         do {
-            // 1. save word 
+            // 1. save word
             try self.dataManager.addOrUpdateWord(word:newWord)
             
             // 2. save wordSentence
@@ -82,5 +82,51 @@ class WordService : NSObject {
             self.cleanAudioData(voiceAddr: voice)
         }
         tempVoiceList.removeAll()
+    }
+    
+    func cleanExtraVoiceData() {
+        do {
+            let wordlist = try dataManager.fetchWordList()
+            
+            var allVoiceFile = Array<String>()
+            
+            for word in wordlist {
+                let voiceUrl = URL(filePath: word.voiceAddr!)
+                allVoiceFile.append(voiceUrl.lastPathComponent)
+                for wordSentence in word.wordSentenceList {
+                    let wsVoiceUrl = URL(filePath: wordSentence.wordDescVoiceAddr!)
+                    allVoiceFile.append(wsVoiceUrl.lastPathComponent)
+                    for sentence in wordSentence.sentencelist {
+                        let sVoiceUrl = URL(filePath: sentence.voiceAddr!)
+                        allVoiceFile.append(sVoiceUrl.lastPathComponent)
+                    }
+                }
+            }
+            
+            
+            let voiceDataDir = dataManager.getVoiceDir()
+            
+            let fileManager = FileManager.default
+            
+            let items = try fileManager.contentsOfDirectory(atPath: voiceDataDir)
+            
+            // Filter only files (excluding directories)
+            let files = items.filter { item in
+                print("item name is : \(item)")
+                if (allVoiceFile.contains(item)) {
+                    return false
+                } else {
+                    return true
+                }
+            }
+            
+            for removeItem in files {
+                let removeItemPath = voiceDataDir + "/" + removeItem
+                try fileManager.removeItem(atPath: removeItemPath)
+            }
+            
+        } catch {
+            print(error)
+        }
     }
 }
