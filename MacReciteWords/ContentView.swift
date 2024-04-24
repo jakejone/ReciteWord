@@ -31,7 +31,7 @@ struct ContentView: View {
             case .Banner:
                 WordBanner()
             case .AddNew:
-                AddNewView()
+                AddOrUpdateView()
             case .Setting:
                 SettingView()
             }

@@ -33,7 +33,7 @@ struct ContentView: View {
             HStack {
                 Spacer()
                 
-                NavigationLink(destination: AddNewView()) {
+                NavigationLink(destination: AddOrUpdateView()) {
                     Image("plus").resizable().frame(width:40,height: 40)
                     
                 }.padding([.trailing], 10)

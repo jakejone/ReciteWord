@@ -19,18 +19,20 @@ struct AudioTextView : View {
     private let placeHolder:String
     var completeHandler:(String, String) -> Void
     
-    init(placeHolder:String, contentHandler:@escaping (String,String)->()) {
-        _vm = StateObject(wrappedValue: AudioTextViewModel())
+    
+    
+    init(placeHolder:String, contentHandler:@escaping (String,String)->(), onTextModify:@escaping (String)->()) {
+        _vm = StateObject(wrappedValue: AudioTextViewModel(onTextModify: onTextModify))
         self.placeHolder = placeHolder
         self.completeHandler = contentHandler
     }
     
-    init(placeHolder:String, content:String?, voiceAddr:String?, contentHandler:@escaping (String,String)->()) {
+    init(placeHolder:String, content:String?, voiceAddr:String?, contentHandler:@escaping (String,String)->(),onTextModify:@escaping (String)->()) {
         self.placeHolder = placeHolder
         if let inContent = content {
-            _vm = StateObject(wrappedValue: AudioTextViewModel(inContent: inContent, inVoiceAddr: voiceAddr!))
+            _vm = StateObject(wrappedValue: AudioTextViewModel(inContent: inContent, inVoiceAddr: voiceAddr!,onTextModify: onTextModify))
         } else {
-            _vm = StateObject(wrappedValue: AudioTextViewModel())
+            _vm = StateObject(wrappedValue: AudioTextViewModel(onTextModify: onTextModify))
         }
         self.completeHandler = contentHandler
     }

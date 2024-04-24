@@ -1,5 +1,5 @@
 //
-//  AddNewViewModel.swift
+//  AddOrUpdateViewModel.swift
 //  ReciteWords
 //
 //  Created by jake on 2024/4/17.
@@ -50,6 +50,10 @@ class AddNewViewModel : ObservableObject {
         if let address = voiceAddr {
             wordService.markAudio(address)
         }
+    }
+    
+    func modifyWord(content:String) {
+        self.word.content = content
     }
     
     func meaningRecordFinished(wordSentence:WordSentence, content:String?, voiceAddr:String?) {

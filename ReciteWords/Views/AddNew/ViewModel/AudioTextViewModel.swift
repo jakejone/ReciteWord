@@ -15,10 +15,17 @@ class AudioTextViewModel: ObservableObject {
         case recording
         case recorded
     }
-
+    
     @Published private(set) var recordState = RecordState.origin
     
-    @Published var recordingContent = String()
+    @Published var recordingContent = String() {
+        didSet {
+            print("set : \(recordingContent)")
+            onTextModify(recordingContent)
+        }
+    }
+    
+    var onTextModify:(String) -> Void
     
     // prevent very quick double click
     private var isRecording = false
@@ -31,14 +38,16 @@ class AudioTextViewModel: ObservableObject {
     
     private var audioRecognizer = SpeechRecognitionManager()
     
-    init() {
+    init(onTextModify:@escaping (String)->()) {
         recordingContent = ""
+        self.onTextModify = onTextModify
     }
     
-    init(inContent:String, inVoiceAddr:String) {
+    init(inContent:String, inVoiceAddr:String,onTextModify:@escaping (String)->()) {
         recordingContent = inContent
         recordingUrl = URL(fileURLWithPath: inVoiceAddr)
         recordState = .recorded
+        self.onTextModify = onTextModify
     }
     
     func clickRecord(contentHandler:@escaping (String,String)->()) {

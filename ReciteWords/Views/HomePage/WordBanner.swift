@@ -32,7 +32,9 @@ struct WordBanner :View {
                         }
                     }.scrollTargetLayout()
                 }.scrollDisabled(true).scrollTargetBehavior(.viewAligned).scrollPosition(id: $vm.scrollID)
-            }
+            }.onAppear(perform: {
+                vm.reload()
+            })
         }
     }
 }

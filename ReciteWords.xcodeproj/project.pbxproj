@@ -27,8 +27,8 @@
 		230B2ADA2BB278FE00989D3D /* SpeechRecognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC82BB278FE00989D3D /* SpeechRecognitionManager.swift */; };
 		230B2ADB2BB278FE00989D3D /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC92BB278FE00989D3D /* AudioPlayer.swift */; };
 		230B2ADC2BB278FE00989D3D /* WordSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACA2BB278FE00989D3D /* WordSentence.swift */; };
-		230B2ADD2BB278FE00989D3D /* SentenceRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACB2BB278FE00989D3D /* SentenceRecordView.swift */; };
-		230B2ADE2BB278FE00989D3D /* AddNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACC2BB278FE00989D3D /* AddNewView.swift */; };
+		230B2ADD2BB278FE00989D3D /* WordSentenceRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACB2BB278FE00989D3D /* WordSentenceRecordView.swift */; };
+		230B2ADE2BB278FE00989D3D /* AddOrUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACC2BB278FE00989D3D /* AddOrUpdateView.swift */; };
 		230B2B2D2BBA9E1600989D3D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B2C2BBA9E1600989D3D /* ViewModel.swift */; };
 		230B2B332BC11E8500989D3D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B322BC11E8500989D3D /* SettingView.swift */; };
 		230B2B352BC122DF00989D3D /* WordTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B342BC122DF00989D3D /* WordTable.swift */; };
@@ -41,7 +41,7 @@
 		2319F7F82BC7BB13003F10D2 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ABE2BB278FD00989D3D /* Word.swift */; };
 		2319F7F92BC7BB15003F10D2 /* SentenceDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC22BB278FE00989D3D /* SentenceDisplayView.swift */; };
 		2319F7FA2BC7BB18003F10D2 /* WordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC52BB278FE00989D3D /* WordCard.swift */; };
-		2319F7FB2BC7BB1F003F10D2 /* SentenceRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACB2BB278FE00989D3D /* SentenceRecordView.swift */; };
+		2319F7FB2BC7BB1F003F10D2 /* WordSentenceRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACB2BB278FE00989D3D /* WordSentenceRecordView.swift */; };
 		2319F7FC2BC7BB22003F10D2 /* AudioTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC12BB278FE00989D3D /* AudioTextView.swift */; };
 		2319F7FD2BC7BB26003F10D2 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC92BB278FE00989D3D /* AudioPlayer.swift */; };
 		2319F7FE2BC7BB29003F10D2 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC42BB278FE00989D3D /* AudioRecorder.swift */; };
@@ -60,7 +60,7 @@
 		232B55A12BC7BA5600CE6F4F /* MacReciteWordsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232B55A02BC7BA5600CE6F4F /* MacReciteWordsUITestsLaunchTests.swift */; };
 		232B55AB2BC7BAB700CE6F4F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B2C2BBA9E1600989D3D /* ViewModel.swift */; };
 		232B55AC2BC7BAC200CE6F4F /* WordBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC02BB278FE00989D3D /* WordBanner.swift */; };
-		232B55AD2BC7BACF00CE6F4F /* AddNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACC2BB278FE00989D3D /* AddNewView.swift */; };
+		232B55AD2BC7BACF00CE6F4F /* AddOrUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACC2BB278FE00989D3D /* AddOrUpdateView.swift */; };
 		236EFBAD2BC2E454000C0496 /* AdaptiveImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236EFBAC2BC2E454000C0496 /* AdaptiveImage.swift */; };
 		23B2B5DA2BC922FF008754C2 /* RWColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5D92BC922FF008754C2 /* RWColor.swift */; };
 		23B2B5DB2BC92E18008754C2 /* RWColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B2B5D92BC922FF008754C2 /* RWColor.swift */; };
@@ -136,8 +136,8 @@
 		230B2AC82BB278FE00989D3D /* SpeechRecognitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionManager.swift; sourceTree = "<group>"; };
 		230B2AC92BB278FE00989D3D /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		230B2ACA2BB278FE00989D3D /* WordSentence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSentence.swift; sourceTree = "<group>"; };
-		230B2ACB2BB278FE00989D3D /* SentenceRecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentenceRecordView.swift; sourceTree = "<group>"; };
-		230B2ACC2BB278FE00989D3D /* AddNewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewView.swift; sourceTree = "<group>"; };
+		230B2ACB2BB278FE00989D3D /* WordSentenceRecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSentenceRecordView.swift; sourceTree = "<group>"; };
+		230B2ACC2BB278FE00989D3D /* AddOrUpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOrUpdateView.swift; sourceTree = "<group>"; };
 		230B2B2C2BBA9E1600989D3D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		230B2B322BC11E8500989D3D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		230B2B342BC122DF00989D3D /* WordTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTable.swift; sourceTree = "<group>"; };
@@ -317,8 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				23B2B5FE2BCF9D01008754C2 /* ViewModel */,
-				230B2ACC2BB278FE00989D3D /* AddNewView.swift */,
-				230B2ACB2BB278FE00989D3D /* SentenceRecordView.swift */,
+				230B2ACC2BB278FE00989D3D /* AddOrUpdateView.swift */,
+				230B2ACB2BB278FE00989D3D /* WordSentenceRecordView.swift */,
 				230B2AC12BB278FE00989D3D /* AudioTextView.swift */,
 			);
 			path = AddNew;
@@ -688,7 +688,7 @@
 				230B2B352BC122DF00989D3D /* WordTable.swift in Sources */,
 				230B2ADC2BB278FE00989D3D /* WordSentence.swift in Sources */,
 				230B2A902BB272E600989D3D /* ContentView.swift in Sources */,
-				230B2ADD2BB278FE00989D3D /* SentenceRecordView.swift in Sources */,
+				230B2ADD2BB278FE00989D3D /* WordSentenceRecordView.swift in Sources */,
 				230B2B332BC11E8500989D3D /* SettingView.swift in Sources */,
 				230B2AD62BB278FE00989D3D /* AudioRecorder.swift in Sources */,
 				230B2ADB2BB278FE00989D3D /* AudioPlayer.swift in Sources */,
@@ -699,7 +699,7 @@
 				230B2AD22BB278FE00989D3D /* WordBanner.swift in Sources */,
 				236EFBAD2BC2E454000C0496 /* AdaptiveImage.swift in Sources */,
 				230B2A8E2BB272E600989D3D /* ReciteWordsApp.swift in Sources */,
-				230B2ADE2BB278FE00989D3D /* AddNewView.swift in Sources */,
+				230B2ADE2BB278FE00989D3D /* AddOrUpdateView.swift in Sources */,
 				230B2AD12BB278FE00989D3D /* VoiceWave.swift in Sources */,
 				230B2ADA2BB278FE00989D3D /* SpeechRecognitionManager.swift in Sources */,
 				23B2B5F62BCE61D0008754C2 /* AudioTextModel.swift in Sources */,
@@ -729,7 +729,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2319F7FB2BC7BB1F003F10D2 /* SentenceRecordView.swift in Sources */,
+				2319F7FB2BC7BB1F003F10D2 /* WordSentenceRecordView.swift in Sources */,
 				2319F7F72BC7BB0F003F10D2 /* WordSentence.swift in Sources */,
 				23B2B5F72BCE61D0008754C2 /* AudioTextModel.swift in Sources */,
 				232B55852BC7BA5400CE6F4F /* ContentView.swift in Sources */,
@@ -737,7 +737,7 @@
 				23B2B5DB2BC92E18008754C2 /* RWColor.swift in Sources */,
 				2319F8002BC7BB2F003F10D2 /* VoiceWave.swift in Sources */,
 				2319F7F62BC7BB09003F10D2 /* WordTable.swift in Sources */,
-				232B55AD2BC7BACF00CE6F4F /* AddNewView.swift in Sources */,
+				232B55AD2BC7BACF00CE6F4F /* AddOrUpdateView.swift in Sources */,
 				232B55AC2BC7BAC200CE6F4F /* WordBanner.swift in Sources */,
 				2319F7F52BC7BB03003F10D2 /* UIConstant.swift in Sources */,
 				2319F7F82BC7BB13003F10D2 /* Word.swift in Sources */,

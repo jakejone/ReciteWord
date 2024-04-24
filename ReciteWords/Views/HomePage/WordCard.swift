@@ -26,7 +26,7 @@ struct WordCard : View {
                     
                     HStack {
                         Spacer()
-                        NavigationLink(destination: AddNewView(word: self.word)) {
+                        NavigationLink(destination: AddOrUpdateView(word: self.word)) {
                             Image("editing").resizable().aspectRatio(contentMode: .fill)
                         }.frame(width:30,height: 30).padding([.top],50).padding([.trailing],20).buttonStyle(PlainButtonStyle())
                     }

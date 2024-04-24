@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SentenceRecordView : View {
+struct WordSentenceRecordView : View {
     
     @EnvironmentObject var addNewVM:AddNewViewModel
     
@@ -21,16 +21,20 @@ struct SentenceRecordView : View {
         GeometryReader {proxy in
             ZStack {
                 VStack (alignment:.leading) {
-                    AudioTextView(placeHolder: "word meaning", content: wsvm.wordSentence.wordDesc, voiceAddr: wsvm.wordSentence.wordDescVoiceAddr) { transContent, voiceAddr in
+                    AudioTextView(placeHolder: "word meaning", content: wsvm.wordSentence.wordDesc, voiceAddr: wsvm.wordSentence.wordDescVoiceAddr, contentHandler:  { transContent, voiceAddr in
                         addNewVM.meaningRecordFinished(wordSentence: wsvm.wordSentence, content: transContent, voiceAddr: voiceAddr)
-                    }.frame(height: UIConstant.btnWidth * 2)
+                    }, onTextModify: { modifiedContent in
+                        wsvm.modifyMeaningContent(content: modifiedContent)
+                    }).frame(height: UIConstant.btnWidth * 2)
                     
                     ScrollViewReader { value in
                         ScrollView {
                             ForEach(0..<self.wsvm.sentenceCount,  id: \.self) { index in
                                 let sentence = self.wsvm.wordSentence.sentencelist[index]
-                                AudioTextView(placeHolder: "record new sentence",content: sentence.content, voiceAddr: sentence.voiceAddr) { transContent, voiceAddr in
+                                AudioTextView(placeHolder: "record new sentence", content: sentence.content, voiceAddr: sentence.voiceAddr) { transContent, voiceAddr in
                                     addNewVM.sentenceRecordFinished(sentence: sentence, content: transContent, voiceAddr: voiceAddr)
+                                } onTextModify: { modifiedContent in
+                                    wsvm.modifySentenceContent(sentence: sentence, content: modifiedContent)
                                 }.frame(height: 80.0)
                             }
                             Spacer()

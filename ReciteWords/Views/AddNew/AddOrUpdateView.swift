@@ -8,7 +8,7 @@
 import SwiftUI
 import AVKit
 
-struct AddNewView : View {
+struct AddOrUpdateView : View {
     
     @StateObject var addNewVM:AddNewViewModel
     
@@ -30,6 +30,8 @@ struct AddNewView : View {
                 // audio text
                 AudioTextView(placeHolder: "word", content: addNewVM.word.content, voiceAddr: addNewVM.word.voiceAddr) { transContent, voiceAddr in
                     addNewVM.wordRecordFinished(content: transContent, voiceAddr: voiceAddr)
+                } onTextModify: { modifiedContent in
+                    addNewVM.modifyWord(content: modifiedContent)
                 }.frame(maxWidth: .infinity).frame(height: UIConstant.btnWidth * 2)
                 
                 // word sentenceCard scrollView
@@ -38,7 +40,7 @@ struct AddNewView : View {
                         LazyHStack {
                             ForEach(0..<self.addNewVM.wordSentenceCount,  id: \.self) { index in
                                 VStack {
-                                    SentenceRecordView(wordSentence:self.addNewVM.word.wordSentenceList[index])
+                                    WordSentenceRecordView(wordSentence:self.addNewVM.word.wordSentenceList[index])
                                         .frame(width: geometry.size.width)
                                 }.id(index)
                             }
