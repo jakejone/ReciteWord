@@ -20,7 +20,6 @@ class AudioTextViewModel: ObservableObject {
     
     @Published var recordingContent = String() {
         didSet {
-            print("set : \(recordingContent)")
             onTextModify(recordingContent)
         }
     }
