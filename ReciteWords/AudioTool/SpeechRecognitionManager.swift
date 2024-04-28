@@ -44,11 +44,9 @@ class SpeechRecognitionManager {
                 if let result = result {
                     // Process the speech recognition result
                     isFinal = result.isFinal
-                    print("Recognized: \(result.bestTranscription.formattedString)")
                     completion(result.bestTranscription.formattedString)
                     if let bestString = result.transcriptions.last?.formattedString {
-                        print("Recognized: \(bestString)")
-                        completion(bestString)
+                        completion(bestString.lowercased())
                     }
                 }
 

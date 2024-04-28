@@ -14,10 +14,40 @@
             filePath = "ReciteWords/DataService/WordDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "addWordSentence(wordSentenceList:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4546FE03-FFF5-40DD-BF52-5564E7B9DB8D - 5624f101cbc596a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacReciteWords.WordDataManager.fetchWordListOrderByAlphabetical() throws -&gt; Swift.Array&lt;MacReciteWords.Word&gt;"
+                  moduleName = "MacReciteWords"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jake/workspace/ReciteWords/ReciteWords/DataService/WordDataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132">
+               </Location>
+               <Location
+                  uuid = "4546FE03-FFF5-40DD-BF52-5564E7B9DB8D - 8caa56f4cf3df561"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacReciteWords.WordDataManager.addWordSentence(wordSentenceList: Swift.Array&lt;MacReciteWords.WordSentence&gt;) -&gt; ()"
+                  moduleName = "MacReciteWords"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jake/workspace/ReciteWords/ReciteWords/DataService/WordDataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

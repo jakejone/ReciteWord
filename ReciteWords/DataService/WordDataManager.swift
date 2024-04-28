@@ -51,9 +51,19 @@ class WordDataManager {
     
     // MARK: - CRUD
     func fetchWordList() throws ->Array<Word> {
+        let wordSquence = try db.prepare(t_wordTable.order(tw_score.asc,tw_date.desc))
+        return try self.fetchWordList(wordSquence: wordSquence)
+    }
+    
+    func fetchWordListOrderByAlphabetical() throws ->Array<Word> {
+        let wordSquence = try db.prepare(t_wordTable.order(tw_content))
+        return try self.fetchWordList(wordSquence: wordSquence)
+    }
+    
+    func fetchWordList(wordSquence:AnySequence<Row>) throws -> Array<Word> {
         var wordList = Array<Word>()
         do {
-            for word in try db.prepare(t_wordTable.order(tw_score.asc,tw_date.desc)) {
+            for word in wordSquence {
                 let voiceLastComponent = word[tw_voiceAddr]
                 let voiceAddr = self.generateVoiceAddr(lastComponent: voiceLastComponent)
                 let wordObj = Word(id: UUID(uuidString:word[tw_uuid])!,
@@ -91,6 +101,8 @@ class WordDataManager {
         }
         return wordList
     }
+    
+    
     
     func addOrUpdateWord(word:Word) throws {
         let voice = URL(filePath: word.voiceAddr!).lastPathComponent

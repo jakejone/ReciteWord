@@ -13,9 +13,20 @@ struct WordTable : View {
     @State var wordList:Array<Word>
     var wordService = WordService()
     
-    init() {
-        let words = wordService.getHomeWordList()
-        _wordList = State(initialValue: words!)
+    enum OrderType {
+        case Score
+        case Alphabetical
+    }
+    
+    init(orderType:OrderType) {
+        switch orderType {
+        case .Score:
+            let words = wordService.getHomeWordList()
+            _wordList = State(initialValue: words!)
+        case .Alphabetical:
+            let words = wordService.getWordListOrderByAlphabetical()
+            _wordList = State(initialValue: words!)
+        }
     }
     
     var body: some View {

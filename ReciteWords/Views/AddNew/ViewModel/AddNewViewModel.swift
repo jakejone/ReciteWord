@@ -25,6 +25,8 @@ class AddNewViewModel : ObservableObject {
         let newWord = Word()
         self.word = newWord
         self.title = "add new"
+        self.addCardBtnClick()
+        self.addSentenceBtnClick(wordSentence: self.word.wordSentenceList.first!)
     }
     
     init(word:Word) {

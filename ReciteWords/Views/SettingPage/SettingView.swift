@@ -19,8 +19,12 @@ struct SettingView : View {
     var body: some View {
         VStack {
             List {
-                NavigationLink(destination: WordTable()) {
-                    Text("check data list ")
+                NavigationLink(destination: WordTable(orderType: WordTable.OrderType.Score)) {
+                    Text("check data list (score order)")
+                }.padding([.trailing], 10)
+                
+                NavigationLink(destination: WordTable(orderType: WordTable.OrderType.Alphabetical)) {
+                    Text("check data list (alphabetical order)")
                 }.padding([.trailing], 10)
                 
                 NavigationLink(destination: EmptyView()) {
