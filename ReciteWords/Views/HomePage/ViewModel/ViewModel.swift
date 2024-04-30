@@ -66,6 +66,7 @@ class ViewModel: ObservableObject {
             var list = Array<OpeRow>()
             list.append(OpeRow(category: OpeRow.Category.Banner))
             list.append(OpeRow(category: OpeRow.Category.AddNew))
+            list.append(OpeRow(category: OpeRow.Category.List))
             list.append(OpeRow(category: OpeRow.Category.Setting))
             return list
         }

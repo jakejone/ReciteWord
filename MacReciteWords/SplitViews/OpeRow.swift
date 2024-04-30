@@ -13,6 +13,7 @@ struct OpeRow : Identifiable{
     enum Category {
         case Banner
         case AddNew
+        case List
         case Setting
     }
     
@@ -26,6 +27,8 @@ struct OpeRow : Identifiable{
                 return "words"
             case .AddNew:
                 return "plus"
+            case .List:
+                return "list"
             case .Setting:
                 return "settings"
             }
@@ -39,6 +42,8 @@ struct OpeRow : Identifiable{
                 return "Words"
             case .AddNew:
                 return "Add new"
+            case .List:
+                return "List"
             case .Setting:
                 return "Setting"
             }

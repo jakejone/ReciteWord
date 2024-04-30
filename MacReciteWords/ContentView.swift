@@ -32,6 +32,8 @@ struct ContentView: View {
                 WordBanner()
             case .AddNew:
                 AddOrUpdateView()
+            case .List:
+                WordTable(orderType: WordTable.OrderType.Alphabetical)
             case .Setting:
                 SettingView()
             }
