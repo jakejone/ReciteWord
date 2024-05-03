@@ -7,7 +7,11 @@
 
 import Foundation
 
+
+
 class WordService : NSObject {
+    
+    let kConfigDailyWordsCount        = "perDayWords"
     
     private var dataManager = WordDataManager()
     
@@ -135,6 +139,77 @@ class WordService : NSObject {
                 try fileManager.removeItem(atPath: removeItemPath)
             }
             
+        } catch {
+            print(error)
+        }
+    }
+    
+    // MARK: count per day words
+    func countPerDayWords() -> Int {
+        let config = self.readConfig()
+        let dailyConfigCountString = config[kConfigDailyWordsCount]!
+        let dailyConfigCount = Int(dailyConfigCountString)
+        let today = Date()
+        // today left
+        let count = self.dataManager.countWordsByDate(date: today)
+        
+        return dailyConfigCount! - count
+    }
+    
+    func addWordsSuccessMark() {
+        // mark lastest accomplished date
+    }
+    
+    
+    func getConfigPath() -> String {
+        let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let destinationDir = documents + "/wordData/"
+        let fileManager = FileManager.default
+        if !fileManager.fileExists(atPath: destinationDir) {
+            do {
+                try fileManager.createDirectory(atPath: destinationDir, withIntermediateDirectories: false)
+            } catch {
+                print(error)
+            }
+        }
+        
+        let destPath = destinationDir + "jjword.config"
+        return destPath
+    }
+    
+    func readConfig() -> Dictionary<String,String> {
+        let configPath = self.getConfigPath()
+        let fileManager = FileManager.default
+        if !fileManager.fileExists(atPath: configPath) {
+            do {
+                var defaultConfig = Dictionary<String, String>()
+                defaultConfig[kConfigDailyWordsCount] = "10"
+                
+                let jsonData = try JSONSerialization.data(withJSONObject: defaultConfig, options: [])
+                try jsonData.write(to: URL(fileURLWithPath: configPath))
+                
+                return defaultConfig
+            } catch {
+                print(error)
+            }
+        }
+        var dictionary:Dictionary<String,String> = Dictionary()
+        do {
+            let fileData = try Data(contentsOf: URL(fileURLWithPath: configPath))
+            dictionary = try JSONSerialization.jsonObject(with: fileData, options: []) as! Dictionary<String, String>
+        } catch {
+            print(error)
+        }
+        
+        return dictionary
+    }
+    
+    func updateConfig(config:Dictionary<String, String>) {
+        let configPath = self.getConfigPath()
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: config, options: [])
+            try jsonData.write(to: URL(fileURLWithPath: configPath))
         } catch {
             print(error)
         }

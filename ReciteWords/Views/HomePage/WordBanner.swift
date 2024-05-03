@@ -12,6 +12,8 @@ struct WordBanner :View {
     
     @EnvironmentObject var vm:ViewModel
     
+    @State var title:String = ""
+    
     var body: some View {
         GeometryReader { geometry in
             ScrollViewReader { value in
@@ -35,8 +37,12 @@ struct WordBanner :View {
             }.onAppear(perform: {
                 vm.reload()
             })
-        }
+        }.onAppear() {
+            self.title = vm.dailyWordsCount()
+            
+        }.navigationTitle(self.title)
     }
+    
 }
 
 extension View {

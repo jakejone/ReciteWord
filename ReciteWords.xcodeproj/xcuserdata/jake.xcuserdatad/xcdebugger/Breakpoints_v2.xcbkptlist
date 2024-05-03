@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4546FE03-FFF5-40DD-BF52-5564E7B9DB8D"
+            uuid = "606A0AE8-7CA6-4761-8EB1-82362B3FFA75"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ReciteWords/DataService/WordDataManager.swift"
+            filePath = "ReciteWords/Views/BaseUI/DateUtil.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "addWordSentence(wordSentenceList:)"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "getCurrentDateString()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

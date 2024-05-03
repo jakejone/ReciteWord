@@ -149,6 +149,19 @@ class WordDataManager {
         }
     }
     
+    // MARK: count daily words
+    func countWordsByDate(date:Date) -> Int {
+        var count = 0
+        do {
+            let (startOfDay,endOfDay) = DateUtil.getStartAndEndOfDate(date: date)
+            count = try db.scalar(t_wordTable.filter(tw_date > startOfDay && tw_date < endOfDay).count)
+            print("count is \(count)")
+        } catch {
+            print(error)
+        }
+        return count
+    }
+    
     // MARK: - create table
     func createWordTable() throws {
         try db.run(t_wordTable.create (ifNotExists:true) { t in

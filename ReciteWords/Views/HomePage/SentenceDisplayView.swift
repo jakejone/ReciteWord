@@ -24,15 +24,14 @@ struct SentenceDisplayView : View {
                                 VStack {
                                     let wordSentence:WordSentence = self.word.wordSentenceList[index]
                                     HStack (alignment: .top) {
-                                        Text("Meanning:")
                                         Button(action: {
                                             vm.playWordSentence(wordSentence: wordSentence)
                                         }){
                                             if (wordSentence.wordDesc != nil) {
-                                                Text(wordSentence.wordDesc!).frame(maxWidth: .infinity, alignment:.leading)
+                                                Text(wordSentence.wordDesc!).frame(maxWidth: .infinity, alignment:.leading).font(.title2)
                                             }
                                         }.buttonStyle(BorderlessButtonStyle())
-                                    }.padding([.top], 3)
+                                    }.padding([.top], 3).cornerRadius(10)
                                     
                                     VStack (alignment:.leading) {
                                         Text("Sentences:")
@@ -56,7 +55,7 @@ struct SentenceDisplayView : View {
                     Button(action: {
                         vm.playSentence(sentence: sentence)
                     }){
-                        Text(sentence.content!).frame(maxWidth: .infinity, alignment:.leading)
+                        Text(sentence.content!).frame(maxWidth: .infinity, alignment:.leading).font(.title3)
                     }.buttonStyle(BorderlessButtonStyle())
                 }.padding([.top],5)
             }

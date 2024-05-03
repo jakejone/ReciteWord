@@ -142,6 +142,19 @@ class ViewModel: ObservableObject {
             self.audioPlayer.speak(text: wordSentence.wordDesc!)
         }
     }
+    
+    // MARK: daily words count
+    
+    func dailyWordsCount() -> String {
+        let dailyCount = wordService.countPerDayWords()
+        var title = ""
+        if (dailyCount < 1) {
+           title = "已完成"
+        } else {
+            title = "今日还需录入 - " + String(dailyCount) + "个 生词"
+        }
+        return title
+    }
 }
 
 func loadData() -> Array<Word> {
