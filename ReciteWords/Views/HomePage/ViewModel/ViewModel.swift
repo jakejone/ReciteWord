@@ -78,6 +78,8 @@ class ViewModel: ObservableObject {
             wordList = wordsFromDB
         }
         state = .loaded
+        sentenceState = SentenceState.hidden
+        memoryBtnState = MemoryBtnState.origin
     }
     
     func markInMemory(word:Word ,memory:WordMemory) {

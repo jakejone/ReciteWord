@@ -56,7 +56,7 @@ class WordDataManager {
     }
     
     func fetchWordListOrderByAlphabetical() throws ->Array<Word> {
-        let wordSquence = try db.prepare(t_wordTable.order(tw_content))
+        let wordSquence = try db.prepare(t_wordTable.order(tw_content.asc))
         return try self.fetchWordList(wordSquence: wordSquence)
     }
     
