@@ -10,6 +10,14 @@ import Foundation
 class DateUtil {
     static var dateFormatter = DateFormatter()
     
+    static func transDateToDayString(date:Date) -> String {
+        // Set the desired format
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        // Convert the Date to a String
+        let dateString = dateFormatter.string(from: date)
+        return dateString
+    }
+    
     static func getCurrentDateString() -> String {
         // Set the desired format
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -32,8 +40,22 @@ class DateUtil {
     static func getStartAndEndOfDate(date:Date) ->(Date,Date) {
         let calendar = Calendar.current
         let startOfDay = calendar.startOfDay(for: date)
-        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)
-        return (startOfDay, endOfDay!)
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+        let end = calendar.date(byAdding: .second, value: -1, to: endOfDay)!
+        return (startOfDay, end)
+    }
+    
+    static func getAHundredDateArray() ->Array<(Date,Date)> {
+        var resultArray = Array<(Date,Date)>()
+        
+        let today = Date()
+        let calendar = Calendar.current
+        for i in 0...100 {
+            let date = calendar.date(byAdding: .day, value: -i, to: today)!
+            let item = self.getStartAndEndOfDate(date: date)
+            resultArray.append(item)
+        }
+        return resultArray
     }
 }
 

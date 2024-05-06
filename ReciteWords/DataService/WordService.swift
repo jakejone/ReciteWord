@@ -156,10 +156,15 @@ class WordService : NSObject {
         return dailyConfigCount! - count
     }
     
-    func addWordsSuccessMark() {
-        // mark lastest accomplished date
-    }
     
+    func getStatisticDataByDate() -> Array<WordStatistic> {
+        do {
+            return try dataManager.staticWordsByDate()
+        } catch {
+            print(error)
+        }
+        return Array()
+    }
     
     func getConfigPath() -> String {
         let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!

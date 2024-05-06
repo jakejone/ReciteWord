@@ -10,29 +10,29 @@ import SQLite
 
 class WordDataManager {
     
-    var db: Connection!
+    private var db: Connection!
     
     // word table
-    let t_wordTable = Table("word")
-    let tw_uuid = Expression<String>("uuid")
-    let tw_date = Expression<Date>("date")
-    let tw_content = Expression<String>("content")
-    let tw_voiceAddr = Expression<String>("voiceAddr")
-    let tw_score = Expression<Int>("score")
+    private let t_wordTable = Table("word")
+    private let tw_uuid = Expression<String>("uuid")
+    private let tw_date = Expression<Date>("date")
+    private let tw_content = Expression<String>("content")
+    private let tw_voiceAddr = Expression<String>("voiceAddr")
+    private let tw_score = Expression<Int>("score")
     
     // word - sentencec
-    let t_wordSentenceTable = Table("wordSentence")
-    let tws_wsid = Expression<String>("wsid")
-    let tws_wordid = Expression<String>("wordid")
-    let tws_wordDesc = Expression<String>("wordDesc")
-    let tws_wordDescVoice = Expression<String>("wordDescVoice")
+    private let t_wordSentenceTable = Table("wordSentence")
+    private let tws_wsid = Expression<String>("wsid")
+    private let tws_wordid = Expression<String>("wordid")
+    private let tws_wordDesc = Expression<String>("wordDesc")
+    private let tws_wordDescVoice = Expression<String>("wordDescVoice")
     
     // sentence
-    let t_sentenceTable = Table("sentence")
-    let ts_sid = Expression<String>("sid")
-    let ts_wsid = Expression<String>("wsid")
-    let ts_sContent = Expression<String>("content")
-    let ts_sVoiceAddr = Expression<String>("voiceAddr")
+    private let t_sentenceTable = Table("sentence")
+    private let ts_sid = Expression<String>("sid")
+    private let ts_wsid = Expression<String>("wsid")
+    private let ts_sContent = Expression<String>("content")
+    private let ts_sVoiceAddr = Expression<String>("voiceAddr")
     
     static let shared = WordDataManager()
     
@@ -163,7 +163,7 @@ class WordDataManager {
     }
     
     // MARK: - create table
-    func createWordTable() throws {
+    private func createWordTable() throws {
         try db.run(t_wordTable.create (ifNotExists:true) { t in
             t.column(tw_uuid, primaryKey: true)
             t.column(tw_date)
@@ -173,7 +173,7 @@ class WordDataManager {
         })
     }
     
-    func createWordSentenceTable() throws {
+    private func createWordSentenceTable() throws {
         try db.run(t_wordSentenceTable.create (ifNotExists:true) { t in
             t.column(tws_wsid, primaryKey: true)
             t.column(tws_wordid)
@@ -182,13 +182,34 @@ class WordDataManager {
         })
     }
     
-    func createSentenceTable() throws {
+    private func createSentenceTable() throws {
         try db.run(t_sentenceTable.create (ifNotExists:true) { t in
             t.column(ts_sid, primaryKey: true)
             t.column(ts_wsid)
             t.column(ts_sContent)
             t.column(ts_sVoiceAddr)
         })
+    }
+    
+    // MARK: - Statistic
+    
+    func staticWordsByDate() throws -> Array<WordStatistic> {
+        var result = Array<WordStatistic>()
+        
+        let dateArray = DateUtil.getAHundredDateArray()
+        
+        do {
+            for (start,end) in dateArray {
+                let count = try db.scalar(t_wordTable.filter(tw_date > start && tw_date < end).count)
+                print("count is \(count)")
+                let dateString = DateUtil.transDateToDayString(date: end)
+                result.append(WordStatistic(dateString: dateString, count: String(count)))
+            }
+        } catch {
+            print(error)
+        }
+        
+        return result
     }
     
     // MARK: - helper
