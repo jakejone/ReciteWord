@@ -13,6 +13,8 @@ struct ContentView: View {
     @EnvironmentObject var vm:ViewModel
     @State private var selectedItem = OpeRow.Category.Banner
     
+    @State var showWord:Word?
+    
     var body: some View {
         NavigationSplitView {
             List(selection: $selectedItem) {
@@ -29,11 +31,18 @@ struct ContentView: View {
         } detail: {
             switch self.selectedItem {
             case .Banner:
-                WordBanner()
+                if let jumpToWord = showWord {
+                    WordBanner(toShowWord: jumpToWord)
+                } else {
+                    WordBanner()
+                }
             case .AddNew:
                 AddOrUpdateView()
             case .List:
-                WordTable(orderType: WordTable.OrderType.Alphabetical)
+                WordTable(orderType: WordTable.OrderType.Alphabetical) { toShowWord in
+                    self.showWord = toShowWord
+                    selectedItem = OpeRow.Category.Banner
+                }
             case .Setting:
                 SettingView()
             }

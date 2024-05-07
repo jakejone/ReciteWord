@@ -22,11 +22,15 @@ struct SettingView : View {
                 NavigationLink(destination: WordDateTable()) {
                     Text("statistic data by date")
                 }.padding([.trailing], 10)
-                NavigationLink(destination: WordTable(orderType: WordTable.OrderType.Score)) {
+                NavigationLink(destination: WordTable(orderType: WordTable.OrderType.Score, showWordHandler: { Word in
+                    
+                })) {
                     Text("check data list (score order)")
                 }.padding([.trailing], 10)
                 
-                NavigationLink(destination: WordTable(orderType: WordTable.OrderType.Alphabetical)) {
+                NavigationLink(destination: WordTable(orderType: WordTable.OrderType.Alphabetical, showWordHandler: { Word in
+                    
+                })) {
                     Text("check data list (alphabetical order)")
                 }.padding([.trailing], 10)
                 

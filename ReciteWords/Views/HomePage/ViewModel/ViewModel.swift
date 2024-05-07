@@ -114,7 +114,11 @@ class ViewModel: ObservableObject {
         } else {
             scrollID = 1
         }
-        
+    }
+    
+    func showWord(word:Word) {
+        let index = self.wordList.firstIndex(of: word)
+        scrollID = index
     }
     
     func playWord(word:Word) {

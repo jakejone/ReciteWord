@@ -14,6 +14,17 @@ struct WordBanner :View {
     
     @State var title:String = ""
     
+    var toShowWord:Word?
+    
+    init() {
+        
+    }
+    
+    init(toShowWord:Word) {
+        self.toShowWord = toShowWord
+    }
+    
+    
     var body: some View {
         GeometryReader { geometry in
             ScrollViewReader { value in
@@ -31,6 +42,10 @@ struct WordBanner :View {
                                 }
                                 Spacer()
                             }.id(index)
+                        }.onAppear() {
+                            if let showWord = toShowWord {
+                                vm.showWord(word: showWord)
+                            }
                         }
                     }.scrollTargetLayout()
                 }.scrollDisabled(true).scrollTargetBehavior(.viewAligned).scrollPosition(id: $vm.scrollID)
@@ -39,7 +54,6 @@ struct WordBanner :View {
             })
         }.onAppear() {
             self.title = vm.dailyWordsCount()
-            
         }.navigationTitle(self.title)
     }
     

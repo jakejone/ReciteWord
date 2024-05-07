@@ -21,7 +21,9 @@ struct WordTable : View {
         case Alphabetical
     }
     
-    init(orderType:OrderType) {
+    var showWordHandler:(Word) -> Void
+    
+    init(orderType:OrderType, showWordHandler:@escaping (Word)->()) {
         var count = 0
         switch orderType {
         case .Score:
@@ -34,11 +36,18 @@ struct WordTable : View {
             _wordList = State(initialValue: words!)
         }
         _title = State(initialValue: "all words : " + String(count))
+        self.showWordHandler = showWordHandler
     }
     
     var body: some View {
         Table(wordList) {
-            TableColumn("Word", value: \.content!)
+            TableColumn("Word") {word in
+                Button(action: {
+                    self.showWordHandler(word)
+                }, label: {
+                    Text("\(word.content!)").frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .leading).contentShape(Rectangle())
+                })
+            }
             TableColumn("Score") { word in
                 Text("\(word.score)")
             }
