@@ -20,6 +20,7 @@ struct OpeRow : Identifiable{
     let id = UUID()
     
     var category:Category
+    
     var image:String {
         get {
             switch category {

@@ -10,20 +10,18 @@ import AVFoundation
 
 struct WordBanner :View {
     
-    @EnvironmentObject var vm:ViewModel
+    @StateObject var vm:ViewModel
     
     @State var title:String = ""
     
-    var toShowWord:Word?
-    
     init() {
-        
+        _vm = StateObject(wrappedValue: ViewModel())
     }
     
-    init(toShowWord:Word) {
-        self.toShowWord = toShowWord
+    init(showWord:Word, splitVM:SplitViewVM) {
+        _vm = StateObject(wrappedValue: ViewModel(showWord: showWord))
+        splitVM.jumpShowWord = nil
     }
-    
     
     var body: some View {
         GeometryReader { geometry in
@@ -35,28 +33,16 @@ struct WordBanner :View {
                             VStack {
                                 WordCard(word: word).frame(width: geometry.size.width,
                                                            height: geometry.size.height)
-                                .onFrameChange { frame in
-                                    if (frame.origin.x == 0 || frame.origin.y == 48.0) {
-                                        vm.playWord(word: word)
-                                    }
-                                }
                                 Spacer()
                             }.id(index)
-                        }.onAppear() {
-                            if let showWord = toShowWord {
-                                vm.showWord(word: showWord)
-                            }
                         }
                     }.scrollTargetLayout()
                 }.scrollDisabled(true).scrollTargetBehavior(.viewAligned).scrollPosition(id: $vm.scrollID)
-            }.onAppear(perform: {
-                vm.reload()
-            })
+            }
         }.onAppear() {
             self.title = vm.dailyWordsCount()
         }.navigationTitle(self.title)
     }
-    
 }
 
 extension View {

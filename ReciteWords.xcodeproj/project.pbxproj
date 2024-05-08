@@ -61,6 +61,8 @@
 		232B55AB2BC7BAB700CE6F4F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2B2C2BBA9E1600989D3D /* ViewModel.swift */; };
 		232B55AC2BC7BAC200CE6F4F /* WordBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2AC02BB278FE00989D3D /* WordBanner.swift */; };
 		232B55AD2BC7BACF00CE6F4F /* AddOrUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B2ACC2BB278FE00989D3D /* AddOrUpdateView.swift */; };
+		233F880E2BEB51F300856BC0 /* SplitViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F880D2BEB51F300856BC0 /* SplitViewVM.swift */; };
+		233F880F2BEB51F300856BC0 /* SplitViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F880D2BEB51F300856BC0 /* SplitViewVM.swift */; };
 		2344EB972BE487C60064DDF9 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344EB962BE487C60064DDF9 /* DateUtil.swift */; };
 		2344EB982BE487CA0064DDF9 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344EB962BE487C60064DDF9 /* DateUtil.swift */; };
 		2344EB9A2BE8BDBF0064DDF9 /* WordDateTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344EB992BE8BDBF0064DDF9 /* WordDateTable.swift */; };
@@ -157,6 +159,7 @@
 		232B559A2BC7BA5600CE6F4F /* MacReciteWordsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacReciteWordsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		232B559E2BC7BA5600CE6F4F /* MacReciteWordsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacReciteWordsUITests.swift; sourceTree = "<group>"; };
 		232B55A02BC7BA5600CE6F4F /* MacReciteWordsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacReciteWordsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		233F880D2BEB51F300856BC0 /* SplitViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewVM.swift; sourceTree = "<group>"; };
 		2344EB962BE487C60064DDF9 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		2344EB992BE8BDBF0064DDF9 /* WordDateTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDateTable.swift; sourceTree = "<group>"; };
 		236EFBAC2BC2E454000C0496 /* AdaptiveImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveImage.swift; sourceTree = "<group>"; };
@@ -449,6 +452,7 @@
 		23B2B5FF2BCF9D17008754C2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				233F880D2BEB51F300856BC0 /* SplitViewVM.swift */,
 				230B2B2C2BBA9E1600989D3D /* ViewModel.swift */,
 			);
 			path = ViewModel;
@@ -706,6 +710,7 @@
 				230B2B2D2BBA9E1600989D3D /* ViewModel.swift in Sources */,
 				230B2AD22BB278FE00989D3D /* WordBanner.swift in Sources */,
 				2344EB972BE487C60064DDF9 /* DateUtil.swift in Sources */,
+				233F880E2BEB51F300856BC0 /* SplitViewVM.swift in Sources */,
 				2344EB9A2BE8BDBF0064DDF9 /* WordDateTable.swift in Sources */,
 				236EFBAD2BC2E454000C0496 /* AdaptiveImage.swift in Sources */,
 				230B2A8E2BB272E600989D3D /* ReciteWordsApp.swift in Sources */,
@@ -741,6 +746,7 @@
 			files = (
 				2319F7FB2BC7BB1F003F10D2 /* WordSentenceRecordView.swift in Sources */,
 				2319F7F72BC7BB0F003F10D2 /* WordSentence.swift in Sources */,
+				233F880F2BEB51F300856BC0 /* SplitViewVM.swift in Sources */,
 				23B2B5F72BCE61D0008754C2 /* AudioTextModel.swift in Sources */,
 				232B55852BC7BA5400CE6F4F /* ContentView.swift in Sources */,
 				2319F7F92BC7BB15003F10D2 /* SentenceDisplayView.swift in Sources */,

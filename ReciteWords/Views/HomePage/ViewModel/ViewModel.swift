@@ -8,10 +8,6 @@
 import Foundation
 import SwiftUI
 
-/*
- 1. wordbanner card , wordSentence
- */
-
 class ViewModel: ObservableObject {
     
     enum State {
@@ -60,18 +56,15 @@ class ViewModel: ObservableObject {
     // voice play control
     var lastPlayWordID:UUID?
     
-#if os(macOS)
-    var operationList:Array<OpeRow> {
-        get {
-            var list = Array<OpeRow>()
-            list.append(OpeRow(category: OpeRow.Category.Banner))
-            list.append(OpeRow(category: OpeRow.Category.AddNew))
-            list.append(OpeRow(category: OpeRow.Category.List))
-            list.append(OpeRow(category: OpeRow.Category.Setting))
-            return list
-        }
+    var jumpShowWord:Word?
+    
+    init() {
+        
     }
-#endif
+    
+    init(showWord:Word) {
+        self.showWord(word: showWord)
+    }
     
     func reload() {
         if let wordsFromDB = wordService.getHomeWordList() {
@@ -80,6 +73,7 @@ class ViewModel: ObservableObject {
         state = .loaded
         sentenceState = SentenceState.hidden
         memoryBtnState = MemoryBtnState.origin
+//        self.jumpShowWord = nil
     }
     
     func markInMemory(word:Word ,memory:WordMemory) {
@@ -114,11 +108,26 @@ class ViewModel: ObservableObject {
         } else {
             scrollID = 1
         }
+        self.playWordCard(index: scrollID!)
     }
     
-    func showWord(word:Word) {
-        let index = self.wordList.firstIndex(of: word)
+    func showWord(word:Word?) {
+        if let toShowWord = word {
+            let index = self.wordList.firstIndex(of: toShowWord)
+            scrollID = index
+        } else {
+            scrollID = 0
+        }
+    }
+    
+    func showWord(index:Int) {
         scrollID = index
+        self.playWordCard(index: index)
+    }
+    
+    private func playWordCard(index:Int) {
+        let word = self.wordList[index]
+        self.playWord(word: word, force: true)
     }
     
     func playWord(word:Word) {
@@ -126,7 +135,6 @@ class ViewModel: ObservableObject {
     }
     
     func playWord(word:Word, force:Bool) {
-        
         if (lastPlayWordID == word.id && !force) {
             return
         }
