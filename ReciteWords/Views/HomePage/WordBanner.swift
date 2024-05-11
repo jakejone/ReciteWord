@@ -41,7 +41,7 @@ struct WordBanner :View {
             }
         }.onAppear() {
             self.title = vm.dailyWordsCount()
-        }.navigationTitle(self.title)
+        }.navigationTitle(self.title).environmentObject(self.vm)
     }
 }
 
