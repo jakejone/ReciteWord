@@ -1,6 +1,6 @@
 # ReciteWords
 
-Record your voice to generate text content,this tool can recoginze your voice to text, Helps you saying words and sentences correctly
+Record your voice to generate text content,this tool can recoginze your voice and transform it to text automatically, Helps you saying words and sentences correctly
 
 
 Voice -> text content 
