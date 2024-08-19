@@ -9,6 +9,13 @@ import Foundation
 
 class WordSentence : ObservableObject {
     
+    enum WordType : Int {
+        case Noun = 0
+        case Verb = 1
+        case Adj = 2
+        case Adv = 3
+    }
+    
     public var wordid:UUID
     
     public var wsid:UUID

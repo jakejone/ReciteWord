@@ -19,6 +19,7 @@ struct WordTable : View {
     enum OrderType {
         case Score
         case Alphabetical
+        case Date
     }
     
     var showWordHandler:(Word) -> Void
@@ -32,6 +33,10 @@ struct WordTable : View {
             _wordList = State(initialValue: words!)
         case .Alphabetical:
             let words = wordService.getWordListOrderByAlphabetical()
+            count = words!.count
+            _wordList = State(initialValue: words!)
+        case .Date:
+            let words = wordService.getWordListOrderByDate()
             count = words!.count
             _wordList = State(initialValue: words!)
         }

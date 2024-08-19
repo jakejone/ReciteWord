@@ -39,7 +39,10 @@ struct ContentView: View {
                                 selectedItem = OpeRow.Category.Banner
                             }
                         case .Setting:
-                            SettingView()
+                            SettingView { toShowWord in
+                                splitVM.jumpShowWord = toShowWord
+                                selectedItem = OpeRow.Category.Banner
+                            }
                         }
                     } label: {
                         Label {

@@ -60,6 +60,11 @@ class WordDataManager {
         return try self.fetchWordList(wordSquence: wordSquence)
     }
     
+    func fetchWordListOrderByDate() throws ->Array<Word> {
+        let wordSquence = try db.prepare(t_wordTable.order(tw_date.desc))
+        return try self.fetchWordList(wordSquence: wordSquence)
+    }
+    
     func fetchWordList(wordSquence:AnySequence<Row>) throws -> Array<Word> {
         var wordList = Array<Word>()
         do {

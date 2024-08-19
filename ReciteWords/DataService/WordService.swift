@@ -42,6 +42,16 @@ class WordService : NSObject {
         return wordList
     }
     
+    func getWordListOrderByDate() ->Array<Word>? {
+        var wordList:Array<Word>?
+        do {
+            wordList = try self.dataManager.fetchWordListOrderByDate()
+        } catch {
+            print("geet home word list error:\(error)")
+        }
+        return wordList
+    }
+    
     func markAudio(_ audioAddr:String) {
         tempVoiceList.append(audioAddr)
         print("ccurreent voicce count is : \(tempVoiceList.count)")

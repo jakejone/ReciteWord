@@ -16,22 +16,34 @@ struct SettingView : View {
         }
     }
     
+    var showWordHandler:(Word) -> Void
+    init(showWordHandler:@escaping (Word)->()) {
+        self.showWordHandler = showWordHandler
+    }
+    
     var body: some View {
         VStack {
             List {
                 NavigationLink(destination: WordDateTable()) {
                     Text("statistic data by date")
                 }.padding([.trailing], 10)
-                NavigationLink(destination: WordTable(orderType: WordTable.OrderType.Score, showWordHandler: { Word in
-                    
+                
+                NavigationLink(destination: WordTable(orderType: WordTable.OrderType.Date, showWordHandler: { Word in
+                    self.showWordHandler(Word)
                 })) {
-                    Text("check data list (score order)")
+                    Text("word list (date order)")
+                }.padding([.trailing], 10)
+                
+                NavigationLink(destination: WordTable(orderType: WordTable.OrderType.Score, showWordHandler: { Word in
+                    self.showWordHandler(Word)
+                })) {
+                    Text("word list (score order)")
                 }.padding([.trailing], 10)
                 
                 NavigationLink(destination: WordTable(orderType: WordTable.OrderType.Alphabetical, showWordHandler: { Word in
-                    
+                    self.showWordHandler(Word)
                 })) {
-                    Text("check data list (alphabetical order)")
+                    Text("word list (alphabetical order)")
                 }.padding([.trailing], 10)
                 
                 NavigationLink(destination: EmptyView()) {
