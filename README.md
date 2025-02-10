@@ -5,11 +5,9 @@ Record your voice and convert it into text to help you improve your pronunciatio
 
 Voice -> text content 
 
-Voice -> memory
-
 ## Features
 
-### record data or update
+### record data or update -- for Mac
 <img width="822" alt="Screenshot 2024-04-20 at 09 29 25" src="https://github.com/jakejone/ReciteWords/assets/3777462/7951eb45-e5c2-496b-965a-91933519d924">
 
 
@@ -23,7 +21,7 @@ Voice -> memory
 
 
 
-### iPhone adaptor
+### iPhone adaptor 
 
 
 <img width="399" alt="iPhone adaptor" src="https://github.com/jakejone/ReciteWords/assets/3777462/c2507f81-9943-4b57-b018-043335af9442">
